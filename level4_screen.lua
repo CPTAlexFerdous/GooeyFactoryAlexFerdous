@@ -18,14 +18,14 @@ sceneName = "level4_screen"
 --------------------------------------------------------------------------------
 --local sounds
 ---------------------------------------------------------------------------------
-local backgroundSound = audio.loadStream("Sounds/sweet.mp3")
-local backgroundSoundChannel
+--local backgroundSound = audio.loadStream("Sounds/sweet.mp3")
+--local backgroundSoundChannel
 
-local touchSound = audio.loadStream("Sounds/PopSound.wav")
-local touchSoundChannel
+--local touchSound = audio.loadStream("Sounds/PopSound.wav")
+--local touchSoundChannel
 
-local foodSound = audio.loadStream("Sounds/water.mp3")
-local foodSoundChannel
+--local foodSound = audio.loadStream("Sounds/water.mp3")
+--local foodSoundChannel
 ----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 ----------------------------------------------------------------------------------------- 
@@ -78,30 +78,7 @@ local transitionOption2 =({
 --------------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 --------------------------------------------------------------------------------------------
--- function for mute and 
-local function Mute( touch )
-    if(touch.phase == "ended")then
-        --pause the sound
-        audio.resume(backgroundSoundChannel)
-        --set boolean for sound status
-        soundOn = true
-        muteButton.isVisible = false
-        unmuteButton.isVisible = true
-    end 
-end
 
---function for unMute
-
-local function Unmute( touch )
-    if(touch.phase == "ended")then
-        --play the music 
-        audio.pause(backgroundSoundChannel)
-        --set boolean for sound status
-        soundOn = false
-        muteButton.isVisible = true
-        unmuteButton.isVisible = false
-    end
-end
 -- The function that will go to the main menu 
 
 local function BackTransition()
@@ -113,7 +90,7 @@ local function gotoQuestions( ... )
 end
 
 local function GotoYouLose( ... )
-    composer.gotoScene("You_Lose2")
+    composer.gotoScene("you_lose")
 end
 
 local function  yesButtonVisible()
@@ -129,7 +106,7 @@ local function movingVanilla(touch)
             --boolean for click the gredian
             touchVanilla = true
             instructionText.isVisible = false
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
             --drag the objects to follow the mouse
         elseif (touch.phase == "moved") then
@@ -149,7 +126,7 @@ local function movingVanilla(touch)
                 -- setting the position of the chocolate to be in the center of the box
                 vanilla_image.x = bowl_image.x
                 vanilla_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
 
                 vanilla_image.isVisible = false                
                 checkMark2.isVisible = true
@@ -183,7 +160,7 @@ local function MovingVanillaBean(touch)
 
             --let see other objects know it has been clicked
             touchVanillaBean = true       
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
         elseif (touch.phase == "moved") then
             --dragging function
@@ -198,7 +175,7 @@ local function MovingVanillaBean(touch)
             -- setting the position of the number to be in the center of the box
                 vanillaBean_image.x = bowl_image.x
                 vanillaBean_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
 
                 vanillaBean_image.isVisible = false
                 checkMark3.isVisible = true
@@ -228,7 +205,7 @@ local function movingMilk(touch)
 
             -- boolean to  know it has been clicked
             touchMilk = true  
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
         elseif (touch.phase == "moved") then
             --dragging function
             milk_image.x = touch.x
@@ -242,7 +219,7 @@ local function movingMilk(touch)
                 -- setting the position of butter
                 milk_image.x = bowl_image.x
                 milk_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
                 milk_image.isVisible = false
                 checkMark.isVisible = true
                 smallMilk.isVisible = true
@@ -273,7 +250,7 @@ local function movingEggs(touch)
 
             --boolean know it has been clicked
             touchEggs = true 
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
         elseif (touch.phase == "moved") then
             --dragging function
@@ -288,7 +265,7 @@ local function movingEggs(touch)
                 -- setting the position of the objects to be in the center of the box
                 egg_image.x = bowl_image.x
                 egg_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
                 egg_image.isVisible = false
                 checkMark5.isVisible = true
                 smallEggs.isVisible = true
@@ -320,7 +297,7 @@ local function movingOil(touch)
             --boolean to know it has been clicked
             touchOil = true  
 
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
         elseif (touch.phase == "moved") then
             --dragging function
@@ -335,7 +312,7 @@ local function movingOil(touch)
                 -- setting the position of the sugar to be in the center of the box
                 oil_image.x = bowl_image.x
                 oil_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
 
                 oil_image.isVisible = false
                 checkMark4.isVisible = true
@@ -441,7 +418,7 @@ function scene:create( event )
 
    
     -- set the background to be black
-    bkg_image = display.newImageRect("Images/level4ScreenFerdous.png", display.contentWidth, display.contentHeight)
+    bkg_image = display.newImageRect("Images//Ferdous4/level4ScreenFerdous.png", display.contentWidth, display.contentHeight)
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth
@@ -452,7 +429,7 @@ function scene:create( event )
     bkg_image:toBack()
 
     -- display text for asking if the user ready for questions
-    readyImage = display.newImageRect("Images/readyText.png", display.contentWidth, display.contentHeight)
+    readyImage = display.newImageRect("Images/Ferdous4/readyText.png", display.contentWidth, display.contentHeight)
     readyImage.x = 500
     readyImage.y = 300
     readyImage.width = 900
@@ -474,8 +451,8 @@ function scene:create( event )
     width = 100,
     height = 106,
     -- Setting Visual Properties
-    defaultFile = "Images/BackButtonUnPressedFerdous@2x.png",
-    overFile = "Images/BackButtonPressedFerdous@2x.png",
+    defaultFile = "Images/Ferdous4/backButtonUnpressedAlex.png",
+    overFile = "Images/Ferdous4/BackButtonPressedAlex@2x.png",
     -- Setting Functional Properties
     onRelease = BackTransition
 })
@@ -485,7 +462,7 @@ function scene:create( event )
     sceneGroup:insert( backButton )
   
 -- Creating bowl image
-    bowl_image =display.newImageRect("Images/bowlPlaceholder.png", display.contentWidth, display.contentHeight) 
+    bowl_image =display.newImageRect("Images/Ferdous4/bowlPlaceholder.png", display.contentWidth, display.contentHeight) 
     bowl_image.x = 500
     bowl_image.y = 380
     bowl_image.width = 150
@@ -495,14 +472,14 @@ function scene:create( event )
    
 
  -- Creating butter image 
-    milk_image = display.newImageRect("Images/milk.png", display.contentWidth, display.contentHeight)
+    milk_image = display.newImageRect("Images/Ferdous4/milk.png", display.contentWidth, display.contentHeight)
     milk_image.x = 960
     milk_image.y = 310
     milk_image.width = 100
     milk_image.height = 100
     sceneGroup:insert( milk_image )
    --Creating chocolate image 
-    vanilla_image = display.newImageRect("Images/vanilla.png", display.contentWidth, display.contentHeight)
+    vanilla_image = display.newImageRect("Images/Ferdous4/vanilla.png", display.contentWidth, display.contentHeight)
     vanilla_image.x = 960
     vanilla_image.y = 130
     vanilla_image.width = 90
@@ -510,7 +487,7 @@ function scene:create( event )
     sceneGroup:insert(vanilla_image)
     
 -- Creating flour image 
-    vanillaBean_image = display.newImageRect("Images/vanilla bean.png", display.contentWidth, display.contentHeight)
+    vanillaBean_image = display.newImageRect("Images/Ferdous4/vanilla bean.png", display.contentWidth, display.contentHeight)
     vanillaBean_image.x = 960
     vanillaBean_image.y = 225
     vanillaBean_image.width = 100
@@ -520,7 +497,7 @@ function scene:create( event )
 
     
     -- Creating egg image 
-    egg_image = display.newImageRect("Images/eggs.png", display.contentWidth, display.contentHeight)
+    egg_image = display.newImageRect("Images/Ferdous4/eggs.png", display.contentWidth, display.contentHeight)
     egg_image.x = 960
     egg_image.y = 410
     egg_image.width = 100
@@ -529,7 +506,7 @@ function scene:create( event )
 
 
     -- Creating sugar image 
-    oil_image = display.newImageRect("Images/oil.png", display.contentWidth, display.contentHeight)
+    oil_image = display.newImageRect("Images/Ferdous4/oil.png", display.contentWidth, display.contentHeight)
     oil_image.x = 960
     oil_image.y = 520
     oil_image.width = 100
@@ -538,7 +515,7 @@ function scene:create( event )
 
 
     
-    milk_imageShort = display.newImageRect("Images/milk.png", display.contentWidth, display.contentHeight)
+    milk_imageShort = display.newImageRect("Images/Ferdous4/milk.png", display.contentWidth, display.contentHeight)
     milk_imageShort.x = 45
     milk_imageShort.y = 370
     milk_imageShort.width =60
@@ -546,7 +523,7 @@ function scene:create( event )
     sceneGroup:insert(milk_imageShort)
 
     --Creating checkMarks 
-    checkMark = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark = display.newImageRect("Images//Ferdous4/Mark.png", display.contentWidth, display.contentHeight)
     checkMark.x = 45
     checkMark.y = 370
     checkMark.width =60
@@ -554,7 +531,7 @@ function scene:create( event )
     sceneGroup:insert(checkMark)
     checkMark.isVisible = false
 -- Creating small Images
-    vanilla_imageShort = display.newImageRect("Images/vanilla.png", display.contentWidth, display.contentHeight)
+    vanilla_imageShort = display.newImageRect("Images/Ferdous4/vanilla.png", display.contentWidth, display.contentHeight)
     vanilla_imageShort.x = 45
     vanilla_imageShort.y = 200
     vanilla_imageShort.width = 60
@@ -562,7 +539,7 @@ function scene:create( event )
     sceneGroup:insert(vanilla_imageShort)
 
     --Creating checkMarks 
-    checkMark2 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark2 = display.newImageRect("Images/Ferdous4/Mark.png", display.contentWidth, display.contentHeight)
     checkMark2.x = 45
     checkMark2.y = 200
     checkMark2.width = 60
@@ -571,7 +548,7 @@ function scene:create( event )
     checkMark2.isVisible = false
 
 -- Creating small Images of objects
-    vanillaBean_imageShort = display.newImageRect("Images/vanilla bean.png", display.contentWidth, display.contentHeight)
+    vanillaBean_imageShort = display.newImageRect("Images/Ferdous4/vanilla bean.png", display.contentWidth, display.contentHeight)
     vanillaBean_imageShort.x = 45
     vanillaBean_imageShort.y = 280
     vanillaBean_imageShort.width = 60
@@ -579,7 +556,7 @@ function scene:create( event )
     sceneGroup:insert(vanillaBean_imageShort)
 
     --Creating checkMarks 
-    checkMark3 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark3 = display.newImageRect("Images/Ferdous4/Mark.png", display.contentWidth, display.contentHeight)
     checkMark3.x = 45
     checkMark3.y = 280
     checkMark3.width = 60
@@ -588,7 +565,7 @@ function scene:create( event )
     checkMark3.isVisible = false
 
 -- Creating small Images of objects
-    oil_imageShort = display.newImageRect("Images/oil.png", display.contentWidth, display.contentHeight)
+    oil_imageShort = display.newImageRect("Images/Ferdous4/oil.png", display.contentWidth, display.contentHeight)
     oil_imageShort.x = 45
     oil_imageShort.y = 540
     oil_imageShort.width = 60
@@ -596,7 +573,7 @@ function scene:create( event )
     sceneGroup:insert(oil_imageShort)
 
     --Creating checkMarks 
-    checkMark4 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark4 = display.newImageRect("Images/Ferdous4/Mark.png", display.contentWidth, display.contentHeight)
     checkMark4.x = 45
     checkMark4.y = 540
     checkMark4.width = 60
@@ -605,7 +582,7 @@ function scene:create( event )
     checkMark4.isVisible = false
 
    -- Creating small Images of objects
-   egg_imageShort = display.newImageRect("Images/eggs.png", display.contentWidth, display.contentHeight)
+   egg_imageShort = display.newImageRect("Images/Ferdous4/eggs.png", display.contentWidth, display.contentHeight)
    egg_imageShort.x = 45
    egg_imageShort.y = 460
    egg_imageShort.width = 60
@@ -613,7 +590,7 @@ function scene:create( event )
    sceneGroup:insert(egg_imageShort)
 
     --Creating checkMarks 
-    checkMark5 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark5 = display.newImageRect("Images/Ferdous4/Mark.png", display.contentWidth, display.contentHeight)
     checkMark5.x = 45
     checkMark5.y = 460
     checkMark5.width = 60
@@ -622,7 +599,7 @@ function scene:create( event )
     checkMark5.isVisible = false  
 
    -- Creating small Images of objects to stay in the bowl
-    smallVanilla = display.newImageRect("Images/vanilla.png", display.contentWidth, display.contentHeight)
+    smallVanilla = display.newImageRect("Images/Ferdous4/vanilla.png", display.contentWidth, display.contentHeight)
     smallVanilla.x = 500
     smallVanilla.y = 370
     smallVanilla.width = 50
@@ -631,7 +608,7 @@ function scene:create( event )
     smallVanilla.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallMilk = display.newImageRect("Images/milk.png", display.contentWidth, display.contentHeight)
+    smallMilk = display.newImageRect("Images/Ferdous4/milk.png", display.contentWidth, display.contentHeight)
     smallMilk.x = 500
     smallMilk.y = 370
     smallMilk.width = 50
@@ -640,7 +617,7 @@ function scene:create( event )
     smallMilk.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallVanillaBean = display.newImageRect("Images/vanilla bean.png", display.contentWidth, display.contentHeight)
+    smallVanillaBean = display.newImageRect("Images/Ferdous4/vanilla bean.png", display.contentWidth, display.contentHeight)
     smallVanillaBean.x = 500
     smallVanillaBean.y = 370
     smallVanillaBean.width = 50
@@ -649,7 +626,7 @@ function scene:create( event )
     smallVanillaBean.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallOil = display.newImageRect("Images/oil.png", display.contentWidth, display.contentHeight)
+    smallOil = display.newImageRect("Images/Ferdous4/oil.png", display.contentWidth, display.contentHeight)
     smallOil.x = 500
     smallOil.y = 370
     smallOil.width = 50
@@ -658,7 +635,7 @@ function scene:create( event )
     smallOil.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallEggs = display.newImageRect("Images/eggs.png", display.contentWidth, display.contentHeight)
+    smallEggs = display.newImageRect("Images/Ferdous4/eggs.png", display.contentWidth, display.contentHeight)
     smallEggs.x = 500
     smallEggs.y = 370
     smallEggs.width = 50
@@ -666,21 +643,7 @@ function scene:create( event )
     sceneGroup:insert(smallEggs)    
     smallEggs.isVisible = false
 
-    --creating mute button
-    muteButton = display.newImageRect("Images/muteButton.png", 90, 90)
-    muteButton.x = 43
-    muteButton.y = 35
-    muteButton.isVisible = false
-    sceneGroup:insert(muteButton)
-
---creating mut button
-    unmuteButton = display.newImageRect("Images/unmuteButton.png", 90, 90)
-    unmuteButton.x = 43
-    unmuteButton.y = 35
-    unmuteButton.isVisible = true
-    sceneGroup:insert(unmuteButton)
-
-    instructionText = display.newImageRect("Images/cook2.png", display.contentWidth, display.contentHeight)
+    instructionText = display.newImageRect("Images/Ferdous4/cook2.png", display.contentWidth, display.contentHeight)
     instructionText.x = 500
     instructionText.y = 100
     instructionText.width = 700
@@ -703,8 +666,8 @@ function scene:create( event )
     width = 100,
     height = 106,
     -- Setting Visual Properties
-    defaultFile = "Images/YesButtonPressedFerdous@2x.png",
-    overFile = "Images/YesButtonUnPressedFerdous@2x.png",
+    defaultFile = "Images/Ferdous4/YesButtonPressedFerdous@2x.png",
+    overFile = "Images/Ferdous4/YesButtonUnPressedFerdous@2x.png",
     -- Setting Functional Properties
     onRelease = gotoQuestions
 })
@@ -728,19 +691,10 @@ function scene:show( event )
 -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
         ResetIngredients()
-        muteButton:addEventListener("touch", Mute)
-        unmuteButton:addEventListener("touch", Unmute )
+        --muteButton:addEventListener("touch", Mute)
+        --unmuteButton:addEventListener("touch", Unmute )
         -- display background music
-        backgroundSoundChannel = audio.play(backgroundSound, {channel = 9, loops = -1}) 
-            if(soundOn == true) then
-                audio.resume(backgroundSoundChannel)
-                muteButton.isVisible = false
-                unmuteButton.isVisible = true
-            else
-                audio.pause(backgroundSoundChannel)
-                muteButton.isVisible = true
-                unmuteButton.isVisible = false
-            end
+       
         --calling the addEventListener function 
         AddAnswerBoxEventListeners()
             -- start timer 
@@ -761,9 +715,8 @@ function scene:hide( event )
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
         --removing Eventlisteners
-        muteButton:removeEventListener("touch", Mute)
-        unmuteButton:removeEventListener("touch", Unmute )
-        audio.pause(backgroundSoundChannel)
+        --muteButton:removeEventListener("touch", Mute)
+        --unmuteButton:removeEventListener("touch", Unmute )
         RemoveAnswerBoxEventListeners()
         --canceling the timer
         timer.cancel(countDownTimer)

@@ -18,14 +18,7 @@ local scene = composer.newScene( sceneName )
 --------------------------------------------------------------------------------
 --local sounds
 ---------------------------------------------------------------------------------
-local backgroundSound = audio.loadStream("Sounds/sweet.mp3")
-local backgroundSoundChannel
 
-local touchSound = audio.loadStream("Sounds/PopSound.wav")
-local touchSoundChannel
-
-local foodSound = audio.loadStream("Sounds/water.mp3")
-local foodSoundChannel
 ----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 ----------------------------------------------------------------------------------------- 
@@ -114,7 +107,7 @@ local function movingChocolate(touch)
                 -- setting the position of the chocolate to be in the center of the box
                 chocolate_image.x = bowl_image.x
                 chocolate_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
 
                 chocolate_image.isVisible = false                
                 checkMark2.isVisible = true
@@ -165,7 +158,7 @@ local function movingFlour(touch)
             -- setting the position of the number to be in the center of the box
                 flour_image.x = bowl_image.x
                 flour_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
 
                 flour_image.isVisible = false
                 checkMark3.isVisible = true
@@ -213,7 +206,7 @@ local function movingButter(touch)
             -- setting the position of butter
                 butter_image.x = bowl_image.x
                 butter_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
                 butter_image.isVisible = false
                 checkMark.isVisible = true
                 smallButter.isVisible = true
@@ -262,7 +255,7 @@ local function movingEggs(touch)
             -- setting the position of the objects to be in the center of the box
                 egg_image.x = bowl_image.x
                 egg_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
                 egg_image.isVisible = false
                 checkMark5.isVisible = true
                 smallEggs.isVisible = true
@@ -312,7 +305,7 @@ local function movingSugar(touch)
             -- setting the position of the sugar to be in the center of the box
                 sugar_image.x = bowl_image.x
                 sugar_image.y = bowl_image.y
-                foodSoundChannel = audio.play(foodSound)
+                --foodSoundChannel = audio.play(foodSound)
 
                 sugar_image.isVisible = false
                 checkMark4.isVisible = true
@@ -399,7 +392,7 @@ function scene:create( event )
 
    
     -- set the background to be black
-    bkg_image = display.newImageRect("Images/level2_screenFerdous.png", display.contentWidth, display.contentHeight)
+    bkg_image = display.newImageRect("Images/Ferdous2/level2_screenFerdous.png", display.contentWidth, display.contentHeight)
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth
@@ -410,7 +403,7 @@ function scene:create( event )
     bkg_image:toBack()
 
     -- display text for asking if the user ready for questions
-    readyImage = display.newImageRect("Images/text1.png", display.contentWidth, display.contentHeight)
+    readyImage = display.newImageRect("Images/Ferdous2/text1.png", display.contentWidth, display.contentHeight)
     readyImage.x = 960
     readyImage.y = 610
     readyImage.width = 900
@@ -427,7 +420,7 @@ function scene:create( event )
     -- Associating Buttons with this scene
     
     -- Creating bowl image
-    bowl_image =display.newImageRect("Images/bowlPlaceholder.png", display.contentWidth, display.contentHeight) 
+    bowl_image =display.newImageRect("Images/Ferdous2/bowlPlaceholder.png", display.contentWidth, display.contentHeight) 
     bowl_image.x = 400
     bowl_image.y = 400
     bowl_image.width = 150
@@ -444,8 +437,8 @@ function scene:create( event )
     width = 100,
     height = 106,
     -- Setting Visual Properties
-     defaultFile = "Images/BackButtonUnPressedFerdous@2x.png",
-    overFile = "Images/BackButtonPressedFerdous@2x.png",
+     defaultFile = "Images/Ferdous2/BackButtonUnPressedFerdous@2x.png",
+    overFile = "Images/Ferdous2/BackButtonPressedFerdous@2x.png",
     -- Setting Functional Properties
     onRelease = BackTransition
 })
@@ -462,22 +455,22 @@ function scene:create( event )
     width = 100,
     height = 106,
     -- Setting Visual Properties
-    defaultFile = "Images/YesButtonPressedFerdous@2x.png",
-    overFile = "Images/YesButtonUnPressedFerdous@2x.png",
+    defaultFile = "Images/Ferdous2/YesButtonPressedFerdous@2x.png",
+    overFile = "Images/Ferdous2/YesButtonUnPressedFerdous@2x.png",
     -- Setting Functional Properties
     onRelease = gotoQuestions
 })
     yesButton.isVisible = false
     sceneGroup:insert(yesButton)
      -- Creating butter image 
-    butter_image = display.newImageRect("Images/butter.png", display.contentWidth, display.contentHeight)
+    butter_image = display.newImageRect("Images/Ferdous2/butter.png", display.contentWidth, display.contentHeight)
     butter_image.x = 960
     butter_image.y = 310
     butter_image.width = 100
     butter_image.height = 100
     sceneGroup:insert( butter_image )
    --Creating chocolate image 
-    chocolate_image = display.newImageRect("Images/Chocolate.png", display.contentWidth, display.contentHeight)
+    chocolate_image = display.newImageRect("Images/Ferdous2/Chocolate.png", display.contentWidth, display.contentHeight)
     chocolate_image.x = 960
     chocolate_image.y = 130
     chocolate_image.width = 90
@@ -485,7 +478,7 @@ function scene:create( event )
     sceneGroup:insert(chocolate_image)
     
 -- Creating flour image 
-    flour_image = display.newImageRect("Images/flour.png", display.contentWidth, display.contentHeight)
+    flour_image = display.newImageRect("Images/Ferdous2/flour.png", display.contentWidth, display.contentHeight)
     flour_image.x = 960
     flour_image.y = 225
     flour_image.width = 100
@@ -495,7 +488,7 @@ function scene:create( event )
 
     
     -- Creating egg image 
-    egg_image = display.newImageRect("Images/eggs.png", display.contentWidth, display.contentHeight)
+    egg_image = display.newImageRect("Images/Ferdous2/eggs.png", display.contentWidth, display.contentHeight)
     egg_image.x = 960
     egg_image.y = 410
     egg_image.width = 100
@@ -504,7 +497,7 @@ function scene:create( event )
 
 
     -- Creating sugar image 
-    sugar_image = display.newImageRect("Images/sugar.png", display.contentWidth, display.contentHeight)
+    sugar_image = display.newImageRect("Images/Ferdous2/sugar.png", display.contentWidth, display.contentHeight)
     sugar_image.x = 960
     sugar_image.y = 500
     sugar_image.width = 100
@@ -513,7 +506,7 @@ function scene:create( event )
 
 
     
-    butter_imageShort = display.newImageRect("Images/butter.png", display.contentWidth, display.contentHeight)
+    butter_imageShort = display.newImageRect("Images/Ferdous2/butter.png", display.contentWidth, display.contentHeight)
     butter_imageShort.x = 45
     butter_imageShort.y = 370
     butter_imageShort.width =60
@@ -521,7 +514,7 @@ function scene:create( event )
     sceneGroup:insert(butter_imageShort)
 
     --Creating checkMarks 
-    checkMark = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark = display.newImageRect("Images/Ferdous2/Mark.png", display.contentWidth, display.contentHeight)
     checkMark.x = 45
     checkMark.y = 370
     checkMark.width =60
@@ -529,7 +522,7 @@ function scene:create( event )
     sceneGroup:insert(checkMark)
     checkMark.isVisible = false
     -- Creating small Images
-    chocolate_imageShort = display.newImageRect("Images/Chocolate.png", display.contentWidth, display.contentHeight)
+    chocolate_imageShort = display.newImageRect("Images/Ferdous2/Chocolate.png", display.contentWidth, display.contentHeight)
     chocolate_imageShort.x = 45
     chocolate_imageShort.y = 200
     chocolate_imageShort.width = 60
@@ -537,7 +530,7 @@ function scene:create( event )
     sceneGroup:insert(chocolate_imageShort)
 
     --Creating checkMarks 
-    checkMark2 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark2 = display.newImageRect("Images/Ferdous2/Mark.png", display.contentWidth, display.contentHeight)
     checkMark2.x = 45
     checkMark2.y = 200
     checkMark2.width = 60
@@ -546,7 +539,7 @@ function scene:create( event )
     checkMark2.isVisible = false
 
     -- Creating small Images of objects
-    flour_imageShort = display.newImageRect("Images/flour.png", display.contentWidth, display.contentHeight)
+    flour_imageShort = display.newImageRect("Images/Ferdous2/flour.png", display.contentWidth, display.contentHeight)
     flour_imageShort.x = 45
     flour_imageShort.y = 280
     flour_imageShort.width = 60
@@ -554,7 +547,7 @@ function scene:create( event )
     sceneGroup:insert(flour_imageShort)
 
     --Creating checkMarks 
-    checkMark3 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark3 = display.newImageRect("Images/Ferdous2/Mark.png", display.contentWidth, display.contentHeight)
     checkMark3.x = 45
     checkMark3.y = 280
     checkMark3.width = 60
@@ -563,7 +556,7 @@ function scene:create( event )
     checkMark3.isVisible = false
 
     -- Creating small Images of objects
-    sugar_imageShort = display.newImageRect("Images/sugar.png", display.contentWidth, display.contentHeight)
+    sugar_imageShort = display.newImageRect("Images/Ferdous2/sugar.png", display.contentWidth, display.contentHeight)
     sugar_imageShort.x = 45
     sugar_imageShort.y = 540
     sugar_imageShort.width = 60
@@ -571,7 +564,7 @@ function scene:create( event )
     sceneGroup:insert(sugar_imageShort)
 
     --Creating checkMarks 
-    checkMark4 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark4 = display.newImageRect("Images/Ferdous2/Mark.png", display.contentWidth, display.contentHeight)
     checkMark4.x = 45
     checkMark4.y = 540
     checkMark4.width = 60
@@ -580,7 +573,7 @@ function scene:create( event )
     checkMark4.isVisible = false
 
    -- Creating small Images of objects
-    egg_imageShort = display.newImageRect("Images/eggs.png", display.contentWidth, display.contentHeight)
+    egg_imageShort = display.newImageRect("Images/Ferdous2/eggs.png", display.contentWidth, display.contentHeight)
     egg_imageShort.x = 45
     egg_imageShort.y = 460
     egg_imageShort.width = 60
@@ -588,7 +581,7 @@ function scene:create( event )
     sceneGroup:insert(egg_imageShort)
 
     --Creating checkMarks 
-    checkMark5 = display.newImageRect("Images/Mark.png", display.contentWidth, display.contentHeight)
+    checkMark5 = display.newImageRect("Images/Ferdous2/Mark.png", display.contentWidth, display.contentHeight)
     checkMark5.x = 45
     checkMark5.y = 460
     checkMark5.width = 60
@@ -597,7 +590,7 @@ function scene:create( event )
     checkMark5.isVisible = false  
 
    -- Creating small Images of objects to stay in the bowl
-    smallChocolate = display.newImageRect("Images/Chocolate.png", display.contentWidth, display.contentHeight)
+    smallChocolate = display.newImageRect("Images/Ferdous2/Chocolate.png", display.contentWidth, display.contentHeight)
     smallChocolate.x = 400
     smallChocolate.y = 390
     smallChocolate.width = 50
@@ -606,7 +599,7 @@ function scene:create( event )
     smallChocolate.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallButter = display.newImageRect("Images/butter.png", display.contentWidth, display.contentHeight)
+    smallButter = display.newImageRect("Images/Ferdous2/butter.png", display.contentWidth, display.contentHeight)
     smallButter.x = 400
     smallButter.y = 390
     smallButter.width = 50
@@ -615,7 +608,7 @@ function scene:create( event )
     smallButter.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallFlour = display.newImageRect("Images/flour.png", display.contentWidth, display.contentHeight)
+    smallFlour = display.newImageRect("Images/Ferdous2/flour.png", display.contentWidth, display.contentHeight)
     smallFlour.x = 400
     smallFlour.y = 390
     smallFlour.width = 50
@@ -624,7 +617,7 @@ function scene:create( event )
     smallFlour.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallSugar = display.newImageRect("Images/sugar.png", display.contentWidth, display.contentHeight)
+    smallSugar = display.newImageRect("Images/Ferdous2/sugar.png", display.contentWidth, display.contentHeight)
     smallSugar.x = 400
     smallSugar.y = 390
     smallSugar.width = 50
@@ -633,7 +626,7 @@ function scene:create( event )
     smallSugar.isVisible = false
 
    -- Creating small Images of objects to stay in the bowl
-    smallEggs = display.newImageRect("Images/eggs.png", display.contentWidth, display.contentHeight)
+    smallEggs = display.newImageRect("Images/Ferdous2/eggs.png", display.contentWidth, display.contentHeight)
     smallEggs.x = 400
     smallEggs.y = 390
     smallEggs.width = 50
@@ -643,7 +636,7 @@ function scene:create( event )
 
  
 
-    instructionText = display.newImageRect("Images/cook2.png", display.contentWidth, display.contentHeight)
+    instructionText = display.newImageRect("Images/Ferdous2/cook2.png", display.contentWidth, display.contentHeight)
     instructionText.x = 500
     instructionText.y = 200
     instructionText.width = 700
@@ -695,7 +688,7 @@ function scene:hide( event )
         RemoveAnswerBoxEventListeners()
 
        
-        audio.pause(backgroundSoundChannel)
+        --audio.pause(backgroundSoundChannel)
         readyImage.isVisible = false
         yesButton.isVisible = false
         backToMainMenu.x = 150

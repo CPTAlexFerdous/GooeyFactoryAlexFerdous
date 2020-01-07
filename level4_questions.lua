@@ -18,12 +18,6 @@ sceneName = "level4_questions"
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
-local sound = audio.loadSound("Sounds/inspire.mp3")
-local soundChannel
-
-local popUp = audio.loadSound("Sounds/pop up2.mp3")
-local popUpChannel
-
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
@@ -92,34 +86,6 @@ local transitionOption4 =({
 -----------------------------------------------------------------------------------------
 --LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
-
--- function for mute and 
-local function Mute( touch )
-    if(touch.phase == "ended")then
-        print ("***clicked on Mute")
-        --pause the sound
-        audio.resume(soundChannel)
-        --set boolean for sound status
-        soundOn = true
-        muteButton.isVisible = false
-        unmuteButton.isVisible = true
-    end 
-end
-
---function for unMute
-
-local function Unmute( touch )
-    if(touch.phase == "ended")then
-        print ("***clicked on Unmute")
-        --play the music 
-        audio.pause(soundChannel)
-        --set boolean for sound status
-        soundOn = false
-        muteButton.isVisible = true
-        unmuteButton.isVisible = false
-    end
-end
-
 
 -- function for going back to main menu screen
 
@@ -452,7 +418,7 @@ local function TouchListenerAnswer(touch)
     userAnswer = answerText.text
     if (touch.phase == "ended") then
         -- adding the pop sound when objects touched 
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         DisplayQuestion()
         -- counting the right answer
         totalAnswer = totalAnswer + 1
@@ -474,7 +440,7 @@ local function TouchListenerWrongAnswer(touch)
     userAnswer = wrongText1.text
     if (touch.phase == "ended") then
         -- pop sound when the objects touched
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
@@ -498,7 +464,7 @@ local function TouchListenerWrongAnswer2(touch)
     if (touch.phase == "ended") then
     --pop sound when the objects touched
 
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         -- Displaying the correct answer text if the user got wrong
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
     -- making the correct answer text Visible
@@ -518,7 +484,7 @@ local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
     if (touch.phase == "ended") then
         -- DisplayQuestion pop sound when the objects touched
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the right answer text Visible
@@ -675,20 +641,6 @@ function scene:create( event )
     onRelease = BackTransition
     })
     sceneGroup:insert(backButton2)
-
-    muteButton = display.newImageRect("Images/muteButton.png", 90, 90)
-    muteButton.x = 45
-    muteButton.y = 40
-    muteButton.isVisible = false
-    sceneGroup:insert(muteButton)
-
---creating mut button
-    unmuteButton = display.newImageRect("Images/unmuteButton.png", 90, 90)
-    unmuteButton.x = 45
-    unmuteButton.y = 40
-    unmuteButton.isVisible = true
-    sceneGroup:insert(unmuteButton)
-
     
     -- adding text and colour for timer
     clockText= display.newText(secondsLeft, display.contentWidth/7, display.contentHeight/7, nil, 50)
@@ -716,8 +668,7 @@ function scene:show( event )
 
     elseif ( phase == "did" ) then
         totalAnswer = 0
-        muteButton:addEventListener("touch", Mute)
-        unmuteButton:addEventListener("touch", Unmute )
+       
         -- called the FUNCTION to display questions
          DisplayQuestion()
         -- call the function to change the answers positions
@@ -727,16 +678,7 @@ function scene:show( event )
         -- start timer 
         startTimer()
         -- play the background sound
-        soundChannel = audio.play(sound, {channel = 58, loops = -1})
-        if(soundOn == true) then
-            audio.resume(soundChannel)
-            muteButton.isVisible = false
-            unmuteButton.isVisible = true
-        else
-            audio.pause(soundChannel)
-            muteButton.isVisible = true
-            unmuteButton.isVisible = false
-        end
+     
     end
 end 
 
@@ -755,14 +697,12 @@ function scene:hide( event )
         --parent:resumeGame()
     -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
-        muteButton:removeEventListener("touch", Mute)
-        unmuteButton:removeEventListener("touch", Unmute )
         -- call the remove the event listeners FUNCTION
         RemoveTextListeners()
         -- reset scene after leave it 
             --composer.removeScene("level4_questions")
         -- Displaying the background sound
-        soundChannel = audio.stop()
+        --soundChannel = audio.stop()
             --canceling the timer
         timer.cancel(countDownTimer)
         secondsLeft = totalSeconds

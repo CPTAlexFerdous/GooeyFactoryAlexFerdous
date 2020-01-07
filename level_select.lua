@@ -54,6 +54,10 @@ local function Level3Transition(  )
     composer.gotoScene("level3_screen", {effect= "fade", time = 500} )
 end
 
+local function Level3Transition(  )
+    composer.gotoScene("level4_screen", {effect= "fade", time = 500} )
+end
+
 -- function is called when the screen doesn't exist
 function scene:create( event )
     local sceneGroup = self.view
@@ -110,11 +114,11 @@ function scene:create( event )
         width = 150,
         height = 150,
         -- setting Visual Properties
-        defaultFile = "Images/Ferdous 2/level2_screenFerdous.png",
+        defaultFile = "Images/Ferdous2/level2_screenFerdous.png",
         overFile = "Images/Level2ButtonPressed.png",
 
         -- set functional Properties
-        --onRelease = Level2Transition
+        onRelease = Level2Transition
 
     } )
 
@@ -137,6 +141,24 @@ function scene:create( event )
         onRelease = Level3Transition
     } )
 
+    level4Button = widget.newButton(
+    {
+        -- setting its position 
+        x = display.contentWidth*2/3,
+        y = display.contentHeight*7/10,
+
+        -- set dimensions 
+        width = 150, 
+        height = 150,
+
+        -- setting the visual properties 
+        defaultFile = "Images/Ferdous4/level4ScreenFerdous.png",
+        overFile = "Images/Ferdous4/level4ScreenFerdous.png",
+
+        -- set functional properties
+        onRelease = Level3Transition
+    } )
+
     -- create levelSelectText
     levelSelectText = display.newText("LEVELS", display.contentWidth/2, display.contentHeight/5, nil, 100)
     levelSelectText:setTextColor(0, 0, 0)
@@ -151,15 +173,20 @@ function scene:create( event )
     level3Text = display.newText("Level 3", display.contentWidth/3, display.contentHeight*11/13, nil, 49)
     level3Text:setTextColor(0, 0, 0)
 
+    level4Text = display.newText("Level 4", display.contentWidth*2/3, display.contentHeight*11/13, nil, 49)
+    level4Text:setTextColor(0, 0, 0)
+
     -- add buttons, objects and images to sceneGroup
     sceneGroup:insert( backButton )
     sceneGroup:insert( levelSelectText )
     sceneGroup:insert( level1Button )
     sceneGroup:insert( level1Text )
     sceneGroup:insert( level2Button ) 
-    --sceneGroup:insert( level2Text )
+    sceneGroup:insert( level2Text )
     sceneGroup:insert( level3Button )
     sceneGroup:insert( level3Text )
+    sceneGroup:insert( level4Button )
+    sceneGroup:insert( level4Text )
 end
 
 -- the function is called when the scene is still off screen (but is about to come on screen)
