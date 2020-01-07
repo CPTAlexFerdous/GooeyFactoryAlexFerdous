@@ -551,7 +551,7 @@ function scene:create( event )
 
     -----------------------------------------------------------------------------------------
     --making a cover rectangle to have the background fully bolcked where the question is
-    cover = display.newImageRect("Images/question mark.png",display.contentWidth, display.contentHeight)
+    cover = display.newImageRect("Images/Ferdous4/question mark.png",display.contentWidth, display.contentHeight)
     cover.x = display.contentCenterX
     cover.y = display.contentCenterY
     cover.width = display.contentWidth
@@ -602,29 +602,13 @@ function scene:create( event )
     bakeText:setTextColor(0.4, 0.3, 0.9)
     -----------------------------------------------------------------------------------------
    -- creating roots image
-    rootImage = display.newImageRect("Images/roots.png", display.contentWidth, display.contentHeight) 
+    rootImage = display.newImageRect("Images/Ferdous4/roots.png", display.contentWidth, display.contentHeight) 
     rootImage.x = 500
     rootImage.y = 250
     rootImage.width = 200
     rootImage.height = 200
     rootImage.isVisible = false
     sceneGroup:insert(rootImage)
-
-    backButton = widget.newButton( 
-    {
--- Setting Position
-    x = display.contentWidth*1/1.1,
-    y = display.contentHeight*15/17,
-        -- Setting Dimensions
-    width = 150,
-    height = 100,
-    -- Setting Visual Properties
-    defaultFile = "Images/BackToLevel2ButtonPressed@2x.png",
-    overFile = "Images/BackToLevel2ButtonUnPressedFerdous@2x .png",
-    -- Setting Functional Properties
-    onRelease = gotoLevel2Screen
-    })
-    sceneGroup:insert(backButton)
 
     backButton2 = widget.newButton( 
     {
@@ -635,8 +619,8 @@ function scene:create( event )
     width = 150,
     height = 100,
     -- Setting Visual Properties
-    defaultFile = "Images/BackButtonUnPressedFerdous@2x.png",
-    overFile = "Images/BackButtonPressedFerdous@2x.png",
+    defaultFile = "Images/Ferdous4/BackButtonUnPressedFerdous@2x.png",
+    overFile = "Images/Ferdous4/BackButtonPressedFerdous@2x.png",
     -- Setting Functional Properties
     onRelease = BackTransition
     })
