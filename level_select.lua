@@ -54,7 +54,7 @@ local function Level3Transition(  )
     composer.gotoScene("level3_screen", {effect= "fade", time = 500} )
 end
 
-local function Level3Transition(  )
+local function Level4Transition(  )
     composer.gotoScene("level4_screen", {effect= "fade", time = 500} )
 end
 
@@ -156,7 +156,7 @@ function scene:create( event )
         overFile = "Images/Ferdous4/level4ScreenFerdous.png",
 
         -- set functional properties
-        onRelease = Level3Transition
+        onRelease = Level4Transition
     } )
 
     -- create levelSelectText
