@@ -511,7 +511,7 @@ local function UpdateTime( )
     clockText.text = secondsLeft .. ""
     if(secondsLeft == 0)then
         secondsLeft = totalSeconds
-        composer.gotoScene("You_Lose")
+        composer.gotoScene("you_lose")
     end
 end
 -- FUNCTION start the timer again
