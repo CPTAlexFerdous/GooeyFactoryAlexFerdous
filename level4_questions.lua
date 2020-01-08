@@ -15,6 +15,11 @@ local scene = composer.newScene( sceneName )
 -- Naming Scene
 sceneName = "level4_questions"
 
+----------------------------------------------------------------------------------------
+-- background Music
+----------------------------------------------------------------------------------------
+local sound = audio.loadStream("Ferdous s/inspire.mp3")
+local soundChannel
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
@@ -651,6 +656,16 @@ function scene:show( event )
 -----------------------------------------------------------------------------------------
 
     elseif ( phase == "did" ) then
+        -- display background Music
+       if (soundOn == true) then
+            soundChannel = audio.play(sound, {channel=11, loops= -1})
+            audio.setVolume(0.25, {channel=11})
+        else
+            soundChannel = audio.play(sound, {channel=11, loops= -1})
+            audio.pause(soundChannel)
+            audio.setVolume(0.25, {channel=11})
+        end
+
         totalAnswer = 0
        
         -- called the FUNCTION to display questions
@@ -681,6 +696,8 @@ function scene:hide( event )
         --parent:resumeGame()
     -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
+        audio.stop(soundChannel)
+
         -- call the remove the event listeners FUNCTION
         RemoveTextListeners()
         -- reset scene after leave it 

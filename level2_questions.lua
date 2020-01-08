@@ -18,6 +18,8 @@ sceneName = "level2_questions"
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
+local music = audio.loadStream("Ferdous s/buddy.mp3")
+local musicChannel
 
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
@@ -480,6 +482,14 @@ function scene:show( event )
 -----------------------------------------------------------------------------------------
 
     elseif ( phase == "did" ) then
+        if (soundOn == true) then
+            musicChannel = audio.play(music, {channel=13, loops= -1})
+            audio.setVolume(0.25, {channel=13})
+        else
+            musicChannel = audio.play(music, {channel=13, loops= -1})
+            audio.pause(musicChannel)
+            audio.setVolume(0.25, {channel=13})
+        end
         totalAnswer = 0
       
         -- called the FUNCTION to display questions
@@ -517,6 +527,8 @@ function scene:hide( event )
 
     elseif ( phase == "did" ) then
        
+        audio.stop(musicChannel)
+
         -- call the remove the event listeners FUNCTION
         RemoveTextListeners()
         -- reset scene after leave it 
