@@ -44,7 +44,7 @@ local mainMenuButton
 -----------------------------------------------------------------------------------------
 -- restarts level 1
 local function RestartTransition(  )
-    composer.gotoScene("Level3_screen")
+    composer.gotoScene("level3_screen")
 end
 
 --goes to main menu

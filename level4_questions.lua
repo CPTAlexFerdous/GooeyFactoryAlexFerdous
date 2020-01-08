@@ -18,7 +18,7 @@ sceneName = "level4_questions"
 ----------------------------------------------------------------------------------------
 -- background Music
 ----------------------------------------------------------------------------------------
-local sound = audio.loadStream("Ferdous s/inspire.mp3")
+local sound = audio.loadSound("Ferdous s/inspire.mp3")
 local soundChannel
 -----------------------------------------------------------------------------------------
 --Local Sounds
@@ -511,7 +511,7 @@ local function UpdateTime( )
     clockText.text = secondsLeft .. ""
     if(secondsLeft == 0)then
         secondsLeft = totalSeconds
-        composer.gotoScene("you_lose")
+        composer.gotoScene("you_lose4")
     end
 end
 -- FUNCTION start the timer again

@@ -48,6 +48,11 @@ local wrongAnswer3
 local wrongAnswer4
 local scrollSpeed = 2
 
+----------------------------------------------------------------------------------------------------
+--local sounds
+--------------------------------------------------------------------------------------------------------
+local backgroundSound = audio.loadStream("Ferdous s/jazzy.mp3")
+local backgroundSoundChannel
 --------------------------------------------------------------------------------------
 --set variables for making scene transition
 ------------------------------------------------------------------------------------------
@@ -660,6 +665,14 @@ function scene:show( event )
 
 -----------------------------------------------------------------------------------------
    elseif ( phase == "did" ) then
+        if (soundOn == true) then
+            backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
+            audio.setVolume(0.25, {channel=12})
+        else
+            backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
+            audio.pause(backgroundSoundChannel)
+            audio.setVolume(0.25, {channel=12})
+        end
         yesButton.isVisible = false
       
         ResetIngredients()
@@ -683,7 +696,8 @@ function scene:hide( event )
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
-      
+        audio.stop(backgroundSoundChannel)
+
         --remove EventListener
         RemoveAnswerBoxEventListeners()
 

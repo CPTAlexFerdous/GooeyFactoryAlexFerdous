@@ -18,7 +18,7 @@ sceneName = "level2_questions"
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
-local music = audio.loadStream("Ferdous s/buddy.mp3")
+local music = audio.loadStream("Ferdous s/inspire.mp3")
 local musicChannel
 
 -----------------------------------------------------------------------------------------
@@ -318,7 +318,7 @@ local function UpdateTime( )
     clockText.text = secondsLeft .. ""
     if(secondsLeft == 0)then
         secondsLeft = totalSeconds
-        composer.gotoScene("you_lose")
+        composer.gotoScene("you_lose2")
     end
 end
 -- FUNCTION start the timer again
@@ -483,12 +483,12 @@ function scene:show( event )
 
     elseif ( phase == "did" ) then
         if (soundOn == true) then
-            musicChannel = audio.play(music, {channel=13, loops= -1})
-            audio.setVolume(0.25, {channel=13})
+            musicChannel = audio.play(music, {channel=10, loops= -1})
+            audio.setVolume(0.25, {channel=10})
         else
-            musicChannel = audio.play(music, {channel=13, loops= -1})
+            musicChannel = audio.play(music, {channel=10, loops= -1})
             audio.pause(musicChannel)
-            audio.setVolume(0.25, {channel=13})
+            audio.setVolume(0.25, {channel=10})
         end
         totalAnswer = 0
       
