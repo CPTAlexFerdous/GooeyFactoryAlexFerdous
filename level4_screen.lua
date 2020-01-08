@@ -18,8 +18,8 @@ sceneName = "level4_screen"
 --------------------------------------------------------------------------------
 --local sounds
 ---------------------------------------------------------------------------------
---local backgroundSound = audio.loadStream("Sounds/sweet.mp3")
---local backgroundSoundChannel
+local backgroundSound = audio.loadStream("Ferdous s/jazzy.mp3")
+local backgroundSoundChannel
 
 --local touchSound = audio.loadStream("Sounds/PopSound.wav")
 --local touchSoundChannel
@@ -690,6 +690,14 @@ function scene:show( event )
     if ( phase == "will" ) then
 -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
+        if (soundOn == true) then
+            backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
+            audio.setVolume(0.25, {channel=12})
+        else
+            backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
+            audio.pause(backgroundSoundChannel)
+            audio.setVolume(0.25, {channel=12})
+        end
         ResetIngredients()
         --muteButton:addEventListener("touch", Mute)
         --unmuteButton:addEventListener("touch", Unmute )
@@ -714,6 +722,8 @@ function scene:hide( event )
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
+        audio.stop(backgroundSoundChannel)
+
         --removing Eventlisteners
         --muteButton:removeEventListener("touch", Mute)
         --unmuteButton:removeEventListener("touch", Unmute )
