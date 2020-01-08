@@ -46,7 +46,7 @@ end
 
 --create transition to level 2 
 local function Level2Transition(  )
-    composer.gotoScene("Level2_screen", {effect= "fade", time = 500})
+    composer.gotoScene("Level2_screen", {effect= "fade", time = 500} )
 end
 
 -- create transition to level 3

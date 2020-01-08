@@ -103,7 +103,7 @@ local function yourcake()
 
 end
 -- FUNCTIONS for going to you lose screen
-local function youLostScreen( ... )
+local function youLostScreen(  )
     composer.gotoScene("you_lose", transitionOption4)
 
 end
@@ -316,7 +316,7 @@ local function UpdateTime( )
     clockText.text = secondsLeft .. ""
     if(secondsLeft == 0)then
         secondsLeft = totalSeconds
-        composer.gotoScene("You_Lose")
+        composer.gotoScene("you_lose")
     end
 end
 -- FUNCTION start the timer again
