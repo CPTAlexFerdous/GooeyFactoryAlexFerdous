@@ -82,7 +82,7 @@ local transitionOption2 =({
 -- The function that will go to the main menu 
 
 local function BackTransition()
-    composer.gotoScene( "main_menu", transitionOption2 )
+    composer.gotoScene( "level_select", transitionOption2 )
 end
 
 local function gotoQuestions( ... )
