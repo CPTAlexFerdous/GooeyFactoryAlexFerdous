@@ -99,12 +99,12 @@ end
 
 -- function for going to you win screen
 local function yourcake()
-    composer.gotoScene("You_Win", transitionOption3)
+    composer.gotoScene("you_win", transitionOption3)
 
 end
 -- FUNCTIONS for going to you lose screen
 local function youLostScreen( ... )
-    composer.gotoScene("You_Lose", transitionOption4)
+    composer.gotoScene("you_lose", transitionOption4)
 
 end
 -- FUNCTIONS changing the answers positions 

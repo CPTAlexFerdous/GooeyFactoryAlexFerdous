@@ -100,7 +100,7 @@ end
 
 -- function for going to you win screen
 local function yourcake()
-    composer.gotoScene("You_Win", transitionOption3)
+    composer.gotoScene("you_win", transitionOption3)
 
 end
 -- FUNCTIONS for going to you lose screen
@@ -423,7 +423,7 @@ local function TouchListenerAnswer(touch)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if(totalAnswer == 13)then
+        if(totalAnswer == 12)then
            yourcake()
         end 
     end
