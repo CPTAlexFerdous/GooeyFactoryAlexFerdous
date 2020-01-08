@@ -55,6 +55,7 @@ local cakesBaked = 0
 local cakesBakedTextObject
 local cakesWrecked = 0
 local cakesWreckedTextObject
+local numCorrect = 0
 
 local bakedCake
 local wreckedCake
@@ -99,9 +100,9 @@ local function ShowCake(  )
     if (cakesBaked == 5) then
         cakesBakedTextObject.isVisible = false
         cakesWreckedTextObject.isVisible = false
-        timer.performWithDelay(4000, YouWinTransition)
+        timer.performWithDelay(1000, YouWinTransition)
     else
-        timer.performWithDelay(4000, BackToLevel3)
+        timer.performWithDelay(1000, BackToLevel3)
     end
 end
 
@@ -120,10 +121,10 @@ local function ShowWreckedCake(  )
     if (cakesWrecked == 3) then 
         cakesBakedTextObject.isVisible = false
         cakesWreckedTextObject.isVisible = false
-        timer.performWithDelay(4000, YouLoseTransition)
+        timer.performWithDelay(1000, YouLoseTransition)
     else
         -- call BackToLevel3 after 4 secs
-        timer.performWithDelay(4000, BackToLevel3)
+        timer.performWithDelay(1000, BackToLevel3)
     end
 end
 
@@ -216,6 +217,14 @@ local function DisplayAnswers( )
     end
 end
 
+local function CalculateAnswers(  )
+    if (numCorrect == 2) then
+        numCorrect = 0
+        cakesBaked = cakesBaked + 1 
+        ShowCake()
+    end
+end
+
 local function RestartScene()
 
     alreadyClickedAnswer = false
@@ -235,7 +244,7 @@ local function RestartScene()
         cakesBaked = 0
     end
 
-    if (cakesBaked == 5) then
+    if (cakesBaked == 3) then
         cakesBaked = 0 
         cakesWrecked = 0
     end
@@ -258,12 +267,14 @@ local function TouchListenerAnswer(touch)
             wrongAnswer1TextObject.isVisible = false
             wrongAnswer2TextObject.isVisible = false
             checkmark.isVisible = true
-            cakesBaked = cakesBaked + 1
+            numCorrect = numCorrect + 1
             audio.stop(clockSoundChannel)
             audio.play(dingSound)
             if (cakesBaked == 5) then
                 cakesBakedTextObject.text = "Cakes Baked: 0"
                 cakesWreckedTextObject.text = "Cakes Wrecked: 0"
+                cakesWreckedTextObject.isVisible = false
+                cakesBakedTextObject.isVisible = false
             else
                 cakesBakedTextObject.text = "Cakes Baked: ".. tostring(cakesBaked)
                 cakesWreckedTextObject.text = "Cakes Wrecked: " .. tostring(cakesWrecked)
@@ -295,6 +306,8 @@ local function TouchListenerWrongAnswer1(touch)
             if (cakesWrecked == 3) then
                 cakesWreckedTextObject.text = "Cakes Wrecked: 0" 
                 cakesBakedTextObject.text = "Cakes Baked: 0"
+                cakesWreckedTextObject.isVisible = false
+                cakesBakedTextObject.isVisible = false
             else
                 cakesWreckedTextObject.text = "Cakes Wrecked: " .. tostring(cakesWrecked)
                 cakesBakedTextObject.text = "Cakes Baked: " .. tostring(cakesBaked)
@@ -327,6 +340,8 @@ local function TouchListenerWrongAnswer2(touch)
             if (cakesWrecked == 3) then
                 cakesWreckedTextObject.text = "Cakes Wrecked: 0" 
                 cakesBakedTextObject.text = "Cakes Baked: 0"
+                cakesWreckedTextObject.isVisible = false
+                cakesBakedTextObject.isVisible = false
             else
                 cakesWreckedTextObject.text = "Cakes Wrecked: " .. tostring(cakesWrecked)
                 cakesBakedTextObject.text = "Cakes Baked: " .. tostring(cakesBaked)

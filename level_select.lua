@@ -153,7 +153,7 @@ function scene:create( event )
 
         -- setting the visual properties 
         defaultFile = "Images/Ferdous4/level4ScreenFerdous.png",
-        overFile = "Images/Ferdous4/level4ScreenFerdous.png",
+        overFile = "Images/level4Button.png",
 
         -- set functional properties
         onRelease = Level4Transition
