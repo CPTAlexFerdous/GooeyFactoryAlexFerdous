@@ -110,7 +110,7 @@ local function yourcake()
 end
 -- FUNCTIONS for going to you lose screen
 local function youLostScreen( ... )
-    composer.gotoScene("you_lose", transitionOption4)
+    composer.gotoScene("you_lose4", transitionOption4)
 
 end
 -- FUNCTIONS changing the answers positions 

@@ -68,7 +68,7 @@ local transitionOption2 =({
 -- The function that will go to the main menu 
 
 local function BackTransition()
-    composer.gotoScene( "main_menu", transitionOption2 )
+    composer.gotoScene( "level_select", transitionOption2 )
 end
 
 local function gotoQuestions( ... )
@@ -437,8 +437,8 @@ function scene:create( event )
     width = 100,
     height = 106,
     -- Setting Visual Properties
-     defaultFile = "Images/Ferdous2/BackButtonUnPressedFerdous@2x.png",
-    overFile = "Images/Ferdous2/BackButtonPressedFerdous@2x.png",
+     defaultFile = "Images/Ferdous4/backButtonUnpressedAlex.png",
+    overFile = "Images/Ferdous4/BackButtonPressedAlex@2x.png",
     -- Setting Functional Properties
     onRelease = BackTransition
 })

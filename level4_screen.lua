@@ -90,7 +90,7 @@ local function gotoQuestions( ... )
 end
 
 local function GotoYouLose( ... )
-    composer.gotoScene("you_lose")
+    composer.gotoScene("you_lose4")
 end
 
 local function  yesButtonVisible()
