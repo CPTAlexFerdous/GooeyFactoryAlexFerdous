@@ -97,7 +97,7 @@ local function ShowCake(  )
     checkmark.isVisible = false
 
     -- call BackToLevel3 after 4 secs
-    if (cakesBaked == 5) then
+    if (cakesBaked == 3) then
         cakesBakedTextObject.isVisible = false
         cakesWreckedTextObject.isVisible = false
         timer.performWithDelay(1000, YouWinTransition)
@@ -130,16 +130,22 @@ end
 
 -- Function that changes the answers for a new question and places them randomly in one of the positions
 local function DisplayAnswers( )
-    local randomQuestion = math.random(1, 6)
+    local randomQuestion = math.random(1, 10)
+    answerTextObject.isVisible = true
+    wrongAnswer2TextObject.isVisible = true
+    wrongAnswer1TextObject.isVisible = true
+    redX1.isVisible = false
+    redX2.isVisible = false
+    checkmark.isVisible = false
+
     if (randomQuestion == 1) then
-        questionTextObject.text = "What are the two poles on a magnet"
+        questionTextObject.text = "   What are the two \npoles on a magnet"
         answerTextObject.text = "Positive and Negative"
         wrongAnswer1TextObject.text = "Left and Right"
         wrongAnswer2TextObject.text = "Red and Blue"
         checkmark.x = display.contentWidth/6
         redX1.x = display.contentWidth/6
         redX2.x = display.contentWidth/6
-
     elseif (randomQuestion == 2) then
         questionTextObject.text = "What can magnets atract to?"
         answerTextObject.text = "Metal"
@@ -154,7 +160,7 @@ local function DisplayAnswers( )
         wrongAnswer2TextObject.text = "Branches"
         redX2.x = display.contentWidth/6
     elseif (randomQuestion == 4) then
-        questionTextObject.text = "Which one is a \n manmade structure?"
+        questionTextObject.text = "     Which one is a \n manmade structure?"
         answerTextObject.text = "Table"
         wrongAnswer1TextObject.text = "Rocks"
         wrongAnswer2TextObject.text = "Soil"
@@ -164,7 +170,7 @@ local function DisplayAnswers( )
         wrongAnswer1TextObject.text = "Lava"
         wrongAnswer2TextObject.text = "Oil"
     elseif (randomQuestion == 6) then 
-        questionTextObject.text = "Which one is a \n manmade structure?"
+        questionTextObject.text = "    Which one is a \n manmade structure?"
         answerTextObject.text = "Chair"
         wrongAnswer1TextObject.text = "Tree"
         wrongAnswer2TextObject.text = "Coal"
@@ -185,9 +191,9 @@ local function DisplayAnswers( )
         wrongAnswer2TextObject.text = "Seven"
     elseif (randomQuestion == 10) then 
         questionTextObject.text = "What is the fourth planet \n  in our solar system?"
-        answerTextObject.text = "Round"
-        wrongAnswer1TextObject.text = "Flat"
-        wrongAnswer2TextObject.text = "A Cube"
+        answerTextObject.text = "Mars"
+        wrongAnswer1TextObject.text = "Earth"
+        wrongAnswer2TextObject.text = "Venus"
     end
 
     local answerPosition = math.random(1, 3)
@@ -221,7 +227,11 @@ local function CalculateAnswers(  )
     if (numCorrect == 2) then
         numCorrect = 0
         cakesBaked = cakesBaked + 1 
+        cakesBakedTextObject.text = "Cakes Baked: " .. tostring(cakesBaked)
         ShowCake()
+    else
+        DisplayAnswers()
+        alreadyClickedAnswer = false
     end
 end
 
@@ -270,7 +280,7 @@ local function TouchListenerAnswer(touch)
             numCorrect = numCorrect + 1
             audio.stop(clockSoundChannel)
             audio.play(dingSound)
-            if (cakesBaked == 5) then
+            if (cakesBaked == 3) then
                 cakesBakedTextObject.text = "Cakes Baked: 0"
                 cakesWreckedTextObject.text = "Cakes Wrecked: 0"
                 cakesWreckedTextObject.isVisible = false
@@ -280,7 +290,7 @@ local function TouchListenerAnswer(touch)
                 cakesWreckedTextObject.text = "Cakes Wrecked: " .. tostring(cakesWrecked)
             end
             -- call ShowCake after 1 second
-            timer.performWithDelay( 1500, ShowCake )
+            timer.performWithDelay( 1500, CalculateAnswers)
         end        
 
     end 
