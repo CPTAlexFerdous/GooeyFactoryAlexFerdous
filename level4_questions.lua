@@ -318,11 +318,11 @@ local function DisplayQuestion()
             --creating the question depending on the selcetion number
             questionText.text = " Which group of animal does not have a backbone?"
              --creating answer text from list it corispondes with the animals list
-            answerText.text = "arachnid"
+            answerText.text = "Arachnid"
                  --creating wrong answers
-            wrongText1.text = "fish"
-            wrongText2.text = "bird"
-            wrongText3.text = "amphibian" 
+            wrongText1.text = "Fish"
+            wrongText2.text = "Bird"
+            wrongText3.text = "Amphibian" 
         elseif (randomQuestion == 13) then
             rootImage.isVisible = false
             PositionAnswers()
@@ -352,11 +352,11 @@ local function DisplayQuestion()
             --creating the question depending on the selcetion number
             questionText.text = "What causes erosion?"
              --creating answer text from list it corispondes with the animals list
-            answerText.text = "Heat"
+            answerText.text = "Wind And\n Water"
                  --creating wrong answers
             wrongText1.text = "Cold"
             wrongText2.text = "Sun And\n Water"
-            wrongText3.text = "Wind And\n Water" 
+            wrongText3.text = "Heat" 
         elseif (randomQuestion == 16) then
             rootImage.isVisible = false
             PositionAnswers()
@@ -450,8 +450,8 @@ local function TouchListenerWrongAnswer(touch)
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
         giveThenAnswer.isVisible = true
-            numWrong = numWrong + 1
-            DisplayQuestion()
+        numWrong = numWrong + 1
+        timer.performWithDelay(1500, DisplayQuestion)
             if(numWrong == 3) then
                 -- delaly for Displaying the you lose screen
                 timer.performWithDelay(1000, youLostScreen )
@@ -475,7 +475,7 @@ local function TouchListenerWrongAnswer2(touch)
     -- making the correct answer text Visible
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
-        DisplayQuestion()
+        timer.performWithDelay(1500, DisplayQuestion)
         if(numWrong == 3) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
@@ -495,7 +495,7 @@ local function TouchListenerWrongAnswer3(touch)
         -- making the right answer text Visible
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
-        DisplayQuestion()
+        timer.performWithDelay(1500, DisplayQuestion)
         if(numWrong == 3) then
         -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
