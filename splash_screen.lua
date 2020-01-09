@@ -78,7 +78,7 @@ function scene:create( event )
 	display.setDefault("background", 1, 1, 1)
 
     -- Insert the companyLogo image
-    companyLogo = display.newImageRect("Images/CompanyLogoAlexD.png", 300, 300)
+    companyLogo = display.newImageRect("Images/CompanyLogoFerdous@2x.png", 300, 300)
 
     -- set the initial x and y position of the companyLogo
     companyLogo.x = display.contentCenterX

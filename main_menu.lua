@@ -225,7 +225,7 @@ function scene:create( event )
     cake.height = 425
 
     -- create mute button
-    muteButton = display.newImage("Images/muteButton.png")
+    muteButton = display.newImage("Images/unmuteButton.png")
     muteButton.width = 50
     muteButton.height = 50
     muteButton.x = display.contentWidth/15
@@ -233,7 +233,7 @@ function scene:create( event )
     muteButton.isVisible = true
     
     -- create unmute button
-    unmuteButton = display.newImage("Images/unmuteButton.png")
+    unmuteButton = display.newImage("Images/muteButton.png")
     unmuteButton.width = 50
     unmuteButton.height = 50
     unmuteButton.x = display.contentWidth/15
