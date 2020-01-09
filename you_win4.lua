@@ -49,7 +49,7 @@ local youWinSoundChannel
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
 local function RestartTransition(  )
-    composer.gotoScene("level1_screen")
+    composer.gotoScene("level4_screen")
 end
 
 local function MainMenuTransition(  )
