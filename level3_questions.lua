@@ -97,7 +97,7 @@ local function ShowCake(  )
     checkmark.isVisible = false
 
     -- call BackToLevel3 after 4 secs
-    if (cakesBaked == 5) then
+    if (cakesBaked == 3) then
         cakesBakedTextObject.isVisible = false
         cakesWreckedTextObject.isVisible = false
         timer.performWithDelay(1000, YouWinTransition)
@@ -117,6 +117,7 @@ local function ShowWreckedCake(  )
     checkmark.isVisible = false
     redX1.isVisible = false
     redX2.isVisible = false
+    numCorrect = 0
 
     if (cakesWrecked == 3) then 
         cakesBakedTextObject.isVisible = false
