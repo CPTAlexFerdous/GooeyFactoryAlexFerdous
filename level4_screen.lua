@@ -90,7 +90,7 @@ local function gotoQuestions( ... )
 end
 
 local function GotoYouLose( ... )
-    composer.gotoScene("you_lose")
+    composer.gotoScene("you_lose4")
 end
 
 local function  yesButtonVisible()
@@ -690,6 +690,7 @@ function scene:show( event )
     if ( phase == "will" ) then
 -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
+        instructionText.isVisible = true
         if (soundOn == true) then
             backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
             audio.setVolume(0.25, {channel=12})

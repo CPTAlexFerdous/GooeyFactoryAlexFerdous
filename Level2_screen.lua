@@ -48,6 +48,11 @@ local wrongAnswer3
 local wrongAnswer4
 local scrollSpeed = 2
 
+----------------------------------------------------------------------------------------------------
+--local sounds
+--------------------------------------------------------------------------------------------------------
+local backgroundSound = audio.loadStream("Ferdous s/jazzy.mp3")
+local backgroundSoundChannel
 --------------------------------------------------------------------------------------
 --set variables for making scene transition
 ------------------------------------------------------------------------------------------
@@ -68,7 +73,7 @@ local transitionOption2 =({
 -- The function that will go to the main menu 
 
 local function BackTransition()
-    composer.gotoScene( "main_menu", transitionOption2 )
+    composer.gotoScene( "level_select", transitionOption2 )
 end
 
 local function gotoQuestions( ... )
@@ -437,8 +442,8 @@ function scene:create( event )
     width = 100,
     height = 106,
     -- Setting Visual Properties
-     defaultFile = "Images/Ferdous2/BackButtonUnPressedFerdous@2x.png",
-    overFile = "Images/Ferdous2/BackButtonPressedFerdous@2x.png",
+     defaultFile = "Images/Ferdous4/backButtonUnpressedAlex.png",
+    overFile = "Images/Ferdous4/BackButtonPressedAlex@2x.png",
     -- Setting Functional Properties
     onRelease = BackTransition
 })
@@ -660,6 +665,15 @@ function scene:show( event )
 
 -----------------------------------------------------------------------------------------
    elseif ( phase == "did" ) then
+        instructionText.isVisible = true
+        if (soundOn == true) then
+            backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
+            audio.setVolume(0.25, {channel=12})
+        else
+            backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
+            audio.pause(backgroundSoundChannel)
+            audio.setVolume(0.25, {channel=12})
+        end
         yesButton.isVisible = false
       
         ResetIngredients()
@@ -683,7 +697,8 @@ function scene:hide( event )
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
-      
+        audio.stop(backgroundSoundChannel)
+
         --remove EventListener
         RemoveAnswerBoxEventListeners()
 

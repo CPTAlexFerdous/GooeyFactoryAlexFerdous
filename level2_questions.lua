@@ -18,7 +18,7 @@ sceneName = "level2_questions"
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
-local music = audio.loadStream("Ferdous s/buddy.mp3")
+local music = audio.loadStream("Ferdous s/inspire.mp3")
 local musicChannel
 
 -----------------------------------------------------------------------------------------
@@ -101,12 +101,12 @@ end
 
 -- function for going to you win screen
 local function yourcake()
-    composer.gotoScene("you_win", transitionOption3)
+    composer.gotoScene("you_win2", transitionOption3)
 
 end
 -- FUNCTIONS for going to you lose screen
 local function youLostScreen(  )
-    composer.gotoScene("you_lose", transitionOption4)
+    composer.gotoScene("you_lose2", transitionOption4)
 
 end
 -- FUNCTIONS changing the answers positions 
@@ -129,50 +129,48 @@ local function PositionAnswers()
         wrongText3.y = Y2
 
         
-        elseif (answerPosition == 2) then
+    elseif (answerPosition == 2) then
 
-            answerText.x = X2
-            answerText.y = Y2
+        answerText.x = X2
+        answerText.y = Y2
             
-            wrongText1.x = X1
-            wrongText1.y = Y1
+        wrongText1.x = X1
+        wrongText1.y = Y1
             
-            wrongText2.x = X2
-            wrongText2.y = Y1
+        wrongText2.x = X2
+        wrongText2.y = Y1
 
-            wrongText3.x = X1
-            wrongText3.y = Y2
+        wrongText3.x = X1
+        wrongText3.y = Y2
 
 
-        elseif (answerPosition == 3) then
+    elseif (answerPosition == 3) then
 
-            answerText.x = X2
-            answerText.y = Y1
+        answerText.x = X2
+        answerText.y = Y1
             
-            wrongText1.x = X1
-            wrongText1.y = Y2
+        wrongText1.x = X1
+        wrongText1.y = Y2
             
-            wrongText2.x = X1
-            wrongText2.y = Y1
+        wrongText2.x = X1
+        wrongText2.y = Y1
 
-            wrongText3.x = X2
-            wrongText3.y = Y2
-            
-    
-        elseif (answerPosition == 4) then
+        wrongText3.x = X2
+        wrongText3.y = Y2
+           
+    elseif (answerPosition == 4) then
 
-            answerText.x = X2
-            answerText.y = Y1
-            
-            wrongText1.x = X1
-            wrongText1.y = Y2
-            
-            wrongText2.x = X1
-            wrongText2.y = Y1
+        answerText.x = X2
+        answerText.y = Y1
 
-            wrongText3.x = X2
-            wrongText3.y = Y2
+        wrongText1.x = X1
+        wrongText1.y = Y2
             
+        wrongText2.x = X1
+        wrongText2.y = Y1
+
+        wrongText3.x = X2
+        wrongText3.y = Y2  
     end
 end
 -- FUNCTION for Displaying Questions
@@ -189,53 +187,53 @@ local function DisplayQuestion()
         wrongText1.text = "Green"
         wrongText2.text = "Yellow"
         wrongText3.text = "Purple"
-        elseif (randomQuestion == 2) then
-            PositionAnswers()
+    elseif (randomQuestion == 2) then
+        PositionAnswers()
     --creating the question depending on the selcetion number
-            questionText.text = "What is this image of?"
-            rootImage.isVisible = true
+        questionText.text = "What is this image of?"
+        rootImage.isVisible = true
     --creating answer text from list it corispondes with the animals list
-            answerText.text = "Root"
+        answerText.text = "Root"
     
             --creating wrong answers
             wrongText1.text = "Leaves"
             wrongText2.text = "Branch"
             wrongText3.text = "Flower"
-        elseif (randomQuestion == 3) then
-            PositionAnswers()
-    --creating the question depending on the selcetion number
-            questionText.text = "What do plants need\n to grow?"
-            rootImage.isVisible = false
-    --creating answer text from list it corispondes with the animals list
-            answerText.text = "Water"
+    elseif (randomQuestion == 3) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What do plants need\n to grow?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Water"
     
-            --creating wrong answers
-            wrongText1.text = "Moonlight"
-            wrongText2.text = "Juice"
-            wrongText3.text = "Darkness"
+        --creating wrong answers
+        wrongText1.text = "Moonlight"
+        wrongText2.text = "Juice"
+        wrongText3.text = "Darkness"
 
-        elseif (randomQuestion == 4) then
-            PositionAnswers()
-            --creating the question depending on the selcetion number
-            questionText.text = "What is the\n strongest shape?"
-            rootImage.isVisible = false
-            --creating answer text from list it corispondes with the animals list
-            answerText.text = "Triangle"
-            --creating wrong answers
-            wrongText1.text = "Square"
-            wrongText2.text = "Circle"
-            wrongText3.text = "Star"
-        elseif (randomQuestion == 5) then
-            PositionAnswers()
-            --creating the question depending on the selcetion number
-            questionText.text = "What kind of trees\n have flowers on them?"
-            rootImage.isVisible = false
-             --creating answer text from list it corispondes with the animals list
-            answerText.text = "Blossom tree"
-                 --creating wrong answers
-            wrongText1.text = "Maple Trees"
-            wrongText2.text = "Oak Trees"
-            wrongText3.text = "Oval Trees"            
+    elseif (randomQuestion == 4) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What is the\n strongest shape?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Triangle"
+        --creating wrong answers
+        wrongText1.text = "Square"
+        wrongText2.text = "Circle"
+        wrongText3.text = "Star"
+    elseif (randomQuestion == 5) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What kind of trees\n have flowers on them?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Blossom tree"
+        --creating wrong answers
+        wrongText1.text = "Maple Trees"
+        wrongText2.text = "Oak Trees"
+        wrongText3.text = "Oval Trees"            
     end
 end
 
@@ -318,7 +316,7 @@ local function UpdateTime( )
     clockText.text = secondsLeft .. ""
     if(secondsLeft == 0)then
         secondsLeft = totalSeconds
-        composer.gotoScene("you_lose")
+        composer.gotoScene("you_lose2")
     end
 end
 -- FUNCTION start the timer again
@@ -483,12 +481,12 @@ function scene:show( event )
 
     elseif ( phase == "did" ) then
         if (soundOn == true) then
-            musicChannel = audio.play(music, {channel=13, loops= -1})
-            audio.setVolume(0.25, {channel=13})
+            musicChannel = audio.play(music, {channel=10, loops= -1})
+            audio.setVolume(0.25, {channel=10})
         else
-            musicChannel = audio.play(music, {channel=13, loops= -1})
+            musicChannel = audio.play(music, {channel=10, loops= -1})
             audio.pause(musicChannel)
-            audio.setVolume(0.25, {channel=13})
+            audio.setVolume(0.25, {channel=10})
         end
         totalAnswer = 0
       
