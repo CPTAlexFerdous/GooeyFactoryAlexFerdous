@@ -665,6 +665,8 @@ function scene:show( event )
 
 -----------------------------------------------------------------------------------------
    elseif ( phase == "did" ) then
+        ResetIngredients()
+
         instructionText.isVisible = true
         if (soundOn == true) then
             backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
@@ -676,7 +678,6 @@ function scene:show( event )
         end
         yesButton.isVisible = false
       
-        ResetIngredients()
         --calling the addEventListener function 
         AddAnswerBoxEventListeners()
 
@@ -693,14 +694,14 @@ function scene:hide( event )
     local phase = event.phase
 ----------------------------------------------------------------------------------------
     if ( phase == "will" ) then  
-       
+            ResetIngredients()
+
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
         audio.stop(backgroundSoundChannel)
 
         --remove EventListener
-        RemoveAnswerBoxEventListeners()
 
        
         --audio.pause(backgroundSoundChannel)
@@ -708,6 +709,8 @@ function scene:hide( event )
         yesButton.isVisible = false
         backToMainMenu.x = 150
         backToMainMenu.y = 715
+        RemoveAnswerBoxEventListeners()
+
     end
 end
  --function scene:hide( event )

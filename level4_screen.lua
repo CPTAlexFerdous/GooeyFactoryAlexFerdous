@@ -719,6 +719,7 @@ function scene:hide( event )
     local phase = event.phase
 ----------------------------------------------------------------------------------------
     if ( phase == "will" ) then 
+        ResetIngredients()
 
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
@@ -728,7 +729,6 @@ function scene:hide( event )
         --removing Eventlisteners
         --muteButton:removeEventListener("touch", Mute)
         --unmuteButton:removeEventListener("touch", Unmute )
-        RemoveAnswerBoxEventListeners()
         --canceling the timer
         timer.cancel(countDownTimer)
         secondsLeft = totalSeconds
@@ -736,7 +736,8 @@ function scene:hide( event )
         backButton.x = 150
         backButton.y = 700
         yesButton.isVisible = false
- 
+         RemoveAnswerBoxEventListeners()
+
            
     end
 end --function scene:hide( event )
