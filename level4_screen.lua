@@ -690,6 +690,7 @@ function scene:show( event )
     if ( phase == "will" ) then
 -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
+            ResetIngredients()
         instructionText.isVisible = true
         if (soundOn == true) then
             backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
@@ -699,7 +700,6 @@ function scene:show( event )
             audio.pause(backgroundSoundChannel)
             audio.setVolume(0.25, {channel=12})
         end
-        ResetIngredients()
         --muteButton:addEventListener("touch", Mute)
         --unmuteButton:addEventListener("touch", Unmute )
         -- display background music
