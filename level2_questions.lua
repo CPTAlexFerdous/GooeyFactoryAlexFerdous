@@ -8,7 +8,7 @@
 -- Use Composer Libraries
 local composer = require( "composer" )
 local widget = require( "widget" )
-local physics = require( "physics")
+--local physics = require( "physics")
 
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
@@ -181,7 +181,7 @@ end
 local function DisplayQuestion()
     local randomQuestion = math.random (1,5)
     if (randomQuestion == 1) then
-        PositionAnswers()
+        --PositionAnswers()
 
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
@@ -496,8 +496,17 @@ function scene:show( event )
         PositionAnswers()
         -- Called when the scene is still off screen (but is about to come on screen).
 -----------------------------------------------------------------------------------------
-
+    -- called the FUNCTION to display questions
+       
+        -- play the background sound
     elseif ( phase == "did" ) then
+        DisplayQuestion()
+        -- call the function to change the answers positions
+        PositionAnswers()
+        -- called texts 
+        AddTextListeners()
+        -- start timer 
+        startTimer()
         if (soundOn == true) then
             musicChannel = audio.play(music, {channel=10, loops= -1})
             audio.setVolume(0.25, {channel=10})
@@ -508,15 +517,7 @@ function scene:show( event )
         end
         totalAnswer = 0
       
-        -- called the FUNCTION to display questions
-        DisplayQuestion()
-        -- call the function to change the answers positions
-        PositionAnswers()
-        -- called texts 
-        AddTextListeners()
-        -- start timer 
-        startTimer()
-        -- play the background sound
+    
      
 
     end
