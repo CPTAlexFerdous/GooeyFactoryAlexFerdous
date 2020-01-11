@@ -42,10 +42,10 @@ local wrongAnswerText1
 local wrongAnswerText2
 local wrongAnswerText3
 
-local randomQuestion 
-
 -- answers position variable
-local answerPosition 
+--local randomQuestion
+
+local answerPosition  =1
 
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
@@ -125,7 +125,7 @@ local function PositionAnswers()
 
     if (answerPosition == 1) then
 
-        answerText.x = X2
+        answerText.x = X1
         answerText.y = Y1
         
         wrongText1.x = X2
@@ -143,7 +143,7 @@ local function PositionAnswers()
         answerText.x = X2
         answerText.y = Y2
             
-        wrongText1.x = X1
+        wrongText1.x = X2
         wrongText1.y = Y1
             
         wrongText2.x = X2
@@ -442,6 +442,9 @@ end
 local function TouchListenerWrongAnswer(touch)
     userAnswer = wrongText1.text
     if (touch.phase == "ended") then
+    
+        PositionAnswers()
+
         -- pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
@@ -450,6 +453,7 @@ local function TouchListenerWrongAnswer(touch)
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
         timer.performWithDelay(1500, DisplayQuestion)
+       
             if(numWrong == 3) then
                 -- delaly for Displaying the you lose screen
                 timer.performWithDelay(1000, youLostScreen )
@@ -467,6 +471,7 @@ local function TouchListenerWrongAnswer2(touch)
     userAnswer = wrongText2.text
     if (touch.phase == "ended") then
     --pop sound when the objects touched
+        PositionAnswers()
 
         --popUpChannel = audio.play(popUp)
         -- Displaying the correct answer text if the user got wrong
@@ -475,6 +480,7 @@ local function TouchListenerWrongAnswer2(touch)
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
         timer.performWithDelay(1500, DisplayQuestion)
+
         if(numWrong == 3) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
@@ -488,6 +494,8 @@ end
 local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
     if (touch.phase == "ended") then
+        PositionAnswers()
+
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
@@ -496,6 +504,7 @@ local function TouchListenerWrongAnswer3(touch)
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
         timer.performWithDelay(1500, DisplayQuestion)
+
         if(numWrong == 3) then
         -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )

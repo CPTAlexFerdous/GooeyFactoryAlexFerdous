@@ -81,6 +81,7 @@ local checkMark4
 local checkMark5
 local backButton
 
+local readyImage
 --------------------------------------------------------------------------------------
 --set variables for making scene transition
 ------------------------------------------------------------------------------------------

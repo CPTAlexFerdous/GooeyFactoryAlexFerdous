@@ -67,7 +67,7 @@ local checkMark2
 local checkMark3
 local checkMark4
 local checkMark5
-
+local readyImage
 local yesButton
 local backToMainMenu
 ----------------------------------------------------------------------------------------------------
