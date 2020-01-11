@@ -717,6 +717,8 @@ function scene:show( event )
 
 -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
+            instructionText.isVisible = true
+
             ResetIngredients()
             AddAnswerBoxEventListeners()
 

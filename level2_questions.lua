@@ -388,29 +388,29 @@ function scene:create( event )
     cover.height = display.contentHeight 
     sceneGroup:insert(cover)
     -- create the question text object
-    questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 75)
+    questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 60)
     questionText:setTextColor(0/255, 0/255, 255/255)
     --questionText:setFillColor( 0.2, 0.2, 0. )
     sceneGroup:insert(questionText)
 
 
     -- create the answer text object & wrong answer text objects
-    answerText = display.newText("", X1, Y2, Arial, 45)
+    answerText = display.newText("", X1, Y2, Arial, 35)
     answerText.anchorX = 0
     answerText:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(answerText)
 
-    wrongText1 = display.newText("", X2, Y2, Arial, 45)
+    wrongText1 = display.newText("", X2, Y2, Arial, 35)
     wrongText1.anchorX = 0
     wrongText1:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(wrongText1)
 
-    wrongText2 = display.newText("", X1, Y1, Arial, 45)
+    wrongText2 = display.newText("", X1, Y1, Arial, 35)
     wrongText2.anchorX = 0
     wrongText2:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(wrongText2)
 
-    wrongText3 = display.newText("", X1, Y2, Arial, 45)
+    wrongText3 = display.newText("", X1, Y2, Arial, 35)
     wrongText3.anchorX = 0
     wrongText3:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(wrongText3)
