@@ -55,6 +55,7 @@ local chocolate_image
 local flour_image
 local butter_image
 
+local butter_image
 local smallChocolate
 local smallSugar
 local smallFlour

@@ -41,8 +41,11 @@ local answerText
 local wrongAnswerText1
 local wrongAnswerText2
 local wrongAnswerText3
+
+local randomQuestion 
+
 -- answers position variable
-local answerPosition = 1
+local answerPosition 
 
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
@@ -122,7 +125,7 @@ local function PositionAnswers()
 
     if (answerPosition == 1) then
 
-        answerText.x = X1
+        answerText.x = X2
         answerText.y = Y1
         
         wrongText1.x = X2
@@ -453,7 +456,6 @@ local function TouchListenerWrongAnswer(touch)
             end
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
-        PositionAnswers()
 
            
     end 
@@ -479,7 +481,6 @@ local function TouchListenerWrongAnswer2(touch)
         end
 -- delaly for making the correct text inVisible
         timer.performWithDelay(1500, HideCorrectAnswer)
-        PositionAnswers()
 
     end 
 end
@@ -501,7 +502,6 @@ local function TouchListenerWrongAnswer3(touch)
         end
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
-        PositionAnswers()
 
 
     end 

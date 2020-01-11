@@ -56,6 +56,7 @@ local wrongAnswer4
 local scrollSpeed = 2
 
 -- The local variables for the timer
+local bowl_image
 local totalSeconds = 15
 local secondsLeft =  15
 local clockText 
