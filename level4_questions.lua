@@ -10,10 +10,11 @@ local composer = require( "composer" )
 local widget = require( "widget" )
 --local physics = require( "physics")
 
--- Creating Scene Object
-local scene = composer.newScene( sceneName )
 -- Naming Scene
 sceneName = "level4_questions"
+
+-- Creating Scene Object
+local scene = composer.newScene( sceneName )
 
 ----------------------------------------------------------------------------------------
 -- background Music
@@ -43,9 +44,9 @@ local wrongAnswerText2
 local wrongAnswerText3
 
 -- answers position variable
---local randomQuestion = 1
+local randomQuestion = 1
 
---local answerPosition  = 1
+local answerPosition  
 
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
@@ -56,7 +57,7 @@ local bkg
 local cover
 
 -- boolean for touching the answers
-local textTouched = false
+--local textTouched = false
 -- variables for counting the right answers
 local totalAnswer = 0
 
@@ -189,7 +190,7 @@ end
 
 
 local function DisplayQuestion()
-    local randomQuestion = math.random (1, 20)
+    local randomQuestion = math.random (6, 20)
     if (randomQuestion == 1) then
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
@@ -421,7 +422,9 @@ end
 --checking to see if the user pressed the right answer and bring them back to level 1
 local function TouchListenerAnswer(touch)
     userAnswer = answerText.text
-    if (touch.phase == "ended") then 
+    
+    if (touch.phase == "ended") then
+        DisplayQuestion() 
         -- adding the pop sound when objects touched 
         popUpChannel = audio.play(popUp)
         -- counting the right answer
@@ -430,8 +433,7 @@ local function TouchListenerAnswer(touch)
         if(totalAnswer == 12)then
            yourcake()
         end 
-        DisplayQuestion()
-
+        PositionAnswers()
     end
 end
 
@@ -446,7 +448,7 @@ local function TouchListenerWrongAnswer(touch)
     userAnswer = wrongText1.text
     if (touch.phase == "ended")  then 
         -- pop sound when the objects touched
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
@@ -470,7 +472,7 @@ local function TouchListenerWrongAnswer2(touch)
     if (touch.phase == "ended") then
     --pop sound when the objects touched
 
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         -- Displaying the correct answer text if the user got wrong
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
     -- making the correct answer text Visible
@@ -490,7 +492,7 @@ local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
     if (touch.phase == "ended") then 
         -- DisplayQuestion pop sound when the objects touched
-        popUpChannel = audio.play(popUp)
+        --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the right answer text Visible
@@ -638,6 +640,8 @@ function scene:create( event )
     clockText.y = 45
     clockText:setTextColor(0.9, 0, 0)
     sceneGroup:insert(clockText)
+
+   
 end --function scene:create( event )
 
 -----------------------------------------------------------------------------------------

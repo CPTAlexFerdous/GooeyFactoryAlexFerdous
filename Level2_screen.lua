@@ -685,7 +685,7 @@ function scene:show( event )
 -----------------------------------------------------------------------------------------
 -- Called when the scene is still off screen (but is about to come on screen).
     if ( phase == "will" ) then
-
+        instructionText.isVisible = true
 -----------------------------------------------------------------------------------------
    elseif ( phase == "did" ) then
         instructionText.isVisible = true

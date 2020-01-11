@@ -7,13 +7,13 @@
 local composer = require( "composer" )
 local widget = require( "widget" )
 --local physics = require( "physics")
+-- Name the Scene
+sceneName = "level4_screen"
 
 -----------------------------------------------------------------------------------------
 -- Create Scene Object
 local scene = composer.newScene( sceneName )
 ------------------------------------------------------------------------------------------
--- Name the Scene
-sceneName = "level4_screen"
 
 --------------------------------------------------------------------------------
 --local sounds

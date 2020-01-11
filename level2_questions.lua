@@ -9,11 +9,11 @@
 local composer = require( "composer" )
 local widget = require( "widget" )
 --local physics = require( "physics")
+-- Naming Scene
+sceneName = "level2_questions"
 
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
--- Naming Scene
-sceneName = "level2_questions"
 
 -----------------------------------------------------------------------------------------
 --Local Sounds
@@ -52,7 +52,7 @@ local bkg
 local cover
 
 -- boolean for touching the answers
-local textTouched = false
+--local textTouched = false
 -- variables for counting the right answers
 local totalAnswer = 0
 
@@ -260,7 +260,10 @@ local function TouchListenerAnswer(touch)
            yourcake()
         end 
     end
+
+
 end
+
 -- FUNCTION for hidding the correct answer text
 local function HideCorrectAnswer( ... )
     giveThenAnswer.isVisible = false
@@ -311,7 +314,6 @@ end
 local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
     if (touch.phase == "ended") then
-        PositionAnswers()
 
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
@@ -325,6 +327,7 @@ local function TouchListenerWrongAnswer3(touch)
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
 
+        PositionAnswers()
 
     end 
 end
@@ -500,6 +503,7 @@ function scene:show( event )
        
         -- play the background sound
     elseif ( phase == "did" ) then
+        
         DisplayQuestion()
         -- call the function to change the answers positions
         PositionAnswers()
