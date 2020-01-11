@@ -43,6 +43,7 @@ local wrongAnswerText2
 local wrongAnswerText3
 -- answers position variable
 local answerPosition = 1
+
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
 local Y1 = display.contentHeight*1/2
@@ -64,6 +65,7 @@ local secondsLeft =  60
 local clockText
 local countDownTimer
 
+local rootImage
 -- background color
 display.setDefault("background", 0.9, 0.9, 0.5)
 
@@ -182,6 +184,8 @@ local function DisplayQuestion()
     local randomQuestion = math.random (1, 20)
     if (randomQuestion == 1) then
         rootImage.isVisible = false
+        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "What color is\n the sky?"
     --creating answer text from list it corispondes with the animals list
@@ -414,6 +418,8 @@ local function TouchListenerAnswer(touch)
         -- adding the pop sound when objects touched 
         --popUpChannel = audio.play(popUp)
         DisplayQuestion()
+        PositionAnswers()
+
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
@@ -447,6 +453,8 @@ local function TouchListenerWrongAnswer(touch)
             end
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
+        PositionAnswers()
+
            
     end 
 end
@@ -471,6 +479,8 @@ local function TouchListenerWrongAnswer2(touch)
         end
 -- delaly for making the correct text inVisible
         timer.performWithDelay(1500, HideCorrectAnswer)
+        PositionAnswers()
+
     end 
 end
 -- function for 3 wrong answer
@@ -491,6 +501,8 @@ local function TouchListenerWrongAnswer3(touch)
         end
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
+        PositionAnswers()
+
 
     end 
 end
@@ -690,7 +702,7 @@ function scene:hide( event )
         -- call the remove the event listeners FUNCTION
         RemoveTextListeners()
         -- reset scene after leave it 
-            --composer.removeScene("level4_questions")
+        --composer.removeScene("level4_questions")
         -- Displaying the background sound
         --soundChannel = audio.stop()
             --canceling the timer

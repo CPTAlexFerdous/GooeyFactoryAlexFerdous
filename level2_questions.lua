@@ -8,7 +8,7 @@
 -- Use Composer Libraries
 local composer = require( "composer" )
 local widget = require( "widget" )
---local physics = require( "physics")
+local physics = require( "physics")
 
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
@@ -41,6 +41,7 @@ local wrongAnswerText2
 local wrongAnswerText3
 -- answers position variable
 local answerPosition = 1
+
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
 local Y1 = display.contentHeight*1/2
@@ -60,6 +61,7 @@ local secondsLeft =  60
 local clockText
 local countDownTimer
 
+local rootImage
 -- background color
 display.setDefault("background", 0.9, 0.9, 0.5)
 
@@ -134,7 +136,7 @@ local function PositionAnswers()
         answerText.x = X2
         answerText.y = Y2
             
-        wrongText1.x = X1
+        wrongText1.x = X2
         wrongText1.y = Y1
             
         wrongText2.x = X2
@@ -178,6 +180,8 @@ end
 local function DisplayQuestion()
     local randomQuestion = math.random (1,5)
     if (randomQuestion == 1) then
+        PositionAnswers()
+
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
         questionText.text = "What color is\n the sky?"
@@ -246,6 +250,8 @@ local function TouchListenerAnswer(touch)
         -- adding the pop sound when objects touched 
         --popUpChannel = audio.play(popUp)
         DisplayQuestion()
+        PositionAnswers()
+
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
@@ -273,6 +279,7 @@ local function TouchListenerWrongAnswer(touch)
         timer.performWithDelay(1500, youLostScreen )
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
+        PositionAnswers()
     end 
 end
 
@@ -291,6 +298,8 @@ local function TouchListenerWrongAnswer2(touch)
         timer.performWithDelay(1500, youLostScreen )    
         -- delaly for making the correct text inVisible
         timer.performWithDelay(1500, HideCorrectAnswer)
+        PositionAnswers()
+
     end 
 end
 -- function for 3 wrong answer
@@ -307,6 +316,8 @@ local function TouchListenerWrongAnswer3(touch)
         timer.performWithDelay(1500, youLostScreen )
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
+        PositionAnswers()
+
 
     end 
 end

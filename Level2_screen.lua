@@ -10,6 +10,7 @@ local widget = require( "widget" )
 -- Name the Scene
 sceneName = "Level2_screen"
 --scene = composer.newScene(sceneName)
+--local physics = require( "physics")
 
 -----------------------------------------------------------------------------------------
 -- Create Scene Object
@@ -48,6 +49,26 @@ local wrongAnswer3
 local wrongAnswer4
 local scrollSpeed = 2
 
+local sugar_image
+local egg_image
+local chocolate_image
+local flour_image
+local butter_image
+
+local smallChocolate
+local smallSugar
+local smallFlour
+local smallButter
+local smallEggs
+local checkMarks
+local checkMark
+local checkMark2
+local checkMark3
+local checkMark4
+local checkMark5
+
+local yesButton
+local backToMainMenu
 ----------------------------------------------------------------------------------------------------
 --local sounds
 --------------------------------------------------------------------------------------------------------
@@ -81,7 +102,34 @@ local function gotoQuestions( ... )
   
 end
 
-
+local function ResetIngredients()
+    -- reset the original sugar image
+    sugar_image.x = 960
+    sugar_image.y = 500
+    sugar_image.isVisible = true
+    smallSugar.isVisible = false
+    checkMark4.isVisible = false
+    flour_image.x = 960
+    flour_image.y = 225
+    flour_image.isVisible = true
+    smallFlour.isVisible = false
+    checkMark3.isVisible = false
+    egg_image.x = 960
+    egg_image.y = 410
+    egg_image.isVisible = true
+    smallEggs.isVisible = false
+    checkMark5.isVisible = false
+    butter_image.x = 960
+    butter_image.y = 310
+    butter_image.isVisible = true
+    smallButter.isVisible = false
+    checkMark.isVisible = false
+    chocolate_image.x = 960
+    chocolate_image.y = 130
+    chocolate_image.isVisible = true
+    smallChocolate.isVisible = false
+    checkMark2.isVisible =  false    
+end
 
 local function movingChocolate(touch)
 
@@ -92,7 +140,7 @@ local function movingChocolate(touch)
             --boolean for click the gredian
             touchChocolate = true
             instructionText.isVisible = false
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
         --drag the objects to follow the mouse
         elseif (touch.phase == "moved") then
@@ -148,7 +196,7 @@ local function movingFlour(touch)
 
             --let other boxes know it has been clicked
             touchFlour = true       
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
         elseif (touch.phase == "moved") then
         --dragging function
@@ -197,7 +245,7 @@ local function movingButter(touch)
 
             -- boolean to  know it has been clicked
             touchButter = true  
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
         elseif (touch.phase == "moved") then
             --dragging function
             butter_image.x = touch.x
@@ -245,7 +293,7 @@ local function movingEggs(touch)
 
             --boolean know it has been clicked
             touchEggs = true 
-             touchSoundChannel = audio.play(touchSound)
+             --touchSoundChannel = audio.play(touchSound)
 
         elseif (touch.phase == "moved") then
         --dragging function
@@ -295,7 +343,7 @@ local function movingSugar(touch)
             --boolean to know it has been clicked
             touchSugar = true  
 
-            touchSoundChannel = audio.play(touchSound)
+            --touchSoundChannel = audio.play(touchSound)
 
         elseif (touch.phase == "moved") then
             --dragging function
@@ -334,6 +382,7 @@ local function movingSugar(touch)
 end
 
 
+
 local function AddAnswerBoxEventListeners()
     chocolate_image:addEventListener("touch", movingChocolate)
     butter_image:addEventListener("touch", movingButter)
@@ -341,6 +390,7 @@ local function AddAnswerBoxEventListeners()
     flour_image:addEventListener("touch", movingFlour)
     sugar_image:addEventListener("touch", movingSugar)
 end 
+
 
 -- Function that Removes Listeners to each objects
 local function RemoveAnswerBoxEventListeners()
@@ -351,34 +401,6 @@ local function RemoveAnswerBoxEventListeners()
     sugar_image:removeEventListener("touch", movingSugar)
 end 
 
-local function ResetIngredients()
-    -- reset the original sugar image
-    sugar_image.x = 960
-    sugar_image.y = 500
-    sugar_image.isVisible = true
-    smallSugar.isVisible = false
-    checkMark4.isVisible = false
-    flour_image.x = 960
-    flour_image.y = 225
-    flour_image.isVisible = true
-    smallFlour.isVisible = false
-    checkMark3.isVisible = false
-    egg_image.x = 960
-    egg_image.y = 410
-    egg_image.isVisible = true
-    smallEggs.isVisible = false
-    checkMark5.isVisible = false
-    butter_image.x = 960
-    butter_image.y = 310
-    butter_image.isVisible = true
-    smallButter.isVisible = false
-    checkMark.isVisible = false
-    chocolate_image.x = 960
-    chocolate_image.y = 130
-    chocolate_image.isVisible = true
-    smallChocolate.isVisible = false
-    checkMark2.isVisible =  false    
-end
 
 
 
@@ -665,9 +687,12 @@ function scene:show( event )
 
 -----------------------------------------------------------------------------------------
    elseif ( phase == "did" ) then
+        instructionText.isVisible = true
+
+        AddAnswerBoxEventListeners()
         ResetIngredients()
 
-        instructionText.isVisible = true
+
         if (soundOn == true) then
             backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
             audio.setVolume(0.25, {channel=12})
@@ -677,12 +702,7 @@ function scene:show( event )
             audio.setVolume(0.25, {channel=12})
         end
         yesButton.isVisible = false
-      
-        --calling the addEventListener function 
-        AddAnswerBoxEventListeners()
-
-        -- playing sound 
-    
+          
     end
 end 
 -----------------------------------------------------------------------------------------
@@ -694,11 +714,14 @@ function scene:hide( event )
     local phase = event.phase
 ----------------------------------------------------------------------------------------
     if ( phase == "will" ) then  
-            ResetIngredients()
+        --ResetIngredients()
 
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
+        RemoveAnswerBoxEventListeners()
+        
+
         audio.stop(backgroundSoundChannel)
 
         --remove EventListener
@@ -709,7 +732,6 @@ function scene:hide( event )
         yesButton.isVisible = false
         backToMainMenu.x = 150
         backToMainMenu.y = 715
-        RemoveAnswerBoxEventListeners()
 
     end
 end
