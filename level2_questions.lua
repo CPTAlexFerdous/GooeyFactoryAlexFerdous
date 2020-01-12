@@ -239,8 +239,121 @@ local function DisplayQuestion()
         wrongText1.text = "Maple Trees"
         wrongText2.text = "Oak Trees"
         wrongText3.text = "Oval Trees"            
+    elseif (randomQuestion == 6) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Magnets have a North and South pole. Which ends would attract each other?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "North & South"
+        --creating wrong answers
+        wrongText1.text = "South & South"
+        wrongText2.text = "North & North"
+        wrongText3.text = "They would\n never attract"  
+    elseif (randomQuestion == 7) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What thing takes up space?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Matter"
+        --creating wrong answers
+        wrongText1.text = "Force"
+        wrongText2.text = "Energy"
+        wrongText3.text = "Metal"    
+    elseif (randomQuestion == 8) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What form does water take at room temperature?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Liquid"
+        --creating wrong answers
+        wrongText1.text = "Solid"
+        wrongText2.text = "Ice"
+        wrongText3.text = "Snow" 
+    elseif (randomQuestion == 9) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Object X is mostly yellow, but tan and black at its point. It is a long,\n narrow tube that comes to a point. It is about 6 inches long, smooth and does not bend. What is object X?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "A pencil"
+        --creating wrong answers
+        wrongText1.text = "A bracelet"
+        wrongText2.text = "A yellow\ncrayon"
+        wrongText3.text = "A paper"    
+    elseif (randomQuestion == 10) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What is it called when matter changes from a\nsolid to a gas skipping a liquid state?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Sublimation "
+        --creating wrong answers
+        wrongText1.text = "Evaporation "
+        wrongText2.text = "Condensation"
+        wrongText3.text = "Precipitation"    
+    elseif (randomQuestion == 11) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Third graders are planning a rollerskating race.\nWhich surface would be best for this race?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Blacktop\n(like in a parking lot) "
+        --creating wrong answers
+        wrongText1.text = "Gravel\n(small stone) "
+        wrongText2.text = "Sand"
+        wrongText3.text = "Grass"    
+    elseif (randomQuestion == 12) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Which object would take the least force to pick up?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "A pencil"
+        --creating wrong answers
+        wrongText1.text = "A car"
+        wrongText2.text = "A book"
+        wrongText3.text = "A table"    
+    elseif (randomQuestion == 13) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "In New York State, the SHORTEST period of daylight occurs during which month?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "December"
+        --creating wrong answers
+        wrongText1.text = "June"
+        wrongText2.text = "March"
+        wrongText3.text = "November" 
+
+    elseif (randomQuestion == 14) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "If I poured all liquid from a round cup into a square\n pan, which property of the liquid changes?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Shape"
+        --creating wrong answers
+        wrongText1.text = "Smell"
+        wrongText2.text = "Volume"
+        wrongText3.text = "Color"  
+     elseif (randomQuestion == 15) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "A force can change the _____________of an object."
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Motion"
+        --creating wrong answers
+        wrongText1.text = "Mass"
+        wrongText2.text = "Name"
+        wrongText3.text = "Gravity"   
     end
 end
+
+
 
 
 -----------------------------------------------------------------------------------------
@@ -503,7 +616,7 @@ function scene:show( event )
        
         -- play the background sound
     elseif ( phase == "did" ) then
-        
+
         DisplayQuestion()
         -- call the function to change the answers positions
         PositionAnswers()

@@ -57,8 +57,8 @@ local scrollSpeed = 2
 
 -- The local variables for the timer
 local bowl_image
-local totalSeconds = 15
-local secondsLeft =  15
+local totalSeconds = 20
+local secondsLeft =  20
 local clockText 
 local countDownTimer
 

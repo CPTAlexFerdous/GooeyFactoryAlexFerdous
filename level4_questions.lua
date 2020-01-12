@@ -92,7 +92,7 @@ local transitionOption3 =({
 })
 local transitionOption4 =({
     effect="zoomInOutFade",
-    time = 500
+    time = 50
 })
 -----------------------------------------------------------------------------------------
 --LOCAL FUNCTIONS
@@ -361,7 +361,7 @@ local function DisplayQuestion()
         rootImage.isVisible = false
         PositionAnswers()
         --creating the question depending on the selcetion number
-        questionText.text = "The plants that live in dry places Their roots are?."
+        questionText.text = "The plants that live in dry places Their roots are?"
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Long"
         --creating wrong answers
@@ -641,7 +641,7 @@ function scene:create( event )
     clockText:setTextColor(0.9, 0, 0)
     sceneGroup:insert(clockText)
 
-   
+
 end --function scene:create( event )
 
 -----------------------------------------------------------------------------------------
