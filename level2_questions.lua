@@ -18,7 +18,7 @@ local scene = composer.newScene( sceneName )
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
-local music = audio.loadStream("Ferdous s/inspire.mp3")
+local music = audio.loadStream("Sounds/inspire.mp3")
 local musicChannel
 
 -----------------------------------------------------------------------------------------
@@ -36,9 +36,9 @@ local userAnswer
 
 -- variables for answers texts
 local answerText 
-local wrongAnswerText1
-local wrongAnswerText2
-local wrongAnswerText3
+local wrongText1
+local wrongText2
+local wrongText3
 -- answers position variable
 --local randomQuestion 
 --local answerPosition = 1
@@ -605,21 +605,21 @@ function scene:create( event )
     rootImage.isVisible = false
     sceneGroup:insert(rootImage)
 
-    backButton = widget.newButton( 
-    {
+    --backButton = widget.newButton( 
+    --{
     -- Setting Position
-    x = display.contentWidth*15/30,
-    y = display.contentHeight*15/17,
+    --x = display.contentWidth*15/30,
+    --y = display.contentHeight*15/17,
         -- Setting Dimensions
-    width = 150,
-    height = 100,
+    --width = 150,
+    --height = 100,
     -- Setting Visual Properties
-    defaultFile = "Images/Ferdous2/BackToLevel2ButtonPressed@2x.png",
-    overFile = "Images/Ferdous2/BackToLevel2ButtonUnPressedFerdous@2x .png",
+    --defaultFile = "Images/Ferdous2/BackToLevel2ButtonPressed@2x.png",
+    --overFile = "Images/Ferdous2/BackToLevel2ButtonUnPressedFerdous@2x .png",
     -- Setting Functional Properties
-    onRelease = gotoLevel2Screen
-    })
-    sceneGroup:insert(backButton)
+    --onRelease = gotoLevel2Screen
+    --})
+    --sceneGroup:insert(backButton)
 
     backButton2 = widget.newButton( 
     {
@@ -666,8 +666,7 @@ function scene:show( event )
         -- play the background sound
     elseif ( phase == "did" ) then
         totalAnswer = 0
-        backButton.x = 100
-        backButton.y = 700
+       
         DisplayQuestion()
         -- call the function to change the answers positions
         PositionAnswers()
@@ -679,7 +678,7 @@ function scene:show( event )
             musicChannel = audio.play(music, {channel=10, loops= -1})
             audio.setVolume(0.25, {channel=10})
         else
-            musicChannel = audio.play(music, {channel=10, loops= -1})
+            musicChannel = audio.pause(music, {channel=10, loops= -1})
             audio.pause(musicChannel)
             audio.setVolume(0.25, {channel=10})
         end

@@ -18,7 +18,7 @@ local scene = composer.newScene( sceneName )
 --------------------------------------------------------------------------------
 --local sounds
 ---------------------------------------------------------------------------------
-local backgroundSound = audio.loadStream("Ferdous s/jazzy.mp3")
+local backgroundSound = audio.loadStream("Sounds/jazzy.mp3")
 local backgroundSoundChannel
 
 --local touchSound = audio.loadStream("Sounds/PopSound.wav")

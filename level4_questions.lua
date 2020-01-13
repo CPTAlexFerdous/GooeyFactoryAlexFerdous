@@ -16,10 +16,13 @@ sceneName = "level4_questions"
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
 
+-- background color
+display.setDefault("background", 0.9, 0.9, 0.5)
+
 ----------------------------------------------------------------------------------------
 -- background Music
 ----------------------------------------------------------------------------------------
-local sound = audio.loadSound("Ferdous s/inspire.mp3")
+local sound = audio.loadSound("Sounds/inspire.mp3")
 local soundChannel
 -----------------------------------------------------------------------------------------
 --Local Sounds
@@ -38,9 +41,9 @@ local wrongAnswer3
 
 -- variables for answers texts
 local answerText 
-local wrongAnswerText1
-local wrongAnswerText2
-local wrongAnswerText3
+local wrongText1
+local wrongText2
+local wrongText3
 
 -- answers position variable
 --local randomQuestion = 1
@@ -70,8 +73,7 @@ local clockText
 local countDownTimer
 
 local rootImage
--- background color
-display.setDefault("background", 0.9, 0.9, 0.5)
+
 
 ------------------------------------------------------------------------------------------
 --tasnsition variables
@@ -188,11 +190,11 @@ local function PositionAnswers()
             
     end
 end
--- FUNCTION for Displaying Questions
 
 
 local function DisplayQuestion()
     local randomQuestion = math.random (1, 20)
+
 
     print ("***level4_question: randomQuestion = " .. randomQuestion)
 
