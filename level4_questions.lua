@@ -44,7 +44,7 @@ local answerText
 local wrongText1
 local wrongText2
 local wrongText3
-
+local giveThenAnswer
 -- answers position variable
 --local randomQuestion = 1
 

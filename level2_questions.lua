@@ -33,7 +33,7 @@ local wrongAnswer1
 local wrongAnswer2
 local wrongAnswer3
 local userAnswer
-
+local giveThenAnswer
 -- variables for answers texts
 local answerText 
 local wrongText1
