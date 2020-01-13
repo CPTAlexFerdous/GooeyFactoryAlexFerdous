@@ -624,7 +624,7 @@ function scene:create( event )
     height = 100,
     -- Setting Visual Properties
     defaultFile = "Images/Ferdous2/BackToLevel2ButtonPressed@2x.png",
-    overFile = "Images//Ferdous2/BackToLevel2ButtonUnPressedFerdous@2x .png",
+    overFile = "Images/Ferdous2/BackToLevel2ButtonUnPressedFerdous@2x .png",
     -- Setting Functional Properties
     onRelease = gotoLevel2Screen
     })

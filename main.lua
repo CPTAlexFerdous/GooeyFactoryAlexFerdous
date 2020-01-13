@@ -15,4 +15,4 @@ local composer = require("composer")
 ---------------------------------------------------------------------------------------
 
 -- go to the splash screen
-composer.gotoScene( "level2_questions" )
+composer.gotoScene( "level_select" )
