@@ -6,14 +6,14 @@
 -- Use Composer Library
 local composer = require( "composer" )
 local widget = require( "widget" )
-local physics = require( "physics")
+--local physics = require( "physics")
+-- Name the Scene
+sceneName = "level4_screen"
 
 -----------------------------------------------------------------------------------------
 -- Create Scene Object
 local scene = composer.newScene( sceneName )
 ------------------------------------------------------------------------------------------
--- Name the Scene
-sceneName = "level4_screen"
 
 --------------------------------------------------------------------------------
 --local sounds
@@ -56,13 +56,32 @@ local wrongAnswer4
 local scrollSpeed = 2
 
 -- The local variables for the timer
-local totalSeconds = 15
-local secondsLeft =  15
+local bowl_image
+local totalSeconds = 20
+local secondsLeft =  20
 local clockText 
 local countDownTimer
 
- --variables for sounds mute and unMute
+local vanilla_image
+local egg_image
+local milk_image
+local oil_image
+local vanillaBean_image
 
+local smallVanilla
+local smallVanillaBean
+local smallEggs
+local smallOil
+local smallMilk
+
+local checkMark
+local checkMark2
+local checkMark3
+local checkMark4
+local checkMark5
+local backButton
+
+local readyImage
 --------------------------------------------------------------------------------------
 --set variables for making scene transition
 ------------------------------------------------------------------------------------------
@@ -95,6 +114,40 @@ end
 
 local function  yesButtonVisible()
     yesButton.isVisible = true
+end
+
+local function ResetIngredients()
+    -- reset the original sugar image
+    oil_image.x = 960
+    oil_image.y = 520
+    oil_image.isVisible = true
+    smallOil.isVisible = false
+    checkMark4.isVisible = false
+
+    vanillaBean_image.x = 960
+    vanillaBean_image.y = 225
+    vanillaBean_image.isVisible = true
+    smallVanillaBean.isVisible = false
+    checkMark3.isVisible = false
+
+    egg_image.x = 960
+    egg_image.y = 410
+    egg_image.isVisible = true
+    smallEggs.isVisible = false
+    checkMark5.isVisible = false
+
+    milk_image.x = 960
+    milk_image.y = 310
+    milk_image.isVisible = true
+    smallMilk.isVisible = false
+    checkMark.isVisible = false
+
+    vanilla_image.x = 960
+    vanilla_image.y = 130
+    vanilla_image.isVisible = true
+    smallVanilla.isVisible = false
+    checkMark2.isVisible =  false
+    yesButton.isVisible = false
 end
 
 local function movingVanilla(touch)
@@ -372,35 +425,7 @@ local function RemoveAnswerBoxEventListeners()
 
 end 
 
-local function ResetIngredients()
-    -- reset the original sugar image
-    oil_image.x = 960
-    oil_image.y = 520
-    oil_image.isVisible = true
-    smallOil.isVisible = false
-    checkMark4.isVisible = false
-    vanillaBean_image.x = 960
-    vanillaBean_image.y = 225
-    vanillaBean_image.isVisible = true
-    smallVanillaBean.isVisible = false
-    checkMark3.isVisible = false
-    egg_image.x = 960
-    egg_image.y = 410
-    egg_image.isVisible = true
-    smallEggs.isVisible = false
-    checkMark5.isVisible = false
-    milk_image.x = 960
-    milk_image.y = 310
-    milk_image.isVisible = true
-    smallMilk.isVisible = false
-    checkMark.isVisible = false
-    vanilla_image.x = 960
-    vanilla_image.y = 130
-    vanilla_image.isVisible = true
-    smallVanilla.isVisible = false
-    checkMark2.isVisible =  false
-    yesButton.isVisible = false
-end
+
 
 
 -----------------------------------------------------------------------------------------
@@ -640,8 +665,8 @@ function scene:create( event )
     smallEggs.y = 370
     smallEggs.width = 50
     smallEggs.height = 20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-    sceneGroup:insert(smallEggs)    
     smallEggs.isVisible = false
+    sceneGroup:insert(smallEggs)    
 
     instructionText = display.newImageRect("Images/Ferdous4/cook2.png", display.contentWidth, display.contentHeight)
     instructionText.x = 500
@@ -688,8 +713,15 @@ function scene:show( event )
 -----------------------------------------------------------------------------------------
 -- Called when the scene is still off screen (but is about to come on screen).
     if ( phase == "will" ) then
+        --ResetIngredients()
+
 -----------------------------------------------------------------------------------------
     elseif ( phase == "did" ) then
+            instructionText.isVisible = true
+
+            ResetIngredients()
+            AddAnswerBoxEventListeners()
+
         instructionText.isVisible = true
         if (soundOn == true) then
             backgroundSoundChannel = audio.play(backgroundSound, {channel=12, loops= -1})
@@ -699,13 +731,11 @@ function scene:show( event )
             audio.pause(backgroundSoundChannel)
             audio.setVolume(0.25, {channel=12})
         end
-        ResetIngredients()
         --muteButton:addEventListener("touch", Mute)
         --unmuteButton:addEventListener("touch", Unmute )
         -- display background music
        
         --calling the addEventListener function 
-        AddAnswerBoxEventListeners()
             -- start timer 
         startTimer()
     end
@@ -719,16 +749,17 @@ function scene:hide( event )
     local phase = event.phase
 ----------------------------------------------------------------------------------------
     if ( phase == "will" ) then 
+        --ResetIngredients()
 
 -----------------------------------------------------------------------------------------
 -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
         audio.stop(backgroundSoundChannel)
+        RemoveAnswerBoxEventListeners()
 
         --removing Eventlisteners
         --muteButton:removeEventListener("touch", Mute)
         --unmuteButton:removeEventListener("touch", Unmute )
-        RemoveAnswerBoxEventListeners()
         --canceling the timer
         timer.cancel(countDownTimer)
         secondsLeft = totalSeconds
@@ -736,7 +767,7 @@ function scene:hide( event )
         backButton.x = 150
         backButton.y = 700
         yesButton.isVisible = false
- 
+
            
     end
 end --function scene:hide( event )

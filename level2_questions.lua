@@ -9,11 +9,11 @@
 local composer = require( "composer" )
 local widget = require( "widget" )
 --local physics = require( "physics")
+-- Naming Scene
+sceneName = "level2_questions"
 
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
--- Naming Scene
-sceneName = "level2_questions"
 
 -----------------------------------------------------------------------------------------
 --Local Sounds
@@ -40,7 +40,9 @@ local wrongAnswerText1
 local wrongAnswerText2
 local wrongAnswerText3
 -- answers position variable
+--local randomQuestion 
 local answerPosition = 1
+
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
 local Y1 = display.contentHeight*1/2
@@ -50,7 +52,7 @@ local bkg
 local cover
 
 -- boolean for touching the answers
-local textTouched = false
+--local textTouched = false
 -- variables for counting the right answers
 local totalAnswer = 0
 
@@ -60,6 +62,7 @@ local secondsLeft =  60
 local clockText
 local countDownTimer
 
+local rootImage
 -- background color
 display.setDefault("background", 0.9, 0.9, 0.5)
 
@@ -176,8 +179,10 @@ end
 -- FUNCTION for Displaying Questions
 
 local function DisplayQuestion()
-    local randomQuestion = math.random (1,5)
+    local randomQuestion = math.random (1, 20)
     if (randomQuestion == 1) then
+        --PositionAnswers()
+
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
         questionText.text = "What color is\n the sky?"
@@ -234,8 +239,180 @@ local function DisplayQuestion()
         wrongText1.text = "Maple Trees"
         wrongText2.text = "Oak Trees"
         wrongText3.text = "Oval Trees"            
+    elseif (randomQuestion == 6) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Magnets have a North and South pole.\n Which ends would attract each other?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "North & South"
+        --creating wrong answers
+        wrongText1.text = "South & South"
+        wrongText2.text = "North & North"
+        wrongText3.text = "They would\n never attract"  
+    elseif (randomQuestion == 7) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What thing takes up space?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Matter"
+        --creating wrong answers
+        wrongText1.text = "Force"
+        wrongText2.text = "Energy"
+        wrongText3.text = "Metal"    
+    elseif (randomQuestion == 8) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What form does water take at room temperature?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Liquid"
+        --creating wrong answers
+        wrongText1.text = "Solid"
+        wrongText2.text = "Ice"
+        wrongText3.text = "Snow" 
+    elseif (randomQuestion == 9) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Which on is the largest planet?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Jupiter"
+        --creating wrong answers
+        wrongText1.text = "Uranus"
+        wrongText2.text = "Neptune"
+        wrongText3.text = "Earth"    
+    elseif (randomQuestion == 10) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What is it called when matter changes from a\nsolid to a gas skipping a liquid state?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Sublimation "
+        --creating wrong answers
+        wrongText1.text = "Evaporation "
+        wrongText2.text = "Condensation"
+        wrongText3.text = "Precipitation"    
+    elseif (randomQuestion == 11) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Third graders are planning a rollerskating race.\nWhich surface would be best for this race?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "In a parking lot"
+        --creating wrong answers
+        wrongText1.text = "small stone"
+        wrongText2.text = "Sand"
+        wrongText3.text = "Grass"    
+    elseif (randomQuestion == 12) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Which object would take the least force to pick up?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "A pencil"
+        --creating wrong answers
+        wrongText1.text = "A car"
+        wrongText2.text = "A book"
+        wrongText3.text = "A table"    
+    elseif (randomQuestion == 13) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "In New York State, the SHORTEST period of\n daylight occurs during which month?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "December"
+        --creating wrong answers
+        wrongText1.text = "June"
+        wrongText2.text = "March"
+        wrongText3.text = "November" 
+
+    elseif (randomQuestion == 14) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "If I poured all liquid from a round cup into a square\n pan, which property of the liquid changes?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Shape"
+        --creating wrong answers
+        wrongText1.text = "Smell"
+        wrongText2.text = "Volume"
+        wrongText3.text = "Color"  
+    elseif (randomQuestion == 15) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "A force can change the _____________of an object."
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Motion"
+        --creating wrong answers
+        wrongText1.text = "Mass"
+        wrongText2.text = "Name"
+        wrongText3.text = "Gravity" 
+     elseif (randomQuestion == 16) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "A student uses a mirror and a flashlight.\n What type of energy is the student exploring?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Light energy"
+        --creating wrong answers
+        wrongText1.text = "Electrical\nenergy"
+        wrongText2.text = "Sound \nenergy"
+        wrongText3.text = "Mechanical\nenergy"   
+    elseif (randomQuestion == 17) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "There are many sources of heat in our homes.\nWhich one is the BEST example of heat energy?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Stove"
+        --creating wrong answers
+        wrongText1.text = "Refrigerated air"
+        wrongText2.text = "Can opener"
+        wrongText3.text = "Blender"   
+    elseif (randomQuestion == 18) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "A bicycle and a fan have what type of energy in common?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Mechanical"
+        --creating wrong answers
+        wrongText1.text = "Electrical"
+        wrongText2.text = "Sound"
+        wrongText3.text = "Light"  
+    elseif (randomQuestion == 19) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What is the ability to do work?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Energy"
+        --creating wrong answers
+        wrongText1.text = "Energy forms"
+        wrongText2.text = "Potential\nenergy"
+        wrongText3.text = "Kinetic\nenergy"     
+    elseif (randomQuestion == 20) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Which of the following is an example of force?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "A boy kicking\n the ball"
+        --creating wrong answers
+        wrongText1.text = "A ball\nat rest"
+        wrongText2.text = "A ball\nrolling"
+        wrongText3.text = "A dog\nsleeping"     
+     
+  
+
     end
+
 end
+
+
 
 
 -----------------------------------------------------------------------------------------
@@ -246,14 +423,19 @@ local function TouchListenerAnswer(touch)
         -- adding the pop sound when objects touched 
         --popUpChannel = audio.play(popUp)
         DisplayQuestion()
+        PositionAnswers()
+
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if(totalAnswer == 5)then
+        if(totalAnswer == 20)then
            yourcake()
         end 
     end
+
+
 end
+
 -- FUNCTION for hidding the correct answer text
 local function HideCorrectAnswer( ... )
     giveThenAnswer.isVisible = false
@@ -263,6 +445,8 @@ end
 local function TouchListenerWrongAnswer(touch)
     userAnswer = wrongText1.text
     if (touch.phase == "ended") then
+        PositionAnswers()
+
         -- pop sound when the objects touched
        -- popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
@@ -273,6 +457,7 @@ local function TouchListenerWrongAnswer(touch)
         timer.performWithDelay(1500, youLostScreen )
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
+
     end 
 end
 
@@ -281,6 +466,8 @@ end
 local function TouchListenerWrongAnswer2(touch)
     userAnswer = wrongText2.text
     if (touch.phase == "ended") then
+        PositionAnswers()
+
         --pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the correct answer text if the user got wrong
@@ -291,12 +478,15 @@ local function TouchListenerWrongAnswer2(touch)
         timer.performWithDelay(1500, youLostScreen )    
         -- delaly for making the correct text inVisible
         timer.performWithDelay(1500, HideCorrectAnswer)
+
+
     end 
 end
 -- function for 3 wrong answer
 local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
     if (touch.phase == "ended") then
+
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
@@ -305,8 +495,11 @@ local function TouchListenerWrongAnswer3(touch)
         giveThenAnswer.isVisible = true
         -- delaly for displying  you lose screen
         timer.performWithDelay(1500, youLostScreen )
+
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
+
+        PositionAnswers()
 
     end 
 end
@@ -370,29 +563,29 @@ function scene:create( event )
     cover.height = display.contentHeight 
     sceneGroup:insert(cover)
     -- create the question text object
-    questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 75)
+    questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 35)
     questionText:setTextColor(0/255, 0/255, 255/255)
     --questionText:setFillColor( 0.2, 0.2, 0. )
     sceneGroup:insert(questionText)
 
 
     -- create the answer text object & wrong answer text objects
-    answerText = display.newText("", X1, Y2, Arial, 45)
+    answerText = display.newText("", X1, Y2, Arial, 35)
     answerText.anchorX = 0
     answerText:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(answerText)
 
-    wrongText1 = display.newText("", X2, Y2, Arial, 45)
+    wrongText1 = display.newText("", X2, Y2, Arial, 35)
     wrongText1.anchorX = 0
     wrongText1:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(wrongText1)
 
-    wrongText2 = display.newText("", X1, Y1, Arial, 45)
+    wrongText2 = display.newText("", X1, Y1, Arial, 35)
     wrongText2.anchorX = 0
     wrongText2:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(wrongText2)
 
-    wrongText3 = display.newText("", X1, Y2, Arial, 45)
+    wrongText3 = display.newText("", X1, Y2, Arial, 35)
     wrongText3.anchorX = 0
     wrongText3:setTextColor(255/255, 0/255, 0/255)
     sceneGroup:insert(wrongText3)
@@ -431,7 +624,7 @@ function scene:create( event )
     height = 100,
     -- Setting Visual Properties
     defaultFile = "Images/Ferdous2/BackToLevel2ButtonPressed@2x.png",
-    overFile = "Images//Ferdous2/BackToLevel2ButtonUnPressedFerdous@2x .png",
+    overFile = "Images/Ferdous2/BackToLevel2ButtonUnPressedFerdous@2x .png",
     -- Setting Functional Properties
     onRelease = gotoLevel2Screen
     })
@@ -478,8 +671,18 @@ function scene:show( event )
         PositionAnswers()
         -- Called when the scene is still off screen (but is about to come on screen).
 -----------------------------------------------------------------------------------------
-
+    -- called the FUNCTION to display questions
+       
+        -- play the background sound
     elseif ( phase == "did" ) then
+
+        DisplayQuestion()
+        -- call the function to change the answers positions
+        PositionAnswers()
+        -- called texts 
+        AddTextListeners()
+        -- start timer 
+        startTimer()
         if (soundOn == true) then
             musicChannel = audio.play(music, {channel=10, loops= -1})
             audio.setVolume(0.25, {channel=10})
@@ -490,15 +693,7 @@ function scene:show( event )
         end
         totalAnswer = 0
       
-        -- called the FUNCTION to display questions
-        DisplayQuestion()
-        -- call the function to change the answers positions
-        PositionAnswers()
-        -- called texts 
-        AddTextListeners()
-        -- start timer 
-        startTimer()
-        -- play the background sound
+    
      
 
     end

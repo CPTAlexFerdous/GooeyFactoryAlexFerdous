@@ -8,12 +8,13 @@
 -- Use Composer Libraries
 local composer = require( "composer" )
 local widget = require( "widget" )
-local physics = require( "physics")
+--local physics = require( "physics")
+
+-- Naming Scene
+sceneName = "level4_questions"
 
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
--- Naming Scene
-sceneName = "level4_questions"
 
 ----------------------------------------------------------------------------------------
 -- background Music
@@ -41,8 +42,12 @@ local answerText
 local wrongAnswerText1
 local wrongAnswerText2
 local wrongAnswerText3
+
 -- answers position variable
-local answerPosition = 1
+local randomQuestion = 1
+
+local answerPosition  
+
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
 local Y1 = display.contentHeight*1/2
@@ -52,7 +57,7 @@ local bkg
 local cover
 
 -- boolean for touching the answers
-local textTouched = false
+--local textTouched = false
 -- variables for counting the right answers
 local totalAnswer = 0
 
@@ -64,6 +69,7 @@ local secondsLeft =  60
 local clockText
 local countDownTimer
 
+local rootImage
 -- background color
 display.setDefault("background", 0.9, 0.9, 0.5)
 
@@ -86,7 +92,7 @@ local transitionOption3 =({
 })
 local transitionOption4 =({
     effect="zoomInOutFade",
-    time = 500
+    time = 50
 })
 -----------------------------------------------------------------------------------------
 --LOCAL FUNCTIONS
@@ -99,7 +105,7 @@ local function BackTransition()
 end
 -- function for going to level 2 screen 
 
-local function gotoLevel2Screen()
+local function gotoLevel4Screen()
     composer.gotoScene( "level4_screen", transitionOption2 )
 end
 
@@ -113,6 +119,8 @@ local function youLostScreen( ... )
     composer.gotoScene("you_lose4", transitionOption4)
 
 end
+-- FUNCTIONS changing the answers positions
+
 -- FUNCTIONS changing the answers positions 
 local function PositionAnswers()
     --creating random start position in a cretain area
@@ -137,13 +145,13 @@ local function PositionAnswers()
 
         answerText.x = X2
         answerText.y = Y2
-            
+        
         wrongText1.x = X1
         wrongText1.y = Y1
             
         wrongText2.x = X2
         wrongText2.y = Y1
-
+            
         wrongText3.x = X1
         wrongText3.y = Y2
 
@@ -172,11 +180,14 @@ local function PositionAnswers()
             
         wrongText2.x = X1
         wrongText2.y = Y1
+
         wrongText3.x = X2
-        wrongText3.y = Y2       
+        wrongText3.y = Y2
+            
     end
 end
 -- FUNCTION for Displaying Questions
+
 
 local function DisplayQuestion()
     local randomQuestion = math.random (1, 20)
@@ -350,7 +361,7 @@ local function DisplayQuestion()
         rootImage.isVisible = false
         PositionAnswers()
         --creating the question depending on the selcetion number
-        questionText.text = "The plants that live in dry places Their roots are?."
+        questionText.text = "The plants that live in dry places Their roots are?"
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Long"
         --creating wrong answers
@@ -406,20 +417,23 @@ end
 
 
 
+
 -----------------------------------------------------------------------------------------
 --checking to see if the user pressed the right answer and bring them back to level 1
 local function TouchListenerAnswer(touch)
     userAnswer = answerText.text
+    
     if (touch.phase == "ended") then
+        DisplayQuestion() 
         -- adding the pop sound when objects touched 
-        --popUpChannel = audio.play(popUp)
-        DisplayQuestion()
+        popUpChannel = audio.play(popUp)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
         if(totalAnswer == 12)then
            yourcake()
         end 
+        PositionAnswers()
     end
 end
 
@@ -432,15 +446,15 @@ end
 --checking to see if the user pressed the right answer 
 local function TouchListenerWrongAnswer(touch)
     userAnswer = wrongText1.text
-    if (touch.phase == "ended") then
+    if (touch.phase == "ended")  then 
         -- pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
         giveThenAnswer.isVisible = true
-        numWrong = numWrong + 1
-        timer.performWithDelay(1500, DisplayQuestion)
+            numWrong = numWrong + 1
+            timer.performWithDelay(1500, DisplayQuestion)
             if(numWrong == 3) then
                 -- delaly for Displaying the you lose screen
                 timer.performWithDelay(1000, youLostScreen )
@@ -476,7 +490,7 @@ end
 -- function for 3 wrong answer
 local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
-    if (touch.phase == "ended") then
+    if (touch.phase == "ended") then 
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
@@ -526,7 +540,7 @@ local function RemoveTextListeners()
 end
 
 
------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
 -----------------------------------------------------------------------------------------
 
@@ -551,12 +565,12 @@ function scene:create( event )
     cover.width = display.contentWidth
     cover.height = display.contentHeight 
     sceneGroup:insert(cover)
-    -- create the question text object
+    --create the question text object
     questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 40)
     questionText:setTextColor(0/255, 0/255, 255/255)
     sceneGroup:insert(questionText)
 
-    --questionText:setFillColor( 0.2, 0.2, 0. )
+    questionText:setFillColor( 0.2, 0.2, 0. )
   
 
     -- create the answer text object & wrong answer text objects
@@ -626,6 +640,8 @@ function scene:create( event )
     clockText.y = 45
     clockText:setTextColor(0.9, 0, 0)
     sceneGroup:insert(clockText)
+
+
 end --function scene:create( event )
 
 -----------------------------------------------------------------------------------------
@@ -645,6 +661,15 @@ function scene:show( event )
 -----------------------------------------------------------------------------------------
 
     elseif ( phase == "did" ) then
+        -- called the FUNCTION to display questions
+         DisplayQuestion()
+        -- call the function to change the answers positions
+         PositionAnswers()
+            -- called texts 
+         AddTextListeners()
+        -- start timer 
+         startTimer()
+        -- play the background sound
         -- display background Music
        if (soundOn == true) then
             soundChannel = audio.play(sound, {channel=11, loops= -1})
@@ -657,15 +682,7 @@ function scene:show( event )
 
         totalAnswer = 0
        
-        -- called the FUNCTION to display questions
-         DisplayQuestion()
-        -- call the function to change the answers positions
-         PositionAnswers()
-            -- called texts 
-        AddTextListeners()
-        -- start timer 
-        startTimer()
-        -- play the background sound
+       
      
     end
 end 
@@ -690,7 +707,7 @@ function scene:hide( event )
         -- call the remove the event listeners FUNCTION
         RemoveTextListeners()
         -- reset scene after leave it 
-            --composer.removeScene("level4_questions")
+        --composer.removeScene("level4_questions")
         -- Displaying the background sound
         --soundChannel = audio.stop()
             --canceling the timer
