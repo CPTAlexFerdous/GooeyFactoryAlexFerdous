@@ -121,7 +121,7 @@ function scene:create( event )
         onRelease = Level2Transition
 
     } )
-
+ 
     -- create level 3 buttons
     level3Button = widget.newButton(
     {
