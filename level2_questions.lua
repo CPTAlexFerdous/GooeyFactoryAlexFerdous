@@ -179,7 +179,7 @@ end
 -- FUNCTION for Displaying Questions
 
 local function DisplayQuestion()
-    local randomQuestion = math.random (1,5)
+    local randomQuestion = math.random (1, 20)
     if (randomQuestion == 1) then
         --PositionAnswers()
 
@@ -242,7 +242,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 6) then
         PositionAnswers()
         --creating the question depending on the selcetion number
-        questionText.text = "Magnets have a North and South pole. Which ends would attract each other?"
+        questionText.text = "Magnets have a North and South pole.\n Which ends would attract each other?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "North & South"
@@ -275,14 +275,14 @@ local function DisplayQuestion()
     elseif (randomQuestion == 9) then
         PositionAnswers()
         --creating the question depending on the selcetion number
-        questionText.text = "Object X is mostly yellow, but tan and black at its point. It is a long,\n narrow tube that comes to a point. It is about 6 inches long, smooth and does not bend. What is object X?"
+        questionText.text = "Which on is the largest planet?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "A pencil"
+        answerText.text = "Jupiter"
         --creating wrong answers
-        wrongText1.text = "A bracelet"
-        wrongText2.text = "A yellow\ncrayon"
-        wrongText3.text = "A paper"    
+        wrongText1.text = "Uranus"
+        wrongText2.text = "Neptune"
+        wrongText3.text = "Earth"    
     elseif (randomQuestion == 10) then
         PositionAnswers()
         --creating the question depending on the selcetion number
@@ -300,9 +300,9 @@ local function DisplayQuestion()
         questionText.text = "Third graders are planning a rollerskating race.\nWhich surface would be best for this race?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Blacktop\n(like in a parking lot) "
+        answerText.text = "In a parking lot"
         --creating wrong answers
-        wrongText1.text = "Gravel\n(small stone) "
+        wrongText1.text = "small stone"
         wrongText2.text = "Sand"
         wrongText3.text = "Grass"    
     elseif (randomQuestion == 12) then
@@ -319,7 +319,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 13) then
         PositionAnswers()
         --creating the question depending on the selcetion number
-        questionText.text = "In New York State, the SHORTEST period of daylight occurs during which month?"
+        questionText.text = "In New York State, the SHORTEST period of\n daylight occurs during which month?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "December"
@@ -339,7 +339,7 @@ local function DisplayQuestion()
         wrongText1.text = "Smell"
         wrongText2.text = "Volume"
         wrongText3.text = "Color"  
-     elseif (randomQuestion == 15) then
+    elseif (randomQuestion == 15) then
         PositionAnswers()
         --creating the question depending on the selcetion number
         questionText.text = "A force can change the _____________of an object."
@@ -349,8 +349,67 @@ local function DisplayQuestion()
         --creating wrong answers
         wrongText1.text = "Mass"
         wrongText2.text = "Name"
-        wrongText3.text = "Gravity"   
+        wrongText3.text = "Gravity" 
+     elseif (randomQuestion == 16) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "A student uses a mirror and a flashlight.\n What type of energy is the student exploring?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Light energy"
+        --creating wrong answers
+        wrongText1.text = "Electrical\nenergy"
+        wrongText2.text = "Sound \nenergy"
+        wrongText3.text = "Mechanical\nenergy"   
+    elseif (randomQuestion == 17) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "There are many sources of heat in our homes.\nWhich one is the BEST example of heat energy?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Stove"
+        --creating wrong answers
+        wrongText1.text = "Refrigerated air"
+        wrongText2.text = "Can opener"
+        wrongText3.text = "Blender"   
+    elseif (randomQuestion == 18) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "A bicycle and a fan have what type of energy in common?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Mechanical"
+        --creating wrong answers
+        wrongText1.text = "Electrical"
+        wrongText2.text = "Sound"
+        wrongText3.text = "Light"  
+    elseif (randomQuestion == 19) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "What is the ability to do work?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "Energy"
+        --creating wrong answers
+        wrongText1.text = "Energy forms"
+        wrongText2.text = "Potential\nenergy"
+        wrongText3.text = "Kinetic\nenergy"     
+    elseif (randomQuestion == 20) then
+        PositionAnswers()
+        --creating the question depending on the selcetion number
+        questionText.text = "Which of the following is an example of force?"
+        rootImage.isVisible = false
+        --creating answer text from list it corispondes with the animals list
+        answerText.text = "A boy kicking\n the ball"
+        --creating wrong answers
+        wrongText1.text = "A ball\nat rest"
+        wrongText2.text = "A ball\nrolling"
+        wrongText3.text = "A dog\nsleeping"     
+     
+  
+
     end
+
 end
 
 
@@ -369,7 +428,7 @@ local function TouchListenerAnswer(touch)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if(totalAnswer == 5)then
+        if(totalAnswer == 20)then
            yourcake()
         end 
     end
@@ -504,7 +563,7 @@ function scene:create( event )
     cover.height = display.contentHeight 
     sceneGroup:insert(cover)
     -- create the question text object
-    questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 60)
+    questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 35)
     questionText:setTextColor(0/255, 0/255, 255/255)
     --questionText:setFillColor( 0.2, 0.2, 0. )
     sceneGroup:insert(questionText)

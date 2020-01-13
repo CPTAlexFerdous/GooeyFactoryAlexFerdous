@@ -190,7 +190,7 @@ end
 
 
 local function DisplayQuestion()
-    local randomQuestion = math.random (6, 20)
+    local randomQuestion = math.random (1, 20)
     if (randomQuestion == 1) then
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
