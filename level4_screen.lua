@@ -87,7 +87,7 @@ local readyImage
 ------------------------------------------------------------------------------------------
 local transitionOption =({
     effect="crossFade",
-    time = 500
+    time = 50
 })
 
 local transitionOption2 =({

@@ -21,6 +21,11 @@ local scene = composer.newScene( sceneName )
 local music = audio.loadStream("Sounds/inspire.mp3")
 local musicChannel
 
+local dingSound = audio.loadSound("Sounds/dingSound.mp3")
+
+local buzzSound = audio.loadSound("Sounds/Wrong Buzzer.mp3")
+
+
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
@@ -63,8 +68,11 @@ local clockText
 local countDownTimer
 
 local rootImage
+--variables for live
+local numBerWrong = 0
 -- background color
-display.setDefault("background", 0.9, 0.9, 0.5)
+
+--display.setDefault("background", 0.9, 0.9, 0.5)
 
 ------------------------------------------------------------------------------------------
 --tasnsition variables
@@ -415,11 +423,12 @@ local function TouchListenerAnswer(touch)
         -- adding the pop sound when objects touched 
         --popUpChannel = audio.play(popUp)
       
+        audio.play(dingSound)
 
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if(totalAnswer == 20)then
+        if(totalAnswer == 6)then
            yourcake()
         else
             DisplayQuestion()
@@ -436,19 +445,26 @@ end
 --checking to see if the user pressed the right answer 
 local function TouchListenerWrongAnswer(touch)
     if (touch.phase == "ended") then
-        PositionAnswers()
-
+        --PositionAnswers()
+        audio.play(buzzSound)
         -- pop sound when the objects touched
        -- popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
         giveThenAnswer.isVisible = true
-        -- delaly for Displaying the you lose screen
-        timer.performWithDelay(1500, youLostScreen )
+        numBerWrong = numBerWrong + 1
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
+        if(numBerWrong == 5) then
+            -- delaly for Displaying the you lose screen
+            timer.performWithDelay(1000, youLostScreen )
+        else
+            timer.performWithDelay(1500, DisplayQuestion)
+            timer.performWithDelay(1500, PositionAnswers)
+        end
+        
     end 
 end
 
@@ -457,7 +473,8 @@ end
 local function TouchListenerWrongAnswer2(touch)
     userAnswer = wrongText2.text
     if (touch.phase == "ended") then
-        PositionAnswers()
+        --PositionAnswers()
+        audio.play(buzzSound)
 
         --pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
@@ -465,11 +482,17 @@ local function TouchListenerWrongAnswer2(touch)
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the correct answer text Visible
         giveThenAnswer.isVisible = true
-        -- delaly for Displaying you lose screen
-        timer.performWithDelay(1500, youLostScreen )    
-        -- delaly for making the correct text inVisible
+        numBerWrong = numBerWrong + 1
+        -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
+        if(numBerWrong == 5) then
+            -- delaly for Displaying the you lose screen
+            timer.performWithDelay(1000, youLostScreen )
+        else
+            timer.performWithDelay(1500, DisplayQuestion)
+            timer.performWithDelay(1500, PositionAnswers)
+        end 
 
     end 
 end
@@ -477,6 +500,7 @@ end
 local function TouchListenerWrongAnswer3(touch)
     userAnswer = wrongText3.text
     if (touch.phase == "ended") then
+        audio.play(buzzSound)
 
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
@@ -484,15 +508,19 @@ local function TouchListenerWrongAnswer3(touch)
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the right answer text Visible
         giveThenAnswer.isVisible = true
-        -- delaly for displying  you lose screen
-        timer.performWithDelay(1500, youLostScreen )
-
-        -- delaly for hidding the right answer
+        numBerWrong = numBerWrong + 1
+        -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
-        PositionAnswers()
-
-    end 
+        if(numBerWrong == 5) then
+            -- delaly for Displaying the you lose screen
+            timer.performWithDelay(1000, youLostScreen )
+        else
+            timer.performWithDelay(1500, DisplayQuestion)
+            timer.performWithDelay(1500, PositionAnswers)
+        end
+        
+    end
 end
 -- timer counting function 
 local function UpdateTime( )
@@ -543,7 +571,7 @@ function scene:create( event )
     sceneGroup:insert(bkg)
 
     --setting to a semi black colour
-    bkg:setFillColor(0,0,0,0.5)
+    --bkg:setFillColor(0,0,0,0.5)
    
     -----------------------------------------------------------------------------------------
     --making a cover rectangle to have the background fully bolcked where the question is
@@ -647,6 +675,7 @@ function scene:create( event )
   
     sceneGroup:insert(clockText)
 
+
 end --function scene:create( event )
 
 -----------------------------------------------------------------------------------------
@@ -658,6 +687,8 @@ function scene:show( event )
     local phase = event.phase
     -----------------------------------------------------------------------------------------
     if ( phase == "will" ) then
+        totalAnswer = 0
+        numBerWrong = 0
 
         -- Called when the scene is still off screen (but is about to come on screen).
 -----------------------------------------------------------------------------------------
@@ -665,7 +696,7 @@ function scene:show( event )
        
         -- play the background sound
     elseif ( phase == "did" ) then
-        totalAnswer = 0
+       
        
         DisplayQuestion()
         -- call the function to change the answers positions
@@ -682,10 +713,9 @@ function scene:show( event )
             audio.pause(musicChannel)
             audio.setVolume(0.25, {channel=10})
         end
-        
+        totalAnswer = 0
 
     end
-    
 
 end 
 
@@ -698,7 +728,7 @@ function scene:hide( event )
     local phase = event.phase
 -----------------------------------------------------------------------------------------
     if ( phase == "will" ) then
-         AddTextListeners()
+         --AddTextListeners()
 
         -- Called when the scene is on screen (but is about to go off screen).
         -- Insert code here to "pause" the scene.
@@ -718,6 +748,8 @@ function scene:hide( event )
         --canceling the timer
          timer.cancel(countDownTimer)
          secondsLeft = totalSeconds
+         totalAnswer = 0
+         numBerWrong = 0
     end
 end 
 

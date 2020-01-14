@@ -17,7 +17,7 @@ sceneName = "level4_questions"
 local scene = composer.newScene( sceneName )
 
 -- background color
-display.setDefault("background", 0.9, 0.9, 0.5)
+--display.setDefault("background", 0.9, 0.9, 0.5)
 
 ----------------------------------------------------------------------------------------
 -- background Music
@@ -27,6 +27,12 @@ local soundChannel
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
+local music = audio.loadStream("Sounds/inspire.mp3")
+local musicChannel
+
+
+local buzzSound = audio.loadSound("Sounds/Wrong Buzzer.mp3")
+
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
@@ -94,7 +100,7 @@ local transitionOption3 =({
 })
 local transitionOption4 =({
     effect="zoomInOutFade",
-    time = 50
+    time = 300
 })
 -----------------------------------------------------------------------------------------
 --LOCAL FUNCTIONS
@@ -432,7 +438,7 @@ local function TouchListenerAnswer(touch)
     if (touch.phase == "ended") then
         
         -- adding the pop sound when objects touched 
-        popUpChannel = audio.play(popUp)
+        audio.play(dingSound)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
@@ -459,6 +465,8 @@ local function TouchListenerWrongAnswer(touch)
         -- pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
+        audio.play(buzzSound)
+
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
         giveThenAnswer.isVisible = true
@@ -487,6 +495,8 @@ local function TouchListenerWrongAnswer2(touch)
 
         --popUpChannel = audio.play(popUp)
         -- Displaying the correct answer text if the user got wrong
+        audio.play(buzzSound)
+
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the correct answer text Visible
         giveThenAnswer.isVisible = true
@@ -511,6 +521,8 @@ local function TouchListenerWrongAnswer3(touch)
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
+        audio.play(buzzSound)
+
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the right answer text Visible
         giveThenAnswer.isVisible = true
