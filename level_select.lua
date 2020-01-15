@@ -19,6 +19,13 @@ local scene = composer.newScene( sceneName )
 -- get rid of status bar 
 display.setStatusBar(display.HiddenStatusBar)
 
+---------------------------------------------------------------------
+-- GLOBAL VARIABLES
+------------------------------------------------------------------
+finishedLevel1 = false
+finishedLevel2 = false
+finishedLevel3 = false
+
 ------------------------------------------------------------------------
 --LOCAL VARIABLES
 ----------------------------------------------------------------------
@@ -30,6 +37,9 @@ local level2Button
 local level2Text
 local level3Button
 local level3Text
+local lock1
+local lock2
+local lock3
 
 ------------------------------------------------------------------------
 --LOCAL FUNCTIONS
@@ -46,16 +56,28 @@ end
 
 --create transition to level 2 
 local function Level2Transition(  )
-    composer.gotoScene("Level2_screen", {effect= "fade", time = 500} )
+    if (finishedLevel1 == true) then
+        composer.gotoScene("Level2_screen", {effect= "fade", time = 500} )
+    else
+        --do nothing
+    end
 end
 
 -- create transition to level 3
 local function Level3Transition(  )
-    composer.gotoScene("level3_screen", {effect= "fade", time = 500} )
+    if (finishedLevel2 == true) then
+        composer.gotoScene("level3_screen", {effect= "fade", time = 500} )
+    else
+        -- do nothing
+    end
 end
 
 local function Level4Transition(  )
-    composer.gotoScene("level4_screen", {effect= "fade", time = 500} )
+    if (finishedLevel3 == true) then
+        composer.gotoScene("level4_screen", {effect= "fade", time = 500} )
+    else
+        --do nothing
+    end
 end
 
 -- function is called when the screen doesn't exist
@@ -158,6 +180,17 @@ function scene:create( event )
         -- set functional properties
         onRelease = Level4Transition
     } )
+
+    lock1 = display.newImage("Images/lock.png", 25, 25)
+    lock2 = display.newImage("Images/lock.png", 25, 25)
+    lock3 = display.newImage("Images/lock.png", 25, 25)
+    lock1.x = display.contentWidth*2/3
+    lock1.y = display.contentHeight*2/5
+    lock2.x = display.contentWidth/3
+    lock2.y = display.contentHeight*6/10
+    lock3.x = display.contentWidth*2/3
+    lock3.y = display.contentHeight*6/10,
+
 
     -- create levelSelectText
     levelSelectText = display.newText("LEVELS", display.contentWidth/2, display.contentHeight/5, nil, 100)

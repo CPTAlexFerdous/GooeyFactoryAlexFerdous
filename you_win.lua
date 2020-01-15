@@ -174,6 +174,7 @@ function scene:show( event )
             youWinSoundChannel = audio.play(youWinSound, {channel = 5})
             audio.pause(youWinSoundChannel)
         end
+        finishedLevel1 = true
         Runtime:addEventListener("enterFrame", AnimateYouWin)
         Runtime:addEventListener("enterFrame", AnimateButtons)
 
