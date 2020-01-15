@@ -16,14 +16,21 @@ sceneName = "level4_questions"
 -- Creating Scene Object
 local scene = composer.newScene( sceneName )
 
+-- background color
+--display.setDefault("background", 0.9, 0.9, 0.5)
+
 ----------------------------------------------------------------------------------------
 -- background Music
 ----------------------------------------------------------------------------------------
-local sound = audio.loadSound("Ferdous s/inspire.mp3")
+local sound = audio.loadStream("Sounds/inspire.mp3")
 local soundChannel
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
+
+
+local buzzSound = audio.loadSound("Sounds/Wrong Buzzer.mp3")
+
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
@@ -35,23 +42,23 @@ local answer
 local wrongAnswer1
 local wrongAnswer2
 local wrongAnswer3
-local userAnswer
 
 -- variables for answers texts
 local answerText 
-local wrongAnswerText1
-local wrongAnswerText2
-local wrongAnswerText3
-
+local wrongText1
+local wrongText2
+local wrongText3
+local giveThenAnswer
 -- answers position variable
-local randomQuestion = 1
+--local randomQuestion = 1
 
-local answerPosition  
+--local answerPosition  
 
 local X1 = display.contentWidth*2/7
 local X2 = display.contentWidth*4/7
 local Y1 = display.contentHeight*1/2
 local Y2 = display.contentHeight*5.5/7
+
 -- background variables 
 local bkg
 local cover
@@ -70,8 +77,7 @@ local clockText
 local countDownTimer
 
 local rootImage
--- background color
-display.setDefault("background", 0.9, 0.9, 0.5)
+
 
 ------------------------------------------------------------------------------------------
 --tasnsition variables
@@ -92,7 +98,7 @@ local transitionOption3 =({
 })
 local transitionOption4 =({
     effect="zoomInOutFade",
-    time = 50
+    time = 300
 })
 -----------------------------------------------------------------------------------------
 --LOCAL FUNCTIONS
@@ -111,7 +117,7 @@ end
 
 -- function for going to you win screen
 local function yourcake()
-    composer.gotoScene("you_win4", transitionOption3)
+    composer.gotoScene("your_cake", transitionOption3)
 
 end
 -- FUNCTIONS for going to you lose screen
@@ -125,6 +131,8 @@ end
 local function PositionAnswers()
     --creating random start position in a cretain area
     answerPosition = math.random(1,4)
+
+    print ("***level4_question: answerPosition = " .. answerPosition)
 
     if (answerPosition == 1) then
 
@@ -158,17 +166,17 @@ local function PositionAnswers()
 
     elseif (answerPosition == 3) then
 
-        answerText.x = X2
-        answerText.y = Y1
+        answerText.x = X1
+        answerText.y = Y2
             
-        wrongText1.x = X1
+        wrongText1.x = X2
         wrongText1.y = Y2
             
         wrongText2.x = X1
         wrongText2.y = Y1
 
         wrongText3.x = X2
-        wrongText3.y = Y2
+        wrongText3.y = Y1
             
     elseif (answerPosition == 4) then
 
@@ -178,19 +186,22 @@ local function PositionAnswers()
         wrongText1.x = X1
         wrongText1.y = Y2
             
-        wrongText2.x = X1
-        wrongText2.y = Y1
+        wrongText2.x = X2
+        wrongText2.y = Y2
 
-        wrongText3.x = X2
-        wrongText3.y = Y2
+        wrongText3.x = X1
+        wrongText3.y = Y1
             
     end
 end
--- FUNCTION for Displaying Questions
 
 
 local function DisplayQuestion()
     local randomQuestion = math.random (1, 20)
+
+
+    print ("***level4_question: randomQuestion = " .. randomQuestion)
+
     if (randomQuestion == 1) then
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
@@ -202,7 +213,7 @@ local function DisplayQuestion()
         wrongText2.text = "Yellow"
         wrongText3.text = "Purple"
     elseif (randomQuestion == 2) then
-        PositionAnswers()
+      
         --creating the question depending on the selcetion number
         questionText.text = "What is this image of?"
         rootImage.isVisible = true
@@ -213,7 +224,7 @@ local function DisplayQuestion()
         wrongText2.text = "Branch"
         wrongText3.text = "Flower"
     elseif (randomQuestion == 3) then
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "What do plants need\n to grow?"
         rootImage.isVisible = false
@@ -224,7 +235,7 @@ local function DisplayQuestion()
         wrongText2.text = "Juice"
         wrongText3.text = "Darkness"
     elseif (randomQuestion == 4) then
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "What is the\n strongest shape?"
         rootImage.isVisible = false
@@ -235,7 +246,7 @@ local function DisplayQuestion()
         wrongText2.text = "Circle"
         wrongText3.text = "Star"
     elseif (randomQuestion == 5) then
-        PositionAnswers()
+ 
         --creating the question depending on the selcetion number
         questionText.text = "What kind of trees\n have flowers on them?"
         rootImage.isVisible = false
@@ -246,7 +257,7 @@ local function DisplayQuestion()
         wrongText2.text = "Oak Trees"
         wrongText3.text = "Oval Trees"    
     elseif (randomQuestion == 6) then
-        PositionAnswers()
+    
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
         questionText.text = " Raissa will transfer the bowl of food\n to another place. Her action shows?"
@@ -258,7 +269,7 @@ local function DisplayQuestion()
         wrongText3.text = "Inertia"     
 
     elseif (randomQuestion == 7) then
-        PositionAnswers()
+   
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
         questionText.text = "It is where the white part of the\n eye becomes bloodshot or sore?"
@@ -269,7 +280,7 @@ local function DisplayQuestion()
         wrongText2.text = "Glaucoma"
         wrongText3.text = "Strabismus"     
     elseif (randomQuestion == 8) then
-        PositionAnswers()
+     
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
         questionText.text = " True / False \n do you call the air around the Earth Atmosphere?"
@@ -281,7 +292,7 @@ local function DisplayQuestion()
         wrongText3.text = ""    
     elseif (randomQuestion == 9) then
         rootImage.isVisible = false
-        PositionAnswers()
+  
         --creating the question depending on the selcetion number
         questionText.text = "Which of the following\n have different texture?"
         --creating answer text from list it corispondes with the animals list
@@ -292,7 +303,7 @@ local function DisplayQuestion()
         wrongText3.text = "Glass"      
     elseif (randomQuestion == 10) then
         rootImage.isVisible = false
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "In which form does water have a\n definite shape and volume?"
         --creating answer text from list it corispondes with the animals list
@@ -303,7 +314,7 @@ local function DisplayQuestion()
         wrongText3.text = "clouds"   
     elseif (randomQuestion == 11) then
         rootImage.isVisible = false
-        PositionAnswers()
+     
         --creating the question depending on the selcetion number
         questionText.text = "Plants need which of the following to live?"
         --creating answer text from list it corispondes with the animals list
@@ -315,7 +326,7 @@ local function DisplayQuestion()
 
     elseif (randomQuestion == 12) then
         rootImage.isVisible = false
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = " Which group of animal does not have a backbone?"
          --creating answer text from list it corispondes with the animals list
@@ -326,7 +337,7 @@ local function DisplayQuestion()
         wrongText3.text = "Amphibian" 
     elseif (randomQuestion == 13) then
         rootImage.isVisible = false
-        PositionAnswers()
+   
         --creating the question depending on the selcetion number
         questionText.text = " Which planet is known as the red planet?"
         --creating answer text from list it corispondes with the animals list
@@ -337,7 +348,7 @@ local function DisplayQuestion()
         wrongText3.text = "Jupiter" 
     elseif (randomQuestion == 14) then
         rootImage.isVisible = false
-        PositionAnswers()
+    
         --creating the question depending on the selcetion number
         questionText.text = "What is the part of the plant that\n uses light to make food?"
        --creating answer text from list it corispondes with the animals list
@@ -348,7 +359,7 @@ local function DisplayQuestion()
         wrongText3.text = "Stem" 
     elseif (randomQuestion == 15) then
         rootImage.isVisible = false
-        PositionAnswers()
+     
         --creating the question depending on the selcetion number
         questionText.text = "What causes erosion?"
         --creating answer text from list it corispondes with the animals list
@@ -359,7 +370,7 @@ local function DisplayQuestion()
         wrongText3.text = "Heat" 
     elseif (randomQuestion == 16) then
         rootImage.isVisible = false
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "The plants that live in dry places Their roots are?"
         --creating answer text from list it corispondes with the animals list
@@ -370,7 +381,7 @@ local function DisplayQuestion()
         wrongText3.text = "None of them" 
     elseif (randomQuestion == 17) then
         rootImage.isVisible = false
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "What do fishes use to breathe in water?"
         --creating answer text from list it corispondes with the animals list
@@ -381,7 +392,7 @@ local function DisplayQuestion()
         wrongText3.text = "Tail" 
     elseif (randomQuestion == 18) then
         rootImage.isVisible = false
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "Which part of a plant holds it upright\n and moves it towards light?"
         --creating answer text from list it corispondes with the animals list
@@ -392,7 +403,7 @@ local function DisplayQuestion()
         wrongText3.text = "Leaves" 
     elseif (randomQuestion == 19) then
         rootImage.isVisible = false
-        PositionAnswers()
+
         --creating the question depending on the selcetion number
         questionText.text = "What the All pushes and pulls called?"
         --creating answer text from list it corispondes with the animals list
@@ -403,7 +414,7 @@ local function DisplayQuestion()
         wrongText3.text = "Energy" 
     elseif (randomQuestion == 20) then
         rootImage.isVisible = false
-        PositionAnswers()
+    
         --creating the question depending on the selcetion number
         questionText.text = "What are the ends of magnets called?"
         --creating answer text from list it corispondes with the animals list
@@ -421,19 +432,21 @@ end
 -----------------------------------------------------------------------------------------
 --checking to see if the user pressed the right answer and bring them back to level 1
 local function TouchListenerAnswer(touch)
-    userAnswer = answerText.text
     
     if (touch.phase == "ended") then
-        DisplayQuestion() 
+        
         -- adding the pop sound when objects touched 
-        popUpChannel = audio.play(popUp)
+        audio.play(dingSound)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if(totalAnswer == 12)then
+        if (totalAnswer == 12)then
            yourcake()
+        else
+            DisplayQuestion() 
+            PositionAnswers()
         end 
-        PositionAnswers()
+        
     end
 end
 
@@ -445,22 +458,28 @@ end
 
 --checking to see if the user pressed the right answer 
 local function TouchListenerWrongAnswer(touch)
-    userAnswer = wrongText1.text
+
     if (touch.phase == "ended")  then 
         -- pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the the right answer text
+        audio.play(buzzSound)
+
         giveThenAnswer.text = "Sorry, wrong answer. The correct \n answer is ".. answerText.text
         --make the text Visible
         giveThenAnswer.isVisible = true
-            numWrong = numWrong + 1
-            timer.performWithDelay(1500, DisplayQuestion)
-            if(numWrong == 3) then
-                -- delaly for Displaying the you lose screen
-                timer.performWithDelay(1000, youLostScreen )
-            end
+        numWrong = numWrong + 1
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
+
+        if(numWrong == 2) then
+            -- delaly for Displaying the you lose screen
+            timer.performWithDelay(1000, youLostScreen )
+        else
+            timer.performWithDelay(1500, DisplayQuestion)
+            timer.performWithDelay(1500, PositionAnswers)
+        end
+        
            
     end 
 end
@@ -468,43 +487,56 @@ end
 
 --checking to see if the user pressed the right answer 
 local function TouchListenerWrongAnswer2(touch)
-    userAnswer = wrongText2.text
+
     if (touch.phase == "ended") then
     --pop sound when the objects touched
 
         --popUpChannel = audio.play(popUp)
         -- Displaying the correct answer text if the user got wrong
+        audio.play(buzzSound)
+
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
-    -- making the correct answer text Visible
+        -- making the correct answer text Visible
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
-        timer.performWithDelay(1500, DisplayQuestion)
-        if(numWrong == 3) then
+
+        -- delaly for making the correct text inVisible
+        timer.performWithDelay(1500, HideCorrectAnswer)
+        if(numWrong == 2) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
+        else
+            timer.performWithDelay(1500, DisplayQuestion)
+            timer.performWithDelay(1500, PositionAnswers)
         end
--- delaly for making the correct text inVisible
-        timer.performWithDelay(1500, HideCorrectAnswer)
+
     end 
 end
 -- function for 3 wrong answer
 local function TouchListenerWrongAnswer3(touch)
-    userAnswer = wrongText3.text
+
     if (touch.phase == "ended") then 
         -- DisplayQuestion pop sound when the objects touched
         --popUpChannel = audio.play(popUp)
         -- Displaying the right answer text if the user got it wrong
+        audio.play(buzzSound)
+
         giveThenAnswer.text = "Sorry wrong answer. The correct \n answer is ".. answerText.text
         -- making the right answer text Visible
         giveThenAnswer.isVisible = true
         numWrong = numWrong + 1
-        timer.performWithDelay(1500, DisplayQuestion)
-        if(numWrong == 3) then
-        -- delaly for Displaying the you lose screen
-            timer.performWithDelay(1000, youLostScreen )
-        end
+
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
+
+        if(numWrong == 2) then
+        -- delaly for Displaying the you lose screen
+            timer.performWithDelay(1000, youLostScreen )
+        else
+            timer.performWithDelay(1500, DisplayQuestion)
+            timer.performWithDelay(1500, PositionAnswers)
+        end
+        
 
     end 
 end
@@ -653,8 +685,7 @@ function scene:show( event )
     local phase = event.phase
     -----------------------------------------------------------------------------------------
     if ( phase == "will" ) then
-        DisplayQuestion()
-        PositionAnswers()
+
         totalAnswer = 0
         numWrong = 0
 -- Called when the scene is still off screen (but is about to come on screen).

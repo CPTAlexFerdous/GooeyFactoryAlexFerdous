@@ -33,7 +33,7 @@ local bkgImage
 local youLoseSound = audio.loadStream("Sounds/YouLoseSound.mp3")
 local youLoseSoundChannel
 local youLoseImage
-local scrollSpeed = 8
+local scrollSpeed = 7
 local scrollSpeed2 = 7
 local scrollSpeed3 = 7
 local restartButton

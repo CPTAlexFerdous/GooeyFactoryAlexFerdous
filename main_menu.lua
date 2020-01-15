@@ -56,7 +56,7 @@ local unmuteButton
 -----------------------------------------------------------------------------------------
 -- LOCAL SOUNDS
 -----------------------------------------------------------------------------------------
-local bkgMusic = audio.loadSound("Sounds/MainMenuMusic.mp3")
+local bkgMusic = audio.loadStream("Sounds/MainMenuMusic.mp3")
 local bkgMusicChannel
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS

@@ -17,7 +17,7 @@ local widget = require( "widget" )
 -----------------------------------------------------------------------------------------
 
 -- Naming Scene
-sceneName = "you_win"
+sceneName = "you_win4"
 
 -----------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ local scene = composer.newScene( sceneName )
 -- local variables for the scene
 local bkgImage
 local youWinImage
-local scrollSpeed = 10
+local scrollSpeed = 8
 local scrollSpeed2 = 7
 local scrollSpeed3 = 7
 local restartButton

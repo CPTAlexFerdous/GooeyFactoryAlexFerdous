@@ -18,7 +18,7 @@ local scene = composer.newScene( sceneName )
 --------------------------------------------------------------------------------
 --local sounds
 ---------------------------------------------------------------------------------
-local backgroundSound = audio.loadStream("Ferdous s/jazzy.mp3")
+local backgroundSound = audio.loadStream("Sounds/jazzy.mp3")
 local backgroundSoundChannel
 
 --local touchSound = audio.loadStream("Sounds/PopSound.wav")
@@ -87,7 +87,7 @@ local readyImage
 ------------------------------------------------------------------------------------------
 local transitionOption =({
     effect="crossFade",
-    time = 500
+    time = 50
 })
 
 local transitionOption2 =({
