@@ -205,7 +205,7 @@ local function DisplayQuestion()
     if (randomQuestion == 1) then
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "What color is the sun?"
+        questionText.text = "What color is the sun light?"
     --creating answer text from list it corispondes with the animals list
         answerText.text = "Yellow"
         --creating wrong answers
