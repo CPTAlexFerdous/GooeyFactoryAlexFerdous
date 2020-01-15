@@ -80,12 +80,12 @@ end
 
 -- goes to you win screen
 local function YouWinTransition(  )
-    composer.gotoScene("you_win", {effect = "fromRight", time = 500} )
+    composer.gotoScene("you_win3", {effect = "fromRight", time = 500} )
 end
 
 -- goes to you Lose
 local function YouLoseTransition(  )
-    composer.gotoScene("you_lose", {effect = "fromRight", time = 500} )
+    composer.gotoScene("you_lose3", {effect = "fromRight", time = 500} )
 end
 
 -- function shows cake everything
