@@ -119,7 +119,7 @@ end
 
 -- function for going to you win screen
 local function yourcake()
-    composer.gotoScene("you_win4", transitionOption3)
+    composer.gotoScene("your_cake", transitionOption3)
 
 end
 -- FUNCTIONS for going to you lose screen
