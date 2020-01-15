@@ -69,7 +69,7 @@ end
 
 -- Creating Transition to Level1 Screen
 local function LevelSelectTransition( )
-    composer.gotoScene( "level_select", {effect = "slideUp", time = 1000})
+    composer.gotoScene( "level_select", {effect = "slideUp", time = 500})
 end    
 
 --LOCAL FUNCTION THAT GOES TO INSTRUCTIONS SCREEN 

@@ -269,7 +269,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 8) then
      
         --creating the question depending on the selcetion number
-        questionText.text = "What form does water take at room temperature?"
+        questionText.text = "What form does ice take in hot temperature?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Liquid"
@@ -290,14 +290,14 @@ local function DisplayQuestion()
         wrongText3.text = "Earth"    
     elseif (randomQuestion == 10) then
         --creating the question depending on the selcetion number
-        questionText.text = "What is it called when matter changes from a\nsolid to a gas skipping a liquid state?"
+        questionText.text = "What does the flower grow?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Sublimation "
+        answerText.text = "Fruit "
         --creating wrong answers
-        wrongText1.text = "Evaporation "
-        wrongText2.text = "Condensation"
-        wrongText3.text = "Precipitation"    
+        wrongText1.text = "Flower"
+        wrongText2.text = ""
+        wrongText3.text = ""    
     elseif (randomQuestion == 11) then
         --creating the question depending on the selcetion number
         questionText.text = "Third graders are planning a rollerskating race.\nWhich surface would be best for this race?"
@@ -322,26 +322,26 @@ local function DisplayQuestion()
     elseif (randomQuestion == 13) then
  
         --creating the question depending on the selcetion number
-        questionText.text = "In New York State, the SHORTEST period of\n daylight occurs during which month?"
+        questionText.text = "True / False \n water is a colorless object?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "December"
+        answerText.text = "True"
         --creating wrong answers
-        wrongText1.text = "June"
-        wrongText2.text = "March"
-        wrongText3.text = "November" 
+        wrongText1.text = "False"
+        wrongText2.text = ""
+        wrongText3.text = "" 
 
     elseif (randomQuestion == 14) then
    
         --creating the question depending on the selcetion number
-        questionText.text = "If I poured all liquid from a round cup into a square\n pan, which property of the liquid changes?"
+        questionText.text = "If you put water in a bowl from a bottel what will change?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Shape"
+        answerText.text = "The Wate\nShape"
         --creating wrong answers
-        wrongText1.text = "Smell"
-        wrongText2.text = "Volume"
-        wrongText3.text = "Color"  
+        wrongText1.text = "The Water\nSmell"
+        wrongText2.text = "The Water\nSound"
+        wrongText3.text = "The Water\nColor"  
     elseif (randomQuestion == 15) then
       
         --creating the question depending on the selcetion number
