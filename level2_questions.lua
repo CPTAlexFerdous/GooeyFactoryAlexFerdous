@@ -194,7 +194,7 @@ local function DisplayQuestion()
 
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "which on of these objet has made by humans?"
+        questionText.text = "which on of these object has made by humans?"
     --creating answer text from list it corispondes with the animals list
         answerText.text = "All of them"
         --creating wrong answers
@@ -354,29 +354,6 @@ local function DisplayQuestion()
         wrongText1.text = "Electrical"
         wrongText2.text = "Sound"
         wrongText3.text = "Light"  
-    elseif (randomQuestion == 19) then
-        --creating the question depending on the selcetion number
-        questionText.text = "What is the ability to do work?"
-        rootImage.isVisible = false
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Energy"
-        --creating wrong answers
-        wrongText1.text = "Energy forms"
-        wrongText2.text = "Potential\nenergy"
-        wrongText3.text = "Kinetic\nenergy"     
-    elseif (randomQuestion == 20) then
-        --creating the question depending on the selcetion number
-        questionText.text = "Which of the following is an example of force?"
-        rootImage.isVisible = false
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "A boy kicking\n the ball"
-        --creating wrong answers
-        wrongText1.text = "A ball\nat rest"
-        wrongText2.text = "A ball\nrolling"
-        wrongText3.text = "A dog\nsleeping"     
-     
-  
-
     end
 
 end
@@ -397,7 +374,7 @@ local function TouchListenerAnswer(touch)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if(totalAnswer == 6)then
+        if(totalAnswer == 7)then
            yourcake()
         else
             DisplayQuestion()

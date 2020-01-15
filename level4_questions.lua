@@ -226,7 +226,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 3) then
 
         --creating the question depending on the selcetion number
-        questionText.text = "WWhat do people need to live?"
+        questionText.text = "What do people need to live?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "A & B"
@@ -234,17 +234,17 @@ local function DisplayQuestion()
         wrongText1.text = "Water"
         wrongText2.text = "Food"
         wrongText3.text = "House"
-    elseif (randomQuestion == 4) then
-
+    elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
-        questionText.text = "What is the\n strongest shape?"
+        questionText.text = "What is the ability to do work?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Triangle"
+        answerText.text = "Energy"
         --creating wrong answers
-        wrongText1.text = "Square"
-        wrongText2.text = "Circle"
-        wrongText3.text = "Star"
+        wrongText1.text = "Energy forms"
+        wrongText2.text = "Potential\nenergy"
+        wrongText3.text = "Kinetic\nenergy"     
+   
     elseif (randomQuestion == 5) then
  
         --creating the question depending on the selcetion number
@@ -268,17 +268,17 @@ local function DisplayQuestion()
         wrongText2.text = "Pressure"
         wrongText3.text = "Inertia"     
 
-    elseif (randomQuestion == 7) then
-   
-        rootImage.isVisible = false
+     elseif (randomQuestion == 7) then
         --creating the question depending on the selcetion number
-        questionText.text = "It is where the white part of the\n eye becomes bloodshot or sore?"
+        questionText.text = "Which of the following is an example of force?"
+        rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Conjunctivitis"
+        answerText.text = "A boy kicking\n the ball"
         --creating wrong answers
-        wrongText1.text = "Cataracts"
-        wrongText2.text = "Glaucoma"
-        wrongText3.text = "Strabismus"     
+        wrongText1.text = "A ball\nat rest"
+        wrongText2.text = "A ball\nrolling"
+        wrongText3.text = "A dog\nsleeping"     
+     
     elseif (randomQuestion == 8) then
      
         rootImage.isVisible = false
@@ -386,7 +386,7 @@ local function TouchListenerAnswer(touch)
         -- counting the right answer
         totalAnswer = totalAnswer + 1
         -- make condition for winning the game 
-        if (totalAnswer == 12)then
+        if (totalAnswer == 10)then
            yourcake()
         else
             DisplayQuestion() 
