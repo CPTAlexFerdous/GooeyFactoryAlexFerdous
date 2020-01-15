@@ -457,7 +457,7 @@ local function TouchListenerWrongAnswer(touch)
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
-        if(numBerWrong == 5) then
+        if(numBerWrong == 3) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
         else
@@ -486,7 +486,7 @@ local function TouchListenerWrongAnswer2(touch)
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
-        if(numBerWrong == 5) then
+        if(numBerWrong == 3) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
         else
@@ -512,7 +512,7 @@ local function TouchListenerWrongAnswer3(touch)
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
-        if(numBerWrong == 5) then
+        if(numBerWrong == 3) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
         else

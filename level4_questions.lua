@@ -22,13 +22,11 @@ local scene = composer.newScene( sceneName )
 ----------------------------------------------------------------------------------------
 -- background Music
 ----------------------------------------------------------------------------------------
-local sound = audio.loadSound("Sounds/inspire.mp3")
+local sound = audio.loadStream("Sounds/inspire.mp3")
 local soundChannel
 -----------------------------------------------------------------------------------------
 --Local Sounds
 ----------------------------------------------------------------------------------------
-local music = audio.loadStream("Sounds/inspire.mp3")
-local musicChannel
 
 
 local buzzSound = audio.loadSound("Sounds/Wrong Buzzer.mp3")
@@ -474,7 +472,7 @@ local function TouchListenerWrongAnswer(touch)
         -- delaly for hidding the correct answer text
         timer.performWithDelay(1500, HideCorrectAnswer)
 
-        if(numWrong == 3) then
+        if(numWrong == 2) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
         else
@@ -504,7 +502,7 @@ local function TouchListenerWrongAnswer2(touch)
 
         -- delaly for making the correct text inVisible
         timer.performWithDelay(1500, HideCorrectAnswer)
-        if(numWrong == 3) then
+        if(numWrong == 2) then
             -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
         else
@@ -531,7 +529,7 @@ local function TouchListenerWrongAnswer3(touch)
         -- delaly for hidding the right answer
         timer.performWithDelay(1500, HideCorrectAnswer)
 
-        if(numWrong == 3) then
+        if(numWrong == 2) then
         -- delaly for Displaying the you lose screen
             timer.performWithDelay(1000, youLostScreen )
         else
