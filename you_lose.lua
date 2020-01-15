@@ -49,7 +49,7 @@ end
 
 --goes to main menu
 local function MainMenuTransition(  )
-    composer.gotoScene("main_menu")
+    composer.gotoScene("level_select")
 end
 
 

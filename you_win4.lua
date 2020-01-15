@@ -53,7 +53,7 @@ local function RestartTransition(  )
 end
 
 local function MainMenuTransition(  )
-    composer.gotoScene("main_menu")
+    composer.gotoScene("level_select")
 end
 
 -- animation for the You you_win
