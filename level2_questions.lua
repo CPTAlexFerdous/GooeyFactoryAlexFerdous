@@ -188,19 +188,19 @@ end
 -- FUNCTION for Displaying Questions
 
 local function DisplayQuestion()
-    local randomQuestion = math.random (1, 20)
+    local randomQuestion = math.random (1, 15)
     if (randomQuestion == 1) then
         --PositionAnswers()
 
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "What color is\n the sky?"
+        questionText.text = "which on of these objet has made by humans?"
     --creating answer text from list it corispondes with the animals list
-        answerText.text = "Blue"
+        answerText.text = "All of them"
         --creating wrong answers
-        wrongText1.text = "Green"
-        wrongText2.text = "Yellow"
-        wrongText3.text = "Purple"
+        wrongText1.text = "book"
+        wrongText2.text = "car"
+        wrongText3.text = "Table"
     elseif (randomQuestion == 2) then
        
     --creating the question depending on the selcetion number
@@ -227,14 +227,14 @@ local function DisplayQuestion()
 
     elseif (randomQuestion == 4) then
         --creating the question depending on the selcetion number
-        questionText.text = "What is the\n strongest shape?"
+        questionText.text = "What do the animals need to survive?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Triangle"
+        answerText.text = "A & B"
         --creating wrong answers
-        wrongText1.text = "Square"
-        wrongText2.text = "Circle"
-        wrongText3.text = "Star"
+        wrongText1.text = "Water"
+        wrongText2.text = "Food"
+        wrongText3.text = "Shelter"
     elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
         questionText.text = "What kind of trees\n have flowers on them?"
@@ -280,7 +280,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 9) then
         
         --creating the question depending on the selcetion number
-        questionText.text = "Which on is the largest planet?"
+        questionText.text = "Which one is the largest planet?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Jupiter"
@@ -288,19 +288,10 @@ local function DisplayQuestion()
         wrongText1.text = "Uranus"
         wrongText2.text = "Neptune"
         wrongText3.text = "Earth"    
+    
     elseif (randomQuestion == 10) then
         --creating the question depending on the selcetion number
-        questionText.text = "What does the flower grow?"
-        rootImage.isVisible = false
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Fruit "
-        --creating wrong answers
-        wrongText1.text = "Flower"
-        wrongText2.text = ""
-        wrongText3.text = ""    
-    elseif (randomQuestion == 11) then
-        --creating the question depending on the selcetion number
-        questionText.text = "Third graders are planning a rollerskating race.\nWhich surface would be best for this race?"
+        questionText.text = "Which surface would be the best for this skating race?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "In a parking lot"
@@ -308,7 +299,7 @@ local function DisplayQuestion()
         wrongText1.text = "small stone"
         wrongText2.text = "Sand"
         wrongText3.text = "Grass"    
-    elseif (randomQuestion == 12) then
+    elseif (randomQuestion == 11) then
 
         --creating the question depending on the selcetion number
         questionText.text = "Which object would take the least force to pick up?"
@@ -319,7 +310,7 @@ local function DisplayQuestion()
         wrongText1.text = "A car"
         wrongText2.text = "A book"
         wrongText3.text = "A table"    
-    elseif (randomQuestion == 13) then
+    elseif (randomQuestion == 12) then
  
         --creating the question depending on the selcetion number
         questionText.text = "True / False \n water is a colorless object?"
@@ -331,7 +322,7 @@ local function DisplayQuestion()
         wrongText2.text = ""
         wrongText3.text = "" 
 
-    elseif (randomQuestion == 14) then
+    elseif (randomQuestion == 13) then
    
         --creating the question depending on the selcetion number
         questionText.text = "If you put water in a bowl from a bottel what will change?"
@@ -342,40 +333,18 @@ local function DisplayQuestion()
         wrongText1.text = "The Water\nSmell"
         wrongText2.text = "The Water\nSound"
         wrongText3.text = "The Water\nColor"  
-    elseif (randomQuestion == 15) then
+    elseif (randomQuestion == 14) then
       
         --creating the question depending on the selcetion number
-        questionText.text = "A force can change the _____________of an object."
+        questionText.text = "Which one is the smallest object."
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Motion"
+        answerText.text = "An eraser"
         --creating wrong answers
-        wrongText1.text = "Mass"
-        wrongText2.text = "Name"
-        wrongText3.text = "Gravity" 
-     elseif (randomQuestion == 16) then
- 
-        --creating the question depending on the selcetion number
-        questionText.text = "A student uses a mirror and a flashlight.\n What type of energy is the student exploring?"
-        rootImage.isVisible = false
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Light energy"
-        --creating wrong answers
-        wrongText1.text = "Electrical\nenergy"
-        wrongText2.text = "Sound \nenergy"
-        wrongText3.text = "Mechanical\nenergy"   
-    elseif (randomQuestion == 17) then
-       
-        --creating the question depending on the selcetion number
-        questionText.text = "There are many sources of heat in our homes.\nWhich one is the BEST example of heat energy?"
-        rootImage.isVisible = false
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Stove"
-        --creating wrong answers
-        wrongText1.text = "Refrigerated air"
-        wrongText2.text = "Can opener"
-        wrongText3.text = "Blender"   
-    elseif (randomQuestion == 18) then
+        wrongText1.text = "A book"
+        wrongText2.text = "A chair"
+        wrongText3.text = "A table" 
+    elseif (randomQuestion == 15) then
         --creating the question depending on the selcetion number
         questionText.text = "A bicycle and a fan have what type of energy in common?"
         rootImage.isVisible = false

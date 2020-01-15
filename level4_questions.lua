@@ -197,7 +197,7 @@ end
 
 
 local function DisplayQuestion()
-    local randomQuestion = math.random (1, 20)
+    local randomQuestion = math.random (1, 15)
 
 
     print ("***level4_question: randomQuestion = " .. randomQuestion)
@@ -205,12 +205,12 @@ local function DisplayQuestion()
     if (randomQuestion == 1) then
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "What color is\n the sky?"
+        questionText.text = "What color is the sun?"
     --creating answer text from list it corispondes with the animals list
-        answerText.text = "Blue"
+        answerText.text = "Yellow"
         --creating wrong answers
         wrongText1.text = "Green"
-        wrongText2.text = "Yellow"
+        wrongText2.text = "Blue"
         wrongText3.text = "Purple"
     elseif (randomQuestion == 2) then
       
@@ -218,22 +218,22 @@ local function DisplayQuestion()
         questionText.text = "What is this image of?"
         rootImage.isVisible = true
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Root"
+        answerText.text = "Flower"
         --creating wrong answers
         wrongText1.text = "Leaves"
         wrongText2.text = "Branch"
-        wrongText3.text = "Flower"
+        wrongText3.text = "Root"
     elseif (randomQuestion == 3) then
 
         --creating the question depending on the selcetion number
-        questionText.text = "What do plants need\n to grow?"
+        questionText.text = "WWhat do people need to live?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Water"
+        answerText.text = "A & B"
         --creating wrong answers
-        wrongText1.text = "Moonlight"
-        wrongText2.text = "Juice"
-        wrongText3.text = "Darkness"
+        wrongText1.text = "Water"
+        wrongText2.text = "Food"
+        wrongText3.text = "House"
     elseif (randomQuestion == 4) then
 
         --creating the question depending on the selcetion number
@@ -260,9 +260,9 @@ local function DisplayQuestion()
     
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = " Raissa will transfer the bowl of food\n to another place. Her action shows?"
+        questionText.text = "The ability of doing something called?"
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Motion "
+        answerText.text = "Energy "
         --creating wrong answers
         wrongText1.text = "Force"
         wrongText2.text = "Pressure"
@@ -328,82 +328,38 @@ local function DisplayQuestion()
         rootImage.isVisible = false
 
         --creating the question depending on the selcetion number
-        questionText.text = " Which group of animal does not have a backbone?"
+        questionText.text = "True or False\n Sun is bigger than Moon?"
          --creating answer text from list it corispondes with the animals list
-        answerText.text = "Arachnid"
+        answerText.text = "True"
          --creating wrong answers
-        wrongText1.text = "Fish"
-        wrongText2.text = "Bird"
-        wrongText3.text = "Amphibian" 
+        wrongText1.text = "False"
+        wrongText2.text = ""
+        wrongText3.text = "" 
     elseif (randomQuestion == 13) then
         rootImage.isVisible = false
    
         --creating the question depending on the selcetion number
-        questionText.text = " Which planet is known as the red planet?"
+        questionText.text = " True or False\nEarth is bigger than sun?"
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Mars"
+        answerText.text = "False"
         --creating wrong answers
-        wrongText1.text = "Earth"
-        wrongText2.text = "Venus"
-        wrongText3.text = "Jupiter" 
+        wrongText1.text = "True"
+        wrongText2.text = ""
+        wrongText3.text = "" 
     elseif (randomQuestion == 14) then
         rootImage.isVisible = false
     
         --creating the question depending on the selcetion number
-        questionText.text = "What is the part of the plant that\n uses light to make food?"
+        questionText.text = "what shape does sun have?"
        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Leaves"
+        answerText.text = "Round"
         --creating wrong answers
-        wrongText1.text = "Flowers"
-        wrongText2.text = "Roots"
-        wrongText3.text = "Stem" 
+        wrongText1.text = "rectangle"
+        wrongText2.text = "Triangle"
+        wrongText3.text = "Square" 
     elseif (randomQuestion == 15) then
         rootImage.isVisible = false
      
-        --creating the question depending on the selcetion number
-        questionText.text = "What causes erosion?"
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Wind And\n Water"
-        --creating wrong answers
-        wrongText1.text = "Cold"
-        wrongText2.text = "Sun And\n Water"
-        wrongText3.text = "Heat" 
-    elseif (randomQuestion == 16) then
-        rootImage.isVisible = false
-
-        --creating the question depending on the selcetion number
-        questionText.text = "The plants that live in dry places Their roots are?"
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Long"
-        --creating wrong answers
-        wrongText1.text = "Short"
-        wrongText2.text = "Small"
-        wrongText3.text = "None of them" 
-    elseif (randomQuestion == 17) then
-        rootImage.isVisible = false
-
-        --creating the question depending on the selcetion number
-        questionText.text = "What do fishes use to breathe in water?"
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Gills"
-        --creating wrong answers
-        wrongText1.text = "Lungs"
-        wrongText2.text = "Fins"
-        wrongText3.text = "Tail" 
-    elseif (randomQuestion == 18) then
-        rootImage.isVisible = false
-
-        --creating the question depending on the selcetion number
-        questionText.text = "Which part of a plant holds it upright\n and moves it towards light?"
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Stem"
-        --creating wrong answers
-        wrongText1.text = "Roots"
-        wrongText2.text = "Flower"
-        wrongText3.text = "Leaves" 
-    elseif (randomQuestion == 19) then
-        rootImage.isVisible = false
-
         --creating the question depending on the selcetion number
         questionText.text = "What the All pushes and pulls called?"
         --creating answer text from list it corispondes with the animals list
@@ -412,17 +368,7 @@ local function DisplayQuestion()
         wrongText1.text = "Weight"
         wrongText2.text = "Gravity"
         wrongText3.text = "Energy" 
-    elseif (randomQuestion == 20) then
-        rootImage.isVisible = false
-    
-        --creating the question depending on the selcetion number
-        questionText.text = "What are the ends of magnets called?"
-        --creating answer text from list it corispondes with the animals list
-        answerText.text = "Poles"
-        --creating wrong answers
-        wrongText1.text = "Equator"
-        wrongText2.text = "Circuits"
-        wrongText3.text = "Axis" 
+   
     end                      
 end
 
@@ -642,7 +588,7 @@ function scene:create( event )
     bakeText:setTextColor(0.4, 0.3, 0.9)
     -----------------------------------------------------------------------------------------
    -- creating roots image
-    rootImage = display.newImageRect("Images/Ferdous4/roots.png", display.contentWidth, display.contentHeight) 
+    rootImage = display.newImageRect("Images/Ferdous4/flower.jpg", display.contentWidth, display.contentHeight) 
     rootImage.x = 500
     rootImage.y = 250
     rootImage.width = 200
