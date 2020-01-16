@@ -133,7 +133,7 @@ end
 
 -- Function that changes the answers for a new question and places them randomly in one of the positions
 local function DisplayAnswers( )
-    local randomQuestion = math.random(1, 6)
+    local randomQuestion = math.random(1, 12)
     wrongAnswer1TextObject.isVisible = true
     wrongAnswer2TextObject.isVisible = true
     answerTextObject.isVisible = true 
@@ -199,6 +199,31 @@ local function DisplayAnswers( )
         answerTextObject.text = "Round"
         wrongAnswer1TextObject.text = "Flat"
         wrongAnswer2TextObject.text = "A Cube"
+    elseif (randomQuestion == 11) then
+        questionTextObject.text = "   How long does it take \nfor the Earth to rotate once?"
+        answerTextObject.text = "24 hours"
+        wrongAnswer1TextObject.text = "23 hours"
+        wrongAnswer2TextObject.text = "7 days"
+    elseif(randomQuestion == 12) then
+        questionTextObject.text = "How long does it take for the Earth to go around the sun once?"
+        answerTextObject.text = "365 days"
+        wrongAnswer1TextObject.text = "A decade"
+        wrongAnswer2TextObject.text = "360 days" 
+    elseif (randomQuestion == 13) then 
+        questionTextObject.text = "Gravity causes everything to fall at the same speed."
+        answerTextObject.text = "True"
+        wrongAnswer1TextObject.text = "False"
+        wrongAnswer2TextObject.text = ""
+    elseif (randomQuestion == 14) then
+        questionTextObject.text = "What is the force that pulls objects towards the Earth?"
+        answerTextObject.text = "Gravity"
+        wrongAnswer1TextObject.text = "Friction"
+        wrongAnswer2TextObject.text = "Magnetic"
+    elseif (randomQuestion == 15) then
+        questionTextObject.text = "What covers most of the Earth's surface?"
+        answerTextObject.text = "Water"
+        wrongAnswer2TextObject.text = "Mountains"
+        wrongAnswer1TextObject.text = "People"
     end
 
     local answerPosition = math.random(1, 3)

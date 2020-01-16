@@ -129,7 +129,7 @@ end
 
 -- Function that changes the answers for a new question and places them randomly in one of the positions
 local function DisplayAnswers( )
-    local randomQuestion = math.random(1, 10)
+    local randomQuestion = math.random(1, 11)
     if (randomQuestion == 1) then
         questionTextObject.text = "What is the strongest shape?"
         answerTextObject.text = "Triangle"
@@ -183,6 +183,31 @@ local function DisplayAnswers( )
         answerTextObject.text = "Oxygen"
         wrongAnswer1TextObject.text = "Helium"
         wrongAnswer2TextObject.text = "Gold"
+    elseif (randomQuestion == 11) then 
+        questionTextObject.text = "What made the dinosaurs go extinct?"
+        answerTextObject.text = "An asteroid"
+        wrongAnswer1TextObject.text = "The Ice Age"
+        wrongAnswer2TextObject.text = "A hurricane"
+    elseif (randomQuestion == 12) then 
+        questionTextObject.text = "Which one is a mammal?"
+        answerTextObject.text = "A Rabbit"
+        wrongAnswer1TextObject.text = "A Fish"
+        wrongAnswer2TextObject.text = "A blue jay"
+    elseif (randomQuestion == 13) then 
+        questionTextObject.text = "A manmade structure is something made by a...?"
+        answerTextObject.text = "Human"
+        wrongAnswer1TextObject.text = "Beaver"
+        wrongAnswer2TextObject.text = "Tree"
+    elseif (randomQuestion == 14) then 
+        questionTextObject.text = "What is a carnivore?"
+        answerTextObject.text = "A meat eater"
+        wrongAnswer1TextObject.text = "A plant eater"
+        wrongAnswer2TextObject.text = ""
+    elseif (randomQuestion == 15) then 
+        questionTextObject.text = "What is a herbivore?"
+        answerTextObject.text = "A plant eater"
+        wrongAnswer1TextObject.text = "A meat eater"
+        wrongAnswer2TextObject.text = ""
     end
 
     local answerPosition = math.random(1, 3)
