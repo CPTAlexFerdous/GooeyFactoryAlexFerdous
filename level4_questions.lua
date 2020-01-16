@@ -30,6 +30,7 @@ local soundChannel
 
 
 local buzzSound = audio.loadSound("Sounds/Wrong Buzzer.mp3")
+local dingSound = audio.loadSound("Sounds/dingSound.mp3")
 
 -----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
@@ -229,11 +230,11 @@ local function DisplayQuestion()
         questionText.text = "What do people need to live?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "A & B"
+        answerText.text = "All of\nthem"
         --creating wrong answers
         wrongText1.text = "Water"
         wrongText2.text = "Food"
-        wrongText3.text = "House"
+        wrongText3.text = "Shelter"
     elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
         questionText.text = "What is the ability to do work?"
@@ -248,14 +249,14 @@ local function DisplayQuestion()
     elseif (randomQuestion == 5) then
  
         --creating the question depending on the selcetion number
-        questionText.text = "What kind of trees\n have flowers on them?"
+        questionText.text = "What is the smallest planet?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Blossom tree"
+        answerText.text = "Mercury"
         --creating wrong answers
-        wrongText1.text = "Maple Trees"
-        wrongText2.text = "Oak Trees"
-        wrongText3.text = "Oval Trees"    
+        wrongText1.text = "Earth"
+        wrongText2.text = "Venus"
+        wrongText3.text = "Mars"    
     elseif (randomQuestion == 6) then
     
         rootImage.isVisible = false
@@ -659,8 +660,6 @@ function scene:show( event )
 
         totalAnswer = 0
        
-       
-     
     end
 end 
 

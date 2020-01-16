@@ -230,21 +230,21 @@ local function DisplayQuestion()
         questionText.text = "What do the animals need to survive?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "A & B"
+        answerText.text = "Water And\nFood"
         --creating wrong answers
         wrongText1.text = "Water"
         wrongText2.text = "Food"
         wrongText3.text = "Shelter"
     elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
-        questionText.text = "What kind of trees\n have flowers on them?"
+        questionText.text = "Which plante known as morning star and\n evening star planet?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Blossom tree"
+        answerText.text = "Venus"
         --creating wrong answers
-        wrongText1.text = "Maple Trees"
-        wrongText2.text = "Oak Trees"
-        wrongText3.text = "Oval Trees"            
+        wrongText1.text = "Earth"
+        wrongText2.text = "Mars"
+        wrongText3.text = "Jupiter"            
     elseif (randomQuestion == 6) then
         --creating the question depending on the selcetion number
         questionText.text = "Magnets have a North and South pole.\n Which ends would attract each other?"
@@ -328,7 +328,7 @@ local function DisplayQuestion()
         questionText.text = "If you put water in a bowl from a bottle what will change?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "The Wate\nShape"
+        answerText.text = "The Water\nShape"
         --creating wrong answers
         wrongText1.text = "The Water\nSmell"
         wrongText2.text = "The Water\nSound"
