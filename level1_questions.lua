@@ -194,7 +194,7 @@ local function DisplayAnswers( )
         wrongAnswer1TextObject.text = "A Fish"
         wrongAnswer2TextObject.text = "A blue jay"
     elseif (randomQuestion == 13) then 
-        questionTextObject.text = "A manmade structure is something made by a...?"
+        questionTextObject.text = "A manmade structure is\n something made by a...?"
         answerTextObject.text = "Human"
         wrongAnswer1TextObject.text = "Beaver"
         wrongAnswer2TextObject.text = "Tree"

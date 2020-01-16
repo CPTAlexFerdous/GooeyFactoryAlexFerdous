@@ -143,7 +143,7 @@ local function DisplayAnswers( )
     alreadyClickedAnswer = false
 
     if (randomQuestion == 1) then
-        questionTextObject.text = "What are the two poles on a magnet"
+        questionTextObject.text = "What are the two \n poles on a magnet"
         answerTextObject.text = "Positive and Negative"
         wrongAnswer1TextObject.text = "Left and Right"
         wrongAnswer2TextObject.text = "Red and Blue"
@@ -205,7 +205,7 @@ local function DisplayAnswers( )
         wrongAnswer1TextObject.text = "23 hours"
         wrongAnswer2TextObject.text = "7 days"
     elseif(randomQuestion == 12) then
-        questionTextObject.text = "How long does it take for the \n Earth to go around the sun once?"
+        questionTextObject.text = "  How long does it take for the \n Earth to go around the sun once?"
         answerTextObject.text = "365 days"
         wrongAnswer1TextObject.text = "24 hours"
         wrongAnswer2TextObject.text = "360 days" 
@@ -215,12 +215,12 @@ local function DisplayAnswers( )
         wrongAnswer1TextObject.text = "False"
         wrongAnswer2TextObject.text = ""
     elseif (randomQuestion == 14) then
-        questionTextObject.text = "What is the force that pulls objects towards the Earth?"
+        questionTextObject.text = "What is the force that pulls\n    objects towards the Earth?"
         answerTextObject.text = "Gravity"
         wrongAnswer1TextObject.text = "Friction"
         wrongAnswer2TextObject.text = "Magnetic"
     elseif (randomQuestion == 15) then
-        questionTextObject.text = "What covers most of the Earth's surface?"
+        questionTextObject.text = "What covers most of \n the Earth's surface?"
         answerTextObject.text = "Water"
         wrongAnswer2TextObject.text = "Mountains"
         wrongAnswer1TextObject.text = "People"
