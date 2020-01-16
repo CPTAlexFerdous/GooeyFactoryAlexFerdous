@@ -181,15 +181,21 @@ function scene:create( event )
         onRelease = Level4Transition
     } )
 
-    lock1 = display.newImage("Images/lock.png", 25, 25)
-    lock2 = display.newImage("Images/lock.png", 25, 25)
-    lock3 = display.newImage("Images/lock.png", 25, 25)
+    lock1 = display.newImage("Images/lock.png", 300, 300)
+    lock2 = display.newImage("Images/lock.png", 300, 300)
+    lock3 = display.newImage("Images/lock.png", 300, 300)
     lock1.x = display.contentWidth*2/3
-    lock1.y = display.contentHeight*2/5
+    lock1.y = display.contentHeight*8/18
+    lock1.width = 400
+    lock1.height = 300
     lock2.x = display.contentWidth/3
-    lock2.y = display.contentHeight*6/10
+    lock2.y = display.contentHeight*9/12
+    lock2.width = 400
+    lock2.height = 300
     lock3.x = display.contentWidth*2/3
-    lock3.y = display.contentHeight*6/10,
+    lock3.y = display.contentHeight*9/12
+    lock3.width = 400
+    lock3.height = 300
 
 
     -- create levelSelectText
@@ -220,6 +226,9 @@ function scene:create( event )
     sceneGroup:insert( level3Text )
     sceneGroup:insert( level4Button )
     sceneGroup:insert( level4Text )
+    sceneGroup:insert( lock1 )
+    sceneGroup:insert( lock2 )
+    sceneGroup:insert( lock3 )
 end
 
 -- the function is called when the scene is still off screen (but is about to come on screen)
@@ -239,6 +248,21 @@ function scene:show(event)
     -----------------------------------------------------------------------------------------
 
     elseif ( phase == "did" ) then
+        if(finishedLevel1 == true) then
+            lock1.isVisible = false
+        else
+            lock1.isVisible = true
+        end
+        if(finishedLevel2 == true) then
+            lock2.isVisible = false
+        else
+            lock2.isVisible = true
+        end
+        if(finishedLevel3 == true) then
+            lock3.isVisible = false
+        else
+            lock3.isVisible = true
+        end
         
     end
 
