@@ -346,14 +346,14 @@ local function DisplayQuestion()
         wrongText3.text = "A table" 
     elseif (randomQuestion == 15) then
         --creating the question depending on the selcetion number
-        questionText.text = "A bicycle and a fan have what type of energy in common?"
+        questionText.text = "True/ False\nbicycles is made by human?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Mechanical"
+        answerText.text = "True"
         --creating wrong answers
-        wrongText1.text = "Electrical"
-        wrongText2.text = "Sound"
-        wrongText3.text = "Light"  
+        wrongText1.text = "False"
+        wrongText2.text = ""
+        wrongText3.text = ""  
     end
 
 end

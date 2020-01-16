@@ -237,26 +237,26 @@ local function DisplayQuestion()
         wrongText3.text = "Shelter"
     elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
-        questionText.text = "What is the ability to do work?"
+        questionText.text = "Which on has more Weight"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Energy"
+        answerText.text = "Car"
         --creating wrong answers
-        wrongText1.text = "Energy forms"
-        wrongText2.text = "Potential\nenergy"
-        wrongText3.text = "Kinetic\nenergy"     
+        wrongText1.text = "Chair"
+        wrongText2.text = "Pen"
+        wrongText3.text = "Table"     
    
     elseif (randomQuestion == 5) then
  
         --creating the question depending on the selcetion number
-        questionText.text = "What is the smallest planet?"
+        questionText.text = "Which object is faster?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Mercury"
+        answerText.text = "A Car"
         --creating wrong answers
-        wrongText1.text = "Earth"
-        wrongText2.text = "Venus"
-        wrongText3.text = "Mars"    
+        wrongText1.text = "A Bicycle"
+        wrongText2.text = ""
+        wrongText3.text = ""    
     elseif (randomQuestion == 6) then
     
         rootImage.isVisible = false
@@ -351,7 +351,7 @@ local function DisplayQuestion()
         rootImage.isVisible = false
     
         --creating the question depending on the selcetion number
-        questionText.text = "what shape does sun have?"
+        questionText.text = "What shape does sun have?"
        --creating answer text from list it corispondes with the animals list
         answerText.text = "Round"
         --creating wrong answers
@@ -592,8 +592,8 @@ function scene:create( event )
     rootImage = display.newImageRect("Images/Ferdous4/flower.jpg", display.contentWidth, display.contentHeight) 
     rootImage.x = 500
     rootImage.y = 250
-    rootImage.width = 200
-    rootImage.height = 200
+    rootImage.width = 100
+    rootImage.height = 100
     rootImage.isVisible = false
     sceneGroup:insert(rootImage)
 
