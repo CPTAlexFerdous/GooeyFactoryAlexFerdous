@@ -237,7 +237,7 @@ local function DisplayQuestion()
         wrongText3.text = "Shelter"
     elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
-        questionText.text = "Which plante known as morning star and\n evening star planet?"
+        questionText.text = "Which planet known as morning star and\n evening star planet?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Venus"
@@ -291,7 +291,7 @@ local function DisplayQuestion()
     
     elseif (randomQuestion == 10) then
         --creating the question depending on the selcetion number
-        questionText.text = "Which surface would be the best for this skating race?"
+        questionText.text = "Which surface would be the best for the skating race?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "In a parking lot"
@@ -346,14 +346,14 @@ local function DisplayQuestion()
         wrongText3.text = "A table" 
     elseif (randomQuestion == 15) then
         --creating the question depending on the selcetion number
-        questionText.text = "A bicycle and a fan have what type of energy in common?"
+        questionText.text = "True/ False\nbicycles is made by human?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Mechanical"
+        answerText.text = "True"
         --creating wrong answers
-        wrongText1.text = "Electrical"
-        wrongText2.text = "Sound"
-        wrongText3.text = "Light"  
+        wrongText1.text = "False"
+        wrongText2.text = ""
+        wrongText3.text = ""  
     end
 
 end
