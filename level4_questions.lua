@@ -206,13 +206,14 @@ local function DisplayQuestion()
     if (randomQuestion == 1) then
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "What color is the sun light?"
+        questionText.text = "What color is sunlight?"
     --creating answer text from list it corispondes with the animals list
         answerText.text = "Yellow"
         --creating wrong answers
         wrongText1.text = "Green"
         wrongText2.text = "Blue"
         wrongText3.text = "Purple"
+
     elseif (randomQuestion == 2) then
       
         --creating the question depending on the selcetion number
@@ -224,6 +225,7 @@ local function DisplayQuestion()
         wrongText1.text = "Leaves"
         wrongText2.text = "Branch"
         wrongText3.text = "Root"
+
     elseif (randomQuestion == 3) then
 
         --creating the question depending on the selcetion number
@@ -235,9 +237,10 @@ local function DisplayQuestion()
         wrongText1.text = "Water"
         wrongText2.text = "Food"
         wrongText3.text = "Shelter"
-    elseif (randomQuestion == 5) then
+
+    elseif (randomQuestion == 4) then
         --creating the question depending on the selcetion number
-        questionText.text = "Which on has more Weight"
+        questionText.text = "Which one is heavier?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Car"
@@ -249,19 +252,20 @@ local function DisplayQuestion()
     elseif (randomQuestion == 5) then
  
         --creating the question depending on the selcetion number
-        questionText.text = "Which object is faster?"
+        questionText.text = "Which object is fastest?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "A Car"
+        answerText.text = "Plane"
         --creating wrong answers
-        wrongText1.text = "A Bicycle"
-        wrongText2.text = ""
-        wrongText3.text = ""    
+        wrongText1.text = "Bicycle"
+        wrongText2.text = "Car"
+        wrongText3.text = "Motorcycle"    
+
     elseif (randomQuestion == 6) then
     
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "The ability of doing something called?"
+        questionText.text = "?"
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Energy "
         --creating wrong answers
@@ -271,20 +275,20 @@ local function DisplayQuestion()
 
      elseif (randomQuestion == 7) then
         --creating the question depending on the selcetion number
-        questionText.text = "Which of the following is an example of force?"
+        questionText.text = "What shape is the ball?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "A boy kicking\n the ball"
+        answerText.text = "Round"
         --creating wrong answers
-        wrongText1.text = "A ball\nat rest"
-        wrongText2.text = "A ball\nrolling"
-        wrongText3.text = "A dog\nsleeping"     
+        wrongText1.text = "Rectangle"
+        wrongText2.text = "Triangle"
+        wrongText3.text = "Square"     
      
     elseif (randomQuestion == 8) then
      
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = " True / False \n do you call the air around the Earth Atmosphere?"
+        questionText.text = " True / False\n Cars are made by humans?"
         --creating answer text from list it corispondes with the animals list
         answerText.text = "True"
         --creating wrong answers
@@ -295,13 +299,13 @@ local function DisplayQuestion()
         rootImage.isVisible = false
   
         --creating the question depending on the selcetion number
-        questionText.text = "Which of the following\n have different texture?"
+        questionText.text = "Which object is heavier?"
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Hollow blocks"
+        answerText.text = "Plane"
         --creating wrong answers
-        wrongText1.text = " Plastic cover"
-        wrongText2.text = " Satin cloth"
-        wrongText3.text = "Glass"      
+        wrongText1.text = "Car"
+        wrongText2.text = "Bicycle"
+        wrongText3.text = "Motorcycle"      
     elseif (randomQuestion == 10) then
         rootImage.isVisible = false
 
@@ -311,8 +315,8 @@ local function DisplayQuestion()
         answerText.text = "Ice"
         --creating wrong answers
         wrongText1.text = "Liquid water"
-        wrongText2.text = " Water vapor"
-        wrongText3.text = "clouds"   
+        wrongText2.text = "Water vapor"
+        wrongText3.text = "Clouds"   
     elseif (randomQuestion == 11) then
         rootImage.isVisible = false
      
@@ -322,25 +326,26 @@ local function DisplayQuestion()
         answerText.text = "Air, Water"
         --creating wrong answers
         wrongText1.text = "Oxygen"
-        wrongText2.text = "Monnlight"
+        wrongText2.text = "Moonlight"
         wrongText3.text = "Shade And Food" 
 
     elseif (randomQuestion == 12) then
         rootImage.isVisible = false
 
         --creating the question depending on the selcetion number
-        questionText.text = "True or False\n Sun is bigger than Moon?"
+        questionText.text = "True or False\nThe sun is bigger than the moon?"
          --creating answer text from list it corispondes with the animals list
         answerText.text = "True"
          --creating wrong answers
         wrongText1.text = "False"
         wrongText2.text = ""
         wrongText3.text = "" 
+
     elseif (randomQuestion == 13) then
         rootImage.isVisible = false
    
         --creating the question depending on the selcetion number
-        questionText.text = " True or False\nEarth is bigger than sun?"
+        questionText.text = "True or False\nThe earth is bigger than the sun?"
         --creating answer text from list it corispondes with the animals list
         answerText.text = "False"
         --creating wrong answers
@@ -351,24 +356,25 @@ local function DisplayQuestion()
         rootImage.isVisible = false
     
         --creating the question depending on the selcetion number
-        questionText.text = "What shape does sun have?"
+        questionText.text = "What shape is the sun?"
        --creating answer text from list it corispondes with the animals list
         answerText.text = "Round"
         --creating wrong answers
-        wrongText1.text = "rectangle"
+        wrongText1.text = "Rectangle"
         wrongText2.text = "Triangle"
         wrongText3.text = "Square" 
+
     elseif (randomQuestion == 15) then
         rootImage.isVisible = false
      
         --creating the question depending on the selcetion number
-        questionText.text = "What the All pushes and pulls called?"
+        questionText.text = "True / False\n A book heavier than a pen?"
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Force"
+        answerText.text = "True"
         --creating wrong answers
-        wrongText1.text = "Weight"
-        wrongText2.text = "Gravity"
-        wrongText3.text = "Energy" 
+        wrongText1.text = "False"
+        wrongText2.text = ""
+        wrongText3.text = "" 
    
     end                      
 end
