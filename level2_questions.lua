@@ -313,7 +313,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 12) then
  
         --creating the question depending on the selcetion number
-        questionText.text = "True / False \n water is a colorless object?"
+        questionText.text = "True / False \n Water is a colorless object?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "True"
@@ -325,7 +325,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 13) then
    
         --creating the question depending on the selcetion number
-        questionText.text = "If you put water in a bowl from a bottel what will change?"
+        questionText.text = "If you put water in a bowl from a bottle what will change?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "The Wate\nShape"
