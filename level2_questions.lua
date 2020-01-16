@@ -194,12 +194,12 @@ local function DisplayQuestion()
 
         rootImage.isVisible = false
         --creating the question depending on the selcetion number
-        questionText.text = "which on of these object has made by humans?"
+        questionText.text = "Which one of these objects is made by humans?"
     --creating answer text from list it corispondes with the animals list
         answerText.text = "All of them"
         --creating wrong answers
-        wrongText1.text = "book"
-        wrongText2.text = "car"
+        wrongText1.text = "Book"
+        wrongText2.text = "Car"
         wrongText3.text = "Table"
     elseif (randomQuestion == 2) then
        
@@ -227,7 +227,7 @@ local function DisplayQuestion()
 
     elseif (randomQuestion == 4) then
         --creating the question depending on the selcetion number
-        questionText.text = "What do the animals need to survive?"
+        questionText.text = "What do animals need to survive?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Water And\nFood"
@@ -237,7 +237,7 @@ local function DisplayQuestion()
         wrongText3.text = "Shelter"
     elseif (randomQuestion == 5) then
         --creating the question depending on the selcetion number
-        questionText.text = "Which plante known as morning star and\n evening star planet?"
+        questionText.text = "Which planet is known as the morning star and\n evening star planet?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Venus"
@@ -258,7 +258,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 7) then
      
         --creating the question depending on the selcetion number
-        questionText.text = "What thing takes up space?"
+        questionText.text = "Which thing takes up space?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Matter"
@@ -269,7 +269,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 8) then
      
         --creating the question depending on the selcetion number
-        questionText.text = "What form does ice take in hot temperature?"
+        questionText.text = "What form does ice take when heated?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "Liquid"
@@ -291,7 +291,7 @@ local function DisplayQuestion()
     
     elseif (randomQuestion == 10) then
         --creating the question depending on the selcetion number
-        questionText.text = "Which surface would be the best for this skating race?"
+        questionText.text = "Which surface would be the best for a roller skating race?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "In a parking lot"
@@ -313,7 +313,7 @@ local function DisplayQuestion()
     elseif (randomQuestion == 12) then
  
         --creating the question depending on the selcetion number
-        questionText.text = "True / False \n Water is a colorless object?"
+        questionText.text = "True / False \n Water is a colorless object."
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "True"

@@ -196,21 +196,21 @@ local function DisplayAnswers( )
         wrongAnswer2TextObject.text = "Seven"
     elseif (randomQuestion == 10) then 
         questionTextObject.text = "What is the fourth planet \n  in our solar system?"
-        answerTextObject.text = "Round"
+        answerTextObject.text = "Mars"
         wrongAnswer1TextObject.text = "Flat"
-        wrongAnswer2TextObject.text = "A Cube"
+        wrongAnswer2TextObject.text = "Earth"
     elseif (randomQuestion == 11) then
         questionTextObject.text = "   How long does it take \nfor the Earth to rotate once?"
         answerTextObject.text = "24 hours"
         wrongAnswer1TextObject.text = "23 hours"
         wrongAnswer2TextObject.text = "7 days"
     elseif(randomQuestion == 12) then
-        questionTextObject.text = "How long does it take for the Earth to go around the sun once?"
+        questionTextObject.text = "How long does it take for the \n Earth to go around the sun once?"
         answerTextObject.text = "365 days"
-        wrongAnswer1TextObject.text = "A decade"
+        wrongAnswer1TextObject.text = "24 hours"
         wrongAnswer2TextObject.text = "360 days" 
     elseif (randomQuestion == 13) then 
-        questionTextObject.text = "Gravity causes everything to fall at the same speed."
+        questionTextObject.text = "Gravity causes everything \n to fall at the same speed."
         answerTextObject.text = "True"
         wrongAnswer1TextObject.text = "False"
         wrongAnswer2TextObject.text = ""
