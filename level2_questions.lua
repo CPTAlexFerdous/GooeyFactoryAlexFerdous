@@ -201,6 +201,7 @@ local function DisplayQuestion()
         wrongText1.text = "Book"
         wrongText2.text = "Car"
         wrongText3.text = "Table"
+
     elseif (randomQuestion == 2) then
        
     --creating the question depending on the selcetion number
@@ -213,6 +214,7 @@ local function DisplayQuestion()
             wrongText1.text = "Leaves"
             wrongText2.text = "Branch"
             wrongText3.text = "Flower"
+
     elseif (randomQuestion == 3) then
         --creating the question depending on the selcetion number
         questionText.text = "What do plants need\n to grow?"
@@ -235,16 +237,18 @@ local function DisplayQuestion()
         wrongText1.text = "Water"
         wrongText2.text = "Food"
         wrongText3.text = "Shelter"
-    elseif (randomQuestion == 5) then
+
+    elseif (randomQuestion == 5) then        
         --creating the question depending on the selcetion number
-        questionText.text = "Which planet is known as the morning star and\n evening star planet?"
+        questionText.text = "True / False\nBook is heavier than a eraser."
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Venus"
+        answerText.text = "True"
         --creating wrong answers
-        wrongText1.text = "Earth"
-        wrongText2.text = "Mars"
-        wrongText3.text = "Jupiter"            
+        wrongText1.text = "False"
+        wrongText2.text = ""
+        wrongText3.text = ""    
+
     elseif (randomQuestion == 6) then
         --creating the question depending on the selcetion number
         questionText.text = "Magnets have a North and South pole.\n Which ends would attract each other?"
@@ -255,17 +259,19 @@ local function DisplayQuestion()
         wrongText1.text = "South & South"
         wrongText2.text = "North & North"
         wrongText3.text = "They would\n never attract"  
+
     elseif (randomQuestion == 7) then
      
         --creating the question depending on the selcetion number
-        questionText.text = "Which thing takes up space?"
+        questionText.text = "What form does water take in cold weather?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Matter"
+        answerText.text = "Ice"
         --creating wrong answers
-        wrongText1.text = "Force"
-        wrongText2.text = "Energy"
-        wrongText3.text = "Metal"    
+        wrongText1.text = "Solid"
+        wrongText2.text = "Hot"
+        wrongText3.text = "Snow"    
+
     elseif (randomQuestion == 8) then
      
         --creating the question depending on the selcetion number
@@ -277,39 +283,42 @@ local function DisplayQuestion()
         wrongText1.text = "Solid"
         wrongText2.text = "Ice"
         wrongText3.text = "Snow" 
+
     elseif (randomQuestion == 9) then
         
         --creating the question depending on the selcetion number
-        questionText.text = "Which one is the largest planet?"
+        questionText.text = "Which one is natural object?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "Jupiter"
+        answerText.text = "Flower"
         --creating wrong answers
-        wrongText1.text = "Uranus"
-        wrongText2.text = "Neptune"
-        wrongText3.text = "Earth"    
+        wrongText1.text = "House"
+        wrongText2.text = "Car"
+        wrongText3.text = "Computer"    
     
     elseif (randomQuestion == 10) then
         --creating the question depending on the selcetion number
         questionText.text = "Which surface would be the best for a roller skating race?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
-        answerText.text = "In a parking lot"
+        answerText.text = "Cement"
         --creating wrong answers
-        wrongText1.text = "small stone"
+        wrongText1.text = "Lake"
         wrongText2.text = "Sand"
         wrongText3.text = "Grass"    
+
     elseif (randomQuestion == 11) then
 
         --creating the question depending on the selcetion number
-        questionText.text = "Which object would take the least force to pick up?"
+        questionText.text = "Which object would take the least energy to pick up?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "A pencil"
         --creating wrong answers
         wrongText1.text = "A car"
         wrongText2.text = "A book"
-        wrongText3.text = "A table"    
+        wrongText3.text = "A table" 
+
     elseif (randomQuestion == 12) then
  
         --creating the question depending on the selcetion number
@@ -332,11 +341,12 @@ local function DisplayQuestion()
         --creating wrong answers
         wrongText1.text = "The Water\nSmell"
         wrongText2.text = "The Water\nSound"
-        wrongText3.text = "The Water\nColor"  
+        wrongText3.text = "The Water\nColor"
+
     elseif (randomQuestion == 14) then
       
         --creating the question depending on the selcetion number
-        questionText.text = "Which one is the smallest object."
+        questionText.text = "Which one is the smallest object?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "An eraser"
@@ -344,9 +354,10 @@ local function DisplayQuestion()
         wrongText1.text = "A book"
         wrongText2.text = "A chair"
         wrongText3.text = "A table" 
+
     elseif (randomQuestion == 15) then
         --creating the question depending on the selcetion number
-        questionText.text = "True/ False\nbicycles is made by human?"
+        questionText.text = "True/ False\n Bicycles are made by humans?"
         rootImage.isVisible = false
         --creating answer text from list it corispondes with the animals list
         answerText.text = "True"
